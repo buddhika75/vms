@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ItemOrCategoryViewDlg" widgetVar="ItemOrCategoryViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewItemOrCategoryTitle}">
+            <h:form id="ItemOrCategoryViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{itemOrCategoryController.selected != null}">
+                        <h:outputText value="#{bundle.ViewItemOrCategoryLabel_name}"/>
+                        <h:outputText value="#{itemOrCategoryController.selected.name}" title="#{bundle.ViewItemOrCategoryTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewItemOrCategoryLabel_code}"/>
+                        <h:outputText value="#{itemOrCategoryController.selected.code}" title="#{bundle.ViewItemOrCategoryTitle_code}"/>
+                        <h:outputText value="#{bundle.ViewItemOrCategoryLabel_barcode}"/>
+                        <h:outputText value="#{itemOrCategoryController.selected.barcode}" title="#{bundle.ViewItemOrCategoryTitle_barcode}"/>
+                        <h:outputText value="#{bundle.ViewItemOrCategoryLabel_description}"/>
+                        <h:outputText value="#{itemOrCategoryController.selected.description}" title="#{bundle.ViewItemOrCategoryTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewItemOrCategoryLabel_orderNo}"/>
+                        <h:outputText value="#{itemOrCategoryController.selected.orderNo}" title="#{bundle.ViewItemOrCategoryTitle_orderNo}"/>
+                        <h:outputText value="#{bundle.ViewItemOrCategoryLabel_dblValue}"/>
+                        <h:outputText value="#{itemOrCategoryController.selected.dblValue}" title="#{bundle.ViewItemOrCategoryTitle_dblValue}"/>
+                        <h:outputText value="#{bundle.ViewItemOrCategoryLabel_longValue}"/>
+                        <h:outputText value="#{itemOrCategoryController.selected.longValue}" title="#{bundle.ViewItemOrCategoryTitle_longValue}"/>
+                        <h:outputText value="#{bundle.ViewItemOrCategoryLabel_parent}"/>
+                        <h:outputText value="#{itemOrCategoryController.selected.parent}" title="#{bundle.ViewItemOrCategoryTitle_parent}"/>
+                        <h:outputText value="#{bundle.ViewItemOrCategoryLabel_saleMargin}"/>
+                        <h:outputText value="#{itemOrCategoryController.selected.saleMargin}" title="#{bundle.ViewItemOrCategoryTitle_saleMargin}"/>
+                        <h:outputText value="#{bundle.ViewItemOrCategoryLabel_wholeSaleMargin}"/>
+                        <h:outputText value="#{itemOrCategoryController.selected.wholeSaleMargin}" title="#{bundle.ViewItemOrCategoryTitle_wholeSaleMargin}"/>
+                        <h:outputText value="#{bundle.ViewItemOrCategoryLabel_type}"/>
+                        <h:outputText value="#{itemOrCategoryController.selected.type}" title="#{bundle.ViewItemOrCategoryTitle_type}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ItemOrCategoryViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

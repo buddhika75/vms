@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListBillTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="BillListForm">
+                <p:panel header="#{bundle.ListBillTitle}">
+                    <p:dataTable id="datalist" value="#{billController.items}" var="item"
+                                 selectionMode="single" selection="#{billController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_perent}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.perent}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_dblValue}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dblValue}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_longValue}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.longValue}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_comments}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comments}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_billFrom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.billFrom}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_billTo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.billTo}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_grossTotal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.grossTotal}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_billDIscount}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.billDiscount}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_billItemDiscount}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.billItemDiscount}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_netTotal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.netTotal}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_expensesTotal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.expensesTotal}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_serviceTotal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serviceTotal}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_taxTotal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.taxTotal}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_grandNetTotal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.grandNetTotal}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_institution}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.institution}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_department}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.department}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_person}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.person}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_formInstitution}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.formInstitution}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_formDepartment}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.formDepartment}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_formPerson}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.formPerson}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_toInstitution}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.toInstitution}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_toDepartment}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.toDepartment}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_toPerson}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.toPerson}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_billType}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.billType}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_billCategory}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.billCategory}"/>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_billDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.billDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBillTitle_billTime}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.billTime}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{billController.prepareCreate}" update=":BillCreateForm" oncomplete="PF('BillCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":BillViewForm" oncomplete="PF('BillViewDialog').show()" disabled="#{empty billController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":BillEditForm" oncomplete="PF('BillEditDialog').show()" disabled="#{empty billController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{billController.destroy}" update=":growl,datalist" disabled="#{empty billController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

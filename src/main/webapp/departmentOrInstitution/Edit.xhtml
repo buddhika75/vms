@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DepartmentOrInstitutionEditDlg" widgetVar="DepartmentOrInstitutionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDepartmentOrInstitutionTitle}">
+            <h:form id="DepartmentOrInstitutionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{departmentOrInstitutionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDepartmentOrInstitutionLabel_departmentOrInstitutionType}" for="cmbType" />
+                        <p:selectOneMenu id="cmbType" value="#{departmentOrInstitutionController.selected.departmentOrInstitutionType}">
+                            <f:selectItem itemLabel="Select"></f:selectItem>
+                            <f:selectItems value="#{enumController.departmentOrInstitutionTypes}"></f:selectItems>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditDepartmentOrInstitutionLabel_departmentCode}" for="departmentCode" />
+                        <p:inputText id="departmentCode" value="#{departmentOrInstitutionController.selected.departmentCode}" title="#{bundle.EditDepartmentOrInstitutionTitle_departmentCode}" />
+                        <p:outputLabel value="#{bundle.EditDepartmentOrInstitutionLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{departmentOrInstitutionController.selected.name}" title="#{bundle.EditDepartmentOrInstitutionTitle_name}" />
+                        <p:outputLabel value="#{bundle.EditDepartmentOrInstitutionLabel_printingName}" for="printingName" />
+                        <p:inputText id="printingName" value="#{departmentOrInstitutionController.selected.printingName}" title="#{bundle.EditDepartmentOrInstitutionTitle_printingName}" />
+                        <p:outputLabel value="#{bundle.EditDepartmentOrInstitutionLabel_address}" for="address" />
+                        <p:inputText id="address" value="#{departmentOrInstitutionController.selected.address}" title="#{bundle.EditDepartmentOrInstitutionTitle_address}" />
+                        <p:outputLabel value="#{bundle.EditDepartmentOrInstitutionLabel_telephone1}" for="telephone1" />
+                        <p:inputText id="telephone1" value="#{departmentOrInstitutionController.selected.telephone1}" title="#{bundle.EditDepartmentOrInstitutionTitle_telephone1}" />
+                        <p:outputLabel value="#{bundle.EditDepartmentOrInstitutionLabel_telephone2}" for="telephone2" />
+                        <p:inputText id="telephone2" value="#{departmentOrInstitutionController.selected.telephone2}" title="#{bundle.EditDepartmentOrInstitutionTitle_telephone2}" />
+                        <p:outputLabel value="#{bundle.EditDepartmentOrInstitutionLabel_fax}" for="fax" />
+                        <p:inputText id="fax" value="#{departmentOrInstitutionController.selected.fax}" title="#{bundle.EditDepartmentOrInstitutionTitle_fax}" />
+                        <p:outputLabel value="#{bundle.EditDepartmentOrInstitutionLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{departmentOrInstitutionController.selected.email}" title="#{bundle.EditDepartmentOrInstitutionTitle_email}" />
+                        <p:outputLabel value="#{bundle.EditDepartmentOrInstitutionLabel_parent}" for="parent" />
+                        <p:selectOneMenu id="parent" value="#{departmentOrInstitutionController.selected.parent}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{departmentOrInstitutionController.itemsAvailableSelectOne}"
+                                           var="parentItem"
+                                           itemValue="#{parentItem}"/>
+                        </p:selectOneMenu>
+                        </p:panelGrid>
+                    <p:commandButton actionListener="#{departmentOrInstitutionController.update}" value="#{bundle.Save}" update="display,:DepartmentOrInstitutionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DepartmentOrInstitutionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DepartmentOrInstitutionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

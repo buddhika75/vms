@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BillViewDlg" widgetVar="BillViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewBillTitle}">
+            <h:form id="BillViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{billController.selected != null}">
+                        <h:outputText value="#{bundle.ViewBillLabel_perent}"/>
+                        <h:outputText value="#{billController.selected.perent}" title="#{bundle.ViewBillTitle_perent}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_dblValue}"/>
+                        <h:outputText value="#{billController.selected.dblValue}" title="#{bundle.ViewBillTitle_dblValue}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_longValue}"/>
+                        <h:outputText value="#{billController.selected.longValue}" title="#{bundle.ViewBillTitle_longValue}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_description}"/>
+                        <h:outputText value="#{billController.selected.description}" title="#{bundle.ViewBillTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_comments}"/>
+                        <h:outputText value="#{billController.selected.comments}" title="#{bundle.ViewBillTitle_comments}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_billFrom}"/>
+                        <h:outputText value="#{billController.selected.billFrom}" title="#{bundle.ViewBillTitle_billFrom}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewBillLabel_billTo}"/>
+                        <h:outputText value="#{billController.selected.billTo}" title="#{bundle.ViewBillTitle_billTo}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewBillLabel_grossTotal}"/>
+                        <h:outputText value="#{billController.selected.grossTotal}" title="#{bundle.ViewBillTitle_grossTotal}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_billDIscount}"/>
+                        <h:outputText value="#{billController.selected.billDiscount}" title="#{bundle.ViewBillTitle_billDIscount}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_billItemDiscount}"/>
+                        <h:outputText value="#{billController.selected.billItemDiscount}" title="#{bundle.ViewBillTitle_billItemDiscount}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_netTotal}"/>
+                        <h:outputText value="#{billController.selected.netTotal}" title="#{bundle.ViewBillTitle_netTotal}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_expensesTotal}"/>
+                        <h:outputText value="#{billController.selected.expensesTotal}" title="#{bundle.ViewBillTitle_expensesTotal}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_serviceTotal}"/>
+                        <h:outputText value="#{billController.selected.serviceTotal}" title="#{bundle.ViewBillTitle_serviceTotal}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_taxTotal}"/>
+                        <h:outputText value="#{billController.selected.taxTotal}" title="#{bundle.ViewBillTitle_taxTotal}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_grandNetTotal}"/>
+                        <h:outputText value="#{billController.selected.grandNetTotal}" title="#{bundle.ViewBillTitle_grandNetTotal}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_institution}"/>
+                        <h:outputText value="#{billController.selected.institution}" title="#{bundle.ViewBillTitle_institution}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_department}"/>
+                        <h:outputText value="#{billController.selected.department}" title="#{bundle.ViewBillTitle_department}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_person}"/>
+                        <h:outputText value="#{billController.selected.person}" title="#{bundle.ViewBillTitle_person}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_formInstitution}"/>
+                        <h:outputText value="#{billController.selected.formInstitution}" title="#{bundle.ViewBillTitle_formInstitution}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_formDepartment}"/>
+                        <h:outputText value="#{billController.selected.formDepartment}" title="#{bundle.ViewBillTitle_formDepartment}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_formPerson}"/>
+                        <h:outputText value="#{billController.selected.formPerson}" title="#{bundle.ViewBillTitle_formPerson}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_toInstitution}"/>
+                        <h:outputText value="#{billController.selected.toInstitution}" title="#{bundle.ViewBillTitle_toInstitution}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_toDepartment}"/>
+                        <h:outputText value="#{billController.selected.toDepartment}" title="#{bundle.ViewBillTitle_toDepartment}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_toPerson}"/>
+                        <h:outputText value="#{billController.selected.toPerson}" title="#{bundle.ViewBillTitle_toPerson}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_billType}"/>
+                        <h:outputText value="#{billController.selected.billType}" title="#{bundle.ViewBillTitle_billType}"/>
+                        <h:outputText value="#{bundle.ViewBillLabel_billCategory}"/>
+                        <h:outputText value="#{billController.selected.billCategory}" title="#{bundle.ViewBillTitle_billCategory}"/>
+                      </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="BillViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

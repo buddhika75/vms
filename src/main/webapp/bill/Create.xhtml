@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BillCreateDlg" widgetVar="BillCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateBillTitle}">
+            <h:form id="BillCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{billController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateBillLabel_perent}" for="perent" />
+                        <p:selectOneMenu id="perent" value="#{billController.selected.perent}" >
+                            <f:selectItems value="#{billController.itemsAvailableSelectOne}"
+                                           var="perentItem"
+                                           itemValue="#{perentItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_dblValue}" for="dblValue" />
+                        <p:inputText id="dblValue" value="#{billController.selected.dblValue}" title="#{bundle.CreateBillTitle_dblValue}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_longValue}" for="longValue" />
+                        <p:inputText id="longValue" value="#{billController.selected.longValue}" title="#{bundle.CreateBillTitle_longValue}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_description}" for="description" />
+                        <p:inputTextarea rows="4" cols="30" id="description" value="#{billController.selected.description}" title="#{bundle.CreateBillTitle_description}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_comments}" for="comments" />
+                        <p:inputTextarea rows="4" cols="30" id="comments" value="#{billController.selected.comments}" title="#{bundle.CreateBillTitle_comments}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_billFrom}" for="billFrom" />
+                        <p:calendar id="billFrom" pattern="MM/dd/yyyy HH:mm:ss" value="#{billController.selected.billFrom}" title="#{bundle.EditBillTitle_billFrom}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_billTo}" for="billTo" />
+                        <p:calendar id="billTo" pattern="MM/dd/yyyy HH:mm:ss" value="#{billController.selected.billTo}" title="#{bundle.EditBillTitle_billTo}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_grossTotal}" for="grossTotal" />
+                        <p:inputText id="grossTotal" value="#{billController.selected.grossTotal}" title="#{bundle.CreateBillTitle_grossTotal}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_billDIscount}" for="billDIscount" />
+                        <p:inputText id="billDIscount" value="#{billController.selected.billDiscount}" title="#{bundle.CreateBillTitle_billDIscount}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_billItemDiscount}" for="billItemDiscount" />
+                        <p:inputText id="billItemDiscount" value="#{billController.selected.billItemDiscount}" title="#{bundle.CreateBillTitle_billItemDiscount}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_netTotal}" for="netTotal" />
+                        <p:inputText id="netTotal" value="#{billController.selected.netTotal}" title="#{bundle.CreateBillTitle_netTotal}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_expensesTotal}" for="expensesTotal" />
+                        <p:inputText id="expensesTotal" value="#{billController.selected.expensesTotal}" title="#{bundle.CreateBillTitle_expensesTotal}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_serviceTotal}" for="serviceTotal" />
+                        <p:inputText id="serviceTotal" value="#{billController.selected.serviceTotal}" title="#{bundle.CreateBillTitle_serviceTotal}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_taxTotal}" for="taxTotal" />
+                        <p:inputText id="taxTotal" value="#{billController.selected.taxTotal}" title="#{bundle.CreateBillTitle_taxTotal}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_grandNetTotal}" for="grandNetTotal" />
+                        <p:inputText id="grandNetTotal" value="#{billController.selected.grandNetTotal}" title="#{bundle.CreateBillTitle_grandNetTotal}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_institution}" for="institution" />
+                        <p:selectOneMenu id="institution" value="#{billController.selected.institution}" >
+                            <f:selectItems value="#{institutionController.itemsAvailableSelectOne}"
+                                           var="institutionItem"
+                                           itemValue="#{institutionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_department}" for="department" />
+                        <p:selectOneMenu id="department" value="#{billController.selected.department}" >
+                            <f:selectItems value="#{departmentController.itemsAvailableSelectOne}"
+                                           var="departmentItem"
+                                           itemValue="#{departmentItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_person}" for="person" />
+                        <p:selectOneMenu id="person" value="#{billController.selected.person}" >
+                            <f:selectItems value="#{personController.itemsAvailableSelectOne}"
+                                           var="personItem"
+                                           itemValue="#{personItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_formInstitution}" for="formInstitution" />
+                        <p:selectOneMenu id="formInstitution" value="#{billController.selected.formInstitution}" >
+                            <f:selectItems value="#{institutionController.itemsAvailableSelectOne}"
+                                           var="formInstitutionItem"
+                                           itemValue="#{formInstitutionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_formDepartment}" for="formDepartment" />
+                        <p:selectOneMenu id="formDepartment" value="#{billController.selected.formDepartment}" >
+                            <f:selectItems value="#{departmentController.itemsAvailableSelectOne}"
+                                           var="formDepartmentItem"
+                                           itemValue="#{formDepartmentItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_formPerson}" for="formPerson" />
+                        <p:selectOneMenu id="formPerson" value="#{billController.selected.formPerson}" >
+                            <f:selectItems value="#{personController.itemsAvailableSelectOne}"
+                                           var="formPersonItem"
+                                           itemValue="#{formPersonItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_toInstitution}" for="toInstitution" />
+                        <p:selectOneMenu id="toInstitution" value="#{billController.selected.toInstitution}" >
+                            <f:selectItems value="#{institutionController.itemsAvailableSelectOne}"
+                                           var="toInstitutionItem"
+                                           itemValue="#{toInstitutionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_toDepartment}" for="toDepartment" />
+                        <p:selectOneMenu id="toDepartment" value="#{billController.selected.toDepartment}" >
+                            <f:selectItems value="#{departmentController.itemsAvailableSelectOne}"
+                                           var="toDepartmentItem"
+                                           itemValue="#{toDepartmentItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_toPerson}" for="toPerson" />
+                        <p:selectOneMenu id="toPerson" value="#{billController.selected.toPerson}" >
+                            <f:selectItems value="#{personController.itemsAvailableSelectOne}"
+                                           var="toPersonItem"
+                                           itemValue="#{toPersonItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_billType}" for="billType" />
+                        <p:inputText id="billType" value="#{billController.selected.billType}" title="#{bundle.CreateBillTitle_billType}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_billCategory}" for="billCategory" />
+                        <p:inputText id="billCategory" value="#{billController.selected.billCategory}" title="#{bundle.CreateBillTitle_billCategory}" />
+                        <p:outputLabel value="#{bundle.CreateBillLabel_billDate}" for="billDate" />
+                        <p:calendar id="billDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{billController.selected.billDate}" title="#{bundle.EditBillTitle_billDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateBillLabel_billTime}" for="billTime" />
+                        <p:calendar id="billTime" pattern="MM/dd/yyyy HH:mm:ss" value="#{billController.selected.billTime}" title="#{bundle.EditBillTitle_billTime}"  showOn="button"/>
+                        </p:panelGrid>
+                    <p:commandButton actionListener="#{billController.create}" value="#{bundle.Save}" update="display,:BillListForm:datalist,:growl" oncomplete="handleSubmit(args,'BillCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="BillCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

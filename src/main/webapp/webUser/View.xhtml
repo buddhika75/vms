@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="WebUserViewDlg" widgetVar="WebUserViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewWebUserTitle}">
+            <h:form id="WebUserViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{webUserController.selected != null}">
+                        <h:outputText value="#{bundle.ViewWebUserLabel_staff}"/>
+                        <h:outputText value="#{webUserController.selected.staff}" title="#{bundle.ViewWebUserTitle_staff}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_institution}"/>
+                        <h:outputText value="#{webUserController.selected.institution}" title="#{bundle.ViewWebUserTitle_institution}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_department}"/>
+                        <h:outputText value="#{webUserController.selected.department}" title="#{bundle.ViewWebUserTitle_department}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_email}"/>
+                        <h:outputText value="#{webUserController.selected.email}" title="#{bundle.ViewWebUserTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_telNo}"/>
+                        <h:outputText value="#{webUserController.selected.telNo}" title="#{bundle.ViewWebUserTitle_telNo}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_defLocale}"/>
+                        <h:outputText value="#{webUserController.selected.defLocale}" title="#{bundle.ViewWebUserTitle_defLocale}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_primeTheme}"/>
+                        <h:outputText value="#{webUserController.selected.primeTheme}" title="#{bundle.ViewWebUserTitle_primeTheme}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_description}"/>
+                        <h:outputText value="#{webUserController.selected.description}" title="#{bundle.ViewWebUserTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_name}"/>
+                        <h:outputText value="#{webUserController.selected.name}" title="#{bundle.ViewWebUserTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_webUserPassword}"/>
+                        <h:outputText value="#{webUserController.selected.webUserPassword}" title="#{bundle.ViewWebUserTitle_webUserPassword}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_webUserPerson}"/>
+                        <h:outputText value="#{webUserController.selected.webUserPerson}" title="#{bundle.ViewWebUserTitle_webUserPerson}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_activateComments}"/>
+                        <h:outputText value="#{webUserController.selected.activateComments}" title="#{bundle.ViewWebUserTitle_activateComments}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_activatedAt}"/>
+                        <h:outputText value="#{webUserController.selected.activatedAt}" title="#{bundle.ViewWebUserTitle_activatedAt}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_activator}"/>
+                        <h:outputText value="#{webUserController.selected.activator}" title="#{bundle.ViewWebUserTitle_activator}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_role}"/>
+                        <h:outputText value="#{webUserController.selected.role}" title="#{bundle.ViewWebUserTitle_role}"/>
+                        <h:outputText value="#{bundle.ViewWebUserLabel_code}"/>
+                        <h:outputText value="#{webUserController.selected.code}" title="#{bundle.ViewWebUserTitle_code}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="WebUserViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

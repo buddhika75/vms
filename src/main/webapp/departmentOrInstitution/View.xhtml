@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DepartmentOrInstitutionViewDlg" widgetVar="DepartmentOrInstitutionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDepartmentOrInstitutionTitle}">
+            <h:form id="DepartmentOrInstitutionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{departmentOrInstitutionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDepartmentOrInstitutionLabel_departmentOrInstitutionType}"/>
+                        <h:outputText value="#{departmentOrInstitutionController.selected.departmentOrInstitutionType}" title="#{bundle.ViewDepartmentOrInstitutionTitle_departmentOrInstitutionType}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentOrInstitutionLabel_departmentCode}"/>
+                        <h:outputText value="#{departmentOrInstitutionController.selected.departmentCode}" title="#{bundle.ViewDepartmentOrInstitutionTitle_departmentCode}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentOrInstitutionLabel_name}"/>
+                        <h:outputText value="#{departmentOrInstitutionController.selected.name}" title="#{bundle.ViewDepartmentOrInstitutionTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentOrInstitutionLabel_printingName}"/>
+                        <h:outputText value="#{departmentOrInstitutionController.selected.printingName}" title="#{bundle.ViewDepartmentOrInstitutionTitle_printingName}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentOrInstitutionLabel_address}"/>
+                        <h:outputText value="#{departmentOrInstitutionController.selected.address}" title="#{bundle.ViewDepartmentOrInstitutionTitle_address}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentOrInstitutionLabel_telephone1}"/>
+                        <h:outputText value="#{departmentOrInstitutionController.selected.telephone1}" title="#{bundle.ViewDepartmentOrInstitutionTitle_telephone1}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentOrInstitutionLabel_telephone2}"/>
+                        <h:outputText value="#{departmentOrInstitutionController.selected.telephone2}" title="#{bundle.ViewDepartmentOrInstitutionTitle_telephone2}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentOrInstitutionLabel_fax}"/>
+                        <h:outputText value="#{departmentOrInstitutionController.selected.fax}" title="#{bundle.ViewDepartmentOrInstitutionTitle_fax}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentOrInstitutionLabel_email}"/>
+                        <h:outputText value="#{departmentOrInstitutionController.selected.email}" title="#{bundle.ViewDepartmentOrInstitutionTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentOrInstitutionLabel_parent}"/>
+                        <h:outputText value="#{departmentOrInstitutionController.selected.parent}" title="#{bundle.ViewDepartmentOrInstitutionTitle_parent}"/>
+                       </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DepartmentOrInstitutionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

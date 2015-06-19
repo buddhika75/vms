@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:body>
+
+        <ui:composition template="/template.xhtml">
+
+            <h:outputStylesheet library="css" name="main.css" ></h:outputStylesheet>
+            <ui:define name="body">
+
+                <h:form >
+
+                    <p:panel header="Create Function" >
+                        <f:facet name="header" >
+                            <p:outputLabel value="Create Function"  ></p:outputLabel>
+                        </f:facet>
+                        
+                        <f:facet name="header">
+                            <p:commandButton value="Save" ajax="false" action="#{functionsEventController.saveFunctionEvent()}" ></p:commandButton>
+                        </f:facet>
+
+
+
+                        <h:panelGrid columns="3" styleClass="alignTop" >
+
+                            <h:panelGrid columns="4" styleClass="alignTop"  >
+                                <p:panel id="panelDate"  >
+                                    <f:facet name="header" >
+                                        <p:outputLabel value="Date" ></p:outputLabel>
+                                    </f:facet>
+                                    <h:panelGrid columns="2" >
+                                        <p:calendar id="calDate" value="#{functionsEventController.functionEvent.billDate}" 
+                                                    pattern="dd MMM yyyy" mode="inline">
+                                            <p:ajax event="dateSelect" process="calDate" listener="#{functionsEventController.fixFromAndToDates}" 
+                                                    update="calFromTime calToTime panelBookedEvents" />
+                                        </p:calendar>
+                                        <h:panelGrid columns="1" >
+                                            <p:outputLabel value="From" ></p:outputLabel>
+                                            <p:calendar id="calFromTime" value="#{functionsEventController.functionEvent.billFrom}" pattern="HH:mm" timeOnly="true"  />
+                                            <p:outputLabel value="" ></p:outputLabel>
+                                            <p:outputLabel value="" ></p:outputLabel>
+                                            <p:outputLabel value="To" ></p:outputLabel>
+                                            <p:calendar id="calToTime" value="#{functionsEventController.functionEvent.billTo}" pattern="HH:mm" timeOnly="true"  />
+                                        </h:panelGrid>
+                                    </h:panelGrid>
+                                </p:panel>
+
+                                
+                                <h:panelGrid columns="2" >
+                                    <p:panel id="panelHall"  >
+                                        <f:facet name="header" >
+                                            <p:outputLabel value="Halls"  ></p:outputLabel>
+                                        </f:facet>
+                                        <p:selectOneMenu id="lstHalls" value="#{functionsEventController.functionEvent.department}" >
+                                            <f:selectItems value="#{departmentOrInstitutionController.halls}" 
+                                                           var="h" 
+                                                           itemLabel="#{h.name}" 
+                                                           itemValue="#{h}" ></f:selectItems>
+                                            
+                                        </p:selectOneMenu>
+                                    </p:panel>
+                                </h:panelGrid>
+                                
+                                <p:panel header="Booked Events" id="panelBookedEvents" >
+                                    <p:dataTable value="#{functionsEventController.bookedEvents}" var="b"  >
+                                        <p:column headerText="Date" >
+                                            <h:outputLabel value="#{b.billDate}" >
+                                                <f:convertDateTime pattern="dd MMMM yyyy" timeZone="IST" ></f:convertDateTime>
+                                            </h:outputLabel>
+                                        </p:column>
+                                         <p:column headerText="Date" >
+                                            <p:outputLabel value="#{b.billDate}" >
+                                            </p:outputLabel>
+                                        </p:column>
+                                        <p:column headerText="Hall" >
+                                            <p:outputLabel value="#{b.department.name}" ></p:outputLabel>
+                                        </p:column>
+                                        
+                                    </p:dataTable>
+                                </p:panel>
+
+                                <p:panel header="Menu Items" id="panelMenuItems" >
+                                    <p:selectOneMenu id="parent" value="#{functionsEventController.itemOrCategory}"  >
+                                        <f:selectItem itemLabel="Select Item Category" ></f:selectItem>
+                                        <f:selectItems value="#{itemOrCategoryController.getCategory()}"
+                                                       var="parentItem" 
+                                                       itemValue="#{parentItem}"
+                                                       itemLabel="#{parentItem.name}"/>
+                                        <p:ajax event="change" process="@this parent" update="itemList" 
+                                                listener="#{functionsEventController.getSelectedCategory}"/>
+                                    </p:selectOneMenu>
+                                    <p:dataTable id="itemList" value="#{functionsEventController.itemOrCategoryList}" var="i"  >
+                                        <p:column headerText="Item">
+                                            <h:outputText value="#{i.name}" />
+                                        </p:column>
+                                    </p:dataTable> 
+                                    
+                                    
+                                </p:panel>
+                            </h:panelGrid>
+                        </h:panelGrid>
+                        <h:panelGrid columns="3">
+                            <p:panel header="Customer Deatils">
+                                <h:panelGrid columns="2">
+                                    <p:outputLabel id="lblName" value="Name" ></p:outputLabel>
+                                    <p:inputText id="txtName" value="#{functionsEventController.functionEvent.person.name}"  ></p:inputText>
+                                   
+                                    
+                                    <p:outputLabel id="lblAddress" value="Address" ></p:outputLabel>
+                                    <p:inputText id="txtAddress" value="#{functionsEventController.functionEvent.person.address}"  ></p:inputText>
+                                    
+                                    <p:outputLabel id="lblContact" value="Contact No" ></p:outputLabel>
+                                    <p:inputText id="txtContact" value="#{functionsEventController.functionEvent.person.mobile}" ></p:inputText>
+                                    
+                                    <p:outputLabel id="lblguest" value="No of Guest" ></p:outputLabel>
+                                    <p:inputText id="txtguest" value="#{functionsEventController.functionEvent.noofPerson}" ></p:inputText>
+                                    
+                                    
+                                </h:panelGrid>
+                                    
+                            </p:panel>
+                            <p:panel header="Menu Item List">
+                                
+                            </p:panel>
+                        </h:panelGrid>
+
+                        <f:facet name="footer" >
+                            <p:messages autoUpdate="true"  ></p:messages>
+                        </f:facet>
+
+
+                    </p:panel>
+
+
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

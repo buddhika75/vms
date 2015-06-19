@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="StaffCreateDlg" widgetVar="StaffCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateStaffTitle}">
+            <h:form id="StaffCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{staffController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateStaffLabel_registration}" for="registration" />
+                        <p:inputText id="registration" value="#{staffController.selected.registration}" title="#{bundle.CreateStaffTitle_registration}" />
+                        <p:outputLabel value="#{bundle.CreateStaffLabel_qualification}" for="qualification" />
+                        <p:inputTextarea rows="4" cols="30" id="qualification" value="#{staffController.selected.qualification}" title="#{bundle.CreateStaffTitle_qualification}" />
+                        <p:outputLabel value="#{bundle.CreateStaffLabel_code}" for="code" />
+                        <p:inputText id="code" value="#{staffController.selected.code}" title="#{bundle.CreateStaffTitle_code}" />
+                        <p:outputLabel value="#{bundle.CreateStaffLabel_person}" for="person" />
+                        <p:selectOneMenu id="person" value="#{staffController.selected.person}" >
+                            <f:selectItems value="#{personController.itemsAvailableSelectOne}"
+                                           var="personItem"
+                                           itemValue="#{personItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateStaffLabel_speciality}" for="speciality" />
+                        <p:selectOneMenu id="speciality" value="#{staffController.selected.speciality}" >
+                            <f:selectItems value="#{categoryController.itemsAvailableSelectOne}"
+                                           var="specialityItem"
+                                           itemValue="#{specialityItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateStaffLabel_institution}" for="institution" />
+                        <p:selectOneMenu id="institution" value="#{staffController.selected.institution}" >
+                            <f:selectItems value="#{institutionController.itemsAvailableSelectOne}"
+                                           var="institutionItem"
+                                           itemValue="#{institutionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateStaffLabel_department}" for="department" />
+                        <p:selectOneMenu id="department" value="#{staffController.selected.department}" >
+                            <f:selectItems value="#{departmentController.itemsAvailableSelectOne}"
+                                           var="departmentItem"
+                                           itemValue="#{departmentItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateStaffLabel_staffCode}" for="staffCode" />
+                        <p:inputText id="staffCode" value="#{staffController.selected.staffCode}" title="#{bundle.CreateStaffTitle_staffCode}" />
+                        <p:outputLabel value="#{bundle.CreateStaffLabel_baImage}" for="baImage" />
+                        <p:inputTextarea rows="4" cols="30" id="baImage" value="#{staffController.selected.baImage}" title="#{bundle.CreateStaffTitle_baImage}" />
+                        <p:outputLabel value="#{bundle.CreateStaffLabel_fileName}" for="fileName" />
+                        <p:inputText id="fileName" value="#{staffController.selected.fileName}" title="#{bundle.CreateStaffTitle_fileName}" />
+                        <p:outputLabel value="#{bundle.CreateStaffLabel_fileType}" for="fileType" />
+                        <p:inputText id="fileType" value="#{staffController.selected.fileType}" title="#{bundle.CreateStaffTitle_fileType}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{staffController.create}" value="#{bundle.Save}" update="display,:StaffListForm:datalist,:growl" oncomplete="handleSubmit(args,'StaffCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="StaffCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./../template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <ui:define name="body">
+        <h:form>
+            <p:panel>
+                <p:outputLabel value="User"></p:outputLabel>
+                <p:autoComplete value="#{webUserPrivilegeController.selected}" 
+                                completeMethod="#{webUserPrivilegeController.fillWebUsers}"
+                                var="myItem" 
+                                itemValue="#{myItem}" 
+                                itemLabel="#{myItem.staff.person.name}" 
+                                forceSelection="true" 
+                                >
+                    <p:ajax event="select" process="@this" listener="#{webUserPrivilegeController.changeUser()}" update="pan1" />
+                </p:autoComplete>
+                <p:commandButton ajax="false" action="#{webUserPrivilegeController.changeUser()}" value="Process"/>
+                <p:panelGrid id="pan1" columns="3">
+
+                    <p:panel>
+                        <p:outputLabel value="User"></p:outputLabel>
+                        <p:selectOneListbox style="height: 150px" value="#{webUserPrivilegeController.selectedAvailablePrivilege}" >
+                            <f:selectItems value="#{webUserPrivilegeController.selectedUserPrivileges}" var="p" itemValue="#{p}" itemLabel="#{p}" />
+                        </p:selectOneListbox>
+                    </p:panel>
+                    <p:panel>
+                        <p:commandButton ajax="false" value="Remove" action="#{webUserPrivilegeController.removePrivilege()}"/>
+                        <p:commandButton ajax="false" value="Add" action="#{webUserPrivilegeController.addPrivilege()}"/>
+                    </p:panel>
+                    <p:panel>
+                        <p:selectOneListbox style="height: 150px" value="#{webUserPrivilegeController.selectedUserPrivilege}" >
+                            <f:selectItems value="#{webUserPrivilegeController.selectedAvailablePrivileges}" var="p" itemValue="#{p}" itemLabel="#{p}" />
+                        </p:selectOneListbox>
+                    </p:panel>
+                </p:panelGrid>
+
+
+            </p:panel>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

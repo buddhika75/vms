@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DepartmentViewDlg" widgetVar="DepartmentViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDepartmentTitle}">
+            <h:form id="DepartmentViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{departmentController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDepartmentLabel_departmentOrInstitutionType}"/>
+                        <h:outputText value="#{departmentController.selected.departmentOrInstitutionType}" title="#{bundle.ViewDepartmentTitle_departmentOrInstitutionType}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentLabel_departmentCode}"/>
+                        <h:outputText value="#{departmentController.selected.departmentCode}" title="#{bundle.ViewDepartmentTitle_departmentCode}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentLabel_name}"/>
+                        <h:outputText value="#{departmentController.selected.name}" title="#{bundle.ViewDepartmentTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentLabel_printingName}"/>
+                        <h:outputText value="#{departmentController.selected.printingName}" title="#{bundle.ViewDepartmentTitle_printingName}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentLabel_address}"/>
+                        <h:outputText value="#{departmentController.selected.address}" title="#{bundle.ViewDepartmentTitle_address}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentLabel_telephone1}"/>
+                        <h:outputText value="#{departmentController.selected.telephone1}" title="#{bundle.ViewDepartmentTitle_telephone1}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentLabel_telephone2}"/>
+                        <h:outputText value="#{departmentController.selected.telephone2}" title="#{bundle.ViewDepartmentTitle_telephone2}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentLabel_fax}"/>
+                        <h:outputText value="#{departmentController.selected.fax}" title="#{bundle.ViewDepartmentTitle_fax}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentLabel_email}"/>
+                        <h:outputText value="#{departmentController.selected.email}" title="#{bundle.ViewDepartmentTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewDepartmentLabel_parent}"/>
+                        <h:outputText value="#{departmentController.selected.parent}" title="#{bundle.ViewDepartmentTitle_parent}"/>
+                        </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DepartmentViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

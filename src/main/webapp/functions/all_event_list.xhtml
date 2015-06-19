@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:body>
+
+        <ui:composition template="/template.xhtml">
+
+            <h:outputStylesheet library="css" name="main.css" ></h:outputStylesheet>
+            <ui:define name="body">
+                <h:form>
+
+                    <p:panel header="Search Forms">
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="From Date"/>
+                            <p:calendar value="#{functionsEventController.fromDate}"
+                                        pattern="dd MMMM yyyy" >
+                            </p:calendar>
+                            <h:outputLabel value="To Date"/>
+                            <p:calendar id="forDate" value="#{functionsEventController.toDate}"
+                                        pattern="dd MMMM yyyy" >
+                            </p:calendar>
+
+
+                            <p:commandButton ajax="false" value="Search " action="#{functionsEventController.searchForm()}" />
+
+                        </h:panelGrid>
+                        <p:dataTable  value="#{functionsEventController.functions}"  var="b" > 
+                           
+                         
+                            <p:column headerText="Hall">
+                                <p:outputLabel value="#{b.department.name}" ></p:outputLabel>
+                            </p:column>
+                            <p:column headerText="Menu">
+                                <p:outputLabel value="#{b.referenceBill.name}" >
+                                   
+                                </p:outputLabel>
+                            </p:column>
+                            <p:column headerText="Date">
+                                <p:outputLabel value="#{b.billDate}" >
+                                    <f:convertDateTime pattern="dd MMMM yyyy" />
+                                </p:outputLabel>
+                            </p:column>
+
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

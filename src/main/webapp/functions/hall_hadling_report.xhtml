@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:body>
+
+        <ui:composition template="/template.xhtml">
+
+            <h:outputStylesheet library="css" name="main.css" ></h:outputStylesheet>
+            <ui:define name="body">
+
+                <h:form >
+
+                    <p:panel header="Search Function Hall" >
+                        <f:facet name="header" >
+                            <p:outputLabel value="Search Hall Booking "  style="font-size: 24px;" ></p:outputLabel>
+                        </f:facet>
+
+                        <h:panelGrid columns="3" styleClass="alignTop" >
+
+
+
+
+                            <h:panelGrid columns="2"  >
+                                <p:panel id="panelHall" styleClass="alignTop"  >
+                                    <f:facet name="header" >
+                                        <p:outputLabel value="Halls"  ></p:outputLabel>
+                                    </f:facet>
+                                    <h:panelGrid columns="2" >
+                                        <p:selectOneMenu  id="lstHalls" value="#{functionsEventController.functionEvent.department}" >
+                                            <f:selectItems value="#{departmentOrInstitutionController.halls}" 
+                                                           var="h" 
+                                                           itemLabel="#{h.name}" 
+                                                           itemValue="#{h}">
+                                            </f:selectItems>
+                                        </p:selectOneMenu>
+                                        <p:commandButton id="btnAdd" 
+                                                         action="#{functionsEventController.fillBookedHalls()}" 
+                                                         value="Process"
+                                                         ajax="false"
+                                                         styleClass="alignTop">
+                                        </p:commandButton>
+                                    </h:panelGrid>
+                                </p:panel>
+
+
+                            </h:panelGrid>
+
+
+
+                            <p:panel header="Booked Events Halls" id="BookedpanelHall" >
+
+                                <p:dataTable value="#{functionsEventController.bookedHalls}" var="b"  >
+                                    <p:column headerText="Date" >
+                                        <p:outputLabel value="#{b.billDate}" >
+                                            <f:convertDateTime pattern="dd MMM yyyy" ></f:convertDateTime>
+                                        </p:outputLabel>
+                                    </p:column>
+                                    <p:column headerText="Hall" >
+                                        <p:outputLabel value="#{b.department.name}" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column headerText="Menu" >
+                                        <p:outputLabel value="#{b.referenceBill.name}" ></p:outputLabel>
+                                    </p:column>
+
+
+
+                                </p:dataTable>
+
+
+                            </p:panel>
+
+
+                        </h:panelGrid>
+
+
+
+                    </p:panel>
+                 
+
+
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

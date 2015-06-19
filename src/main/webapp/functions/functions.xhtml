@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:body>
+
+        <ui:composition template="/template.xhtml">
+
+            <h:outputStylesheet library="css" name="main.css" ></h:outputStylesheet>
+            <ui:define name="body">
+
+                <h:form >
+
+                    <p:panel header="Function Menus" >
+                        <f:facet name="header" >
+                            <p:outputLabel value="Function Menus" ></p:outputLabel>
+                        </f:facet>
+
+                        <h:panelGrid columns="2" styleClass="alignTop"  >
+
+                            <p:panel>
+                                <f:facet name="header" >
+                                    <h:panelGrid columns="2" >
+                                        <p:outputLabel value="List"  ></p:outputLabel>
+                                        <p:commandButton id="btnAdd" 
+                                                         action="#{functionsController.prepareAddNewEvent()}" 
+                                                         process="btnAdd" 
+                                                         update="panelDetails lstItems" 
+                                                         value="New"
+                                                         styleClass="buttonWithMarginOnLeft">
+                                        </p:commandButton>
+                                    </h:panelGrid>
+                                </f:facet>
+
+                                <f:facet name="footer" >
+                                    <p:commandButton id="btnRemoveMenu" 
+                                                     action="#{functionsController.remove()}" 
+                                                     process="btnRemoveMenu" 
+                                                     update="panelDetails lstItems" 
+                                                     value="Remove">
+                                    </p:commandButton>
+                                </f:facet>
+
+                                <p:selectOneListbox id="lstItems" value="#{functionsController.functionEvent}"  >
+                                    <f:selectItems value="#{functionsController.functions}" 
+                                                   var="f" 
+                                                   itemLabel="#{f.name}" 
+                                                   itemValue="#{f}"  ></f:selectItems>
+                                    <f:ajax event="change" execute="lstItems" render="panelDetails" ></f:ajax>
+                                </p:selectOneListbox>
+
+                            </p:panel>
+                            <p:panel header="Menu Details" >
+                                <f:facet name="header" >
+                                    <h:panelGrid columns="2" >
+                                        <p:outputLabel value="Details" ></p:outputLabel>
+                                        <p:commandButton value="Save" 
+                                                         id="btnSave" 
+                                                         action="#{functionsController.save()}" 
+                                                         process="panelDetails btnSave" 
+                                                         update="lstItems"
+                                                         styleClass="buttonWithMarginOnLeft">
+                                        </p:commandButton>
+                                    </h:panelGrid>
+                                </f:facet>
+
+                                <h:panelGroup id="panelDetails" >
+                                    <h:panelGrid   columns="4" class="alignTop" >
+
+                                        <p:outputLabel id="lblName" value="Name" ></p:outputLabel>
+                                        <p:inputText id="txtName" value="#{functionsController.functionEvent.name}" rendered="#{functionsController.functionEvent ne null}" ></p:inputText>
+                                        <p:inputText id="txtName1" value="" rendered="#{functionsController.functionEvent eq null}" ></p:inputText>
+                                        <p:outputLabel  value="" ></p:outputLabel>
+                                        <p:outputLabel  value="" ></p:outputLabel>
+
+                                        <p:outputLabel id="lblDesc" value="Description"></p:outputLabel>
+                                        <p:inputTextarea id="txtDesc" value="#{functionsController.functionEvent.description}" rendered="#{functionsController.functionEvent ne null}"></p:inputTextarea>
+                                        <p:inputTextarea id="txtDesc1" value="" rendered="#{functionsController.functionEvent eq null}"></p:inputTextarea>
+                                        <p:outputLabel  value="" ></p:outputLabel>
+                                        <p:outputLabel  value="" ></p:outputLabel>
+
+
+                                        <p:outputLabel id="lblRate" value="Rate"></p:outputLabel>
+                                        <p:inputText  style="text-align: right;" id="txtRate" value="#{functionsController.functionEvent.dblValue}" ></p:inputText>
+                                        <p:outputLabel  value="" ></p:outputLabel>
+                                        <p:outputLabel  value="" ></p:outputLabel>
+
+                                        <p:outputLabel id="lblFrom" value="Service Charge From"></p:outputLabel>
+                                        <p:inputText  style="text-align: right;" id="txtFrom" value="#{functionsController.functionEvent.longValue}" ></p:inputText>
+                                        <p:outputLabel  value="" ></p:outputLabel>
+                                        <p:outputLabel  value="" ></p:outputLabel>
+
+                                        <p:outputLabel id="lblSc" value="Service Charge"></p:outputLabel>
+                                        <p:inputText style="text-align: right;" id="txtSc" value="#{functionsController.functionEvent.serviceTotal}" ></p:inputText>
+                                        <p:outputLabel  value="" ></p:outputLabel>
+                                        <p:outputLabel  value="" ></p:outputLabel>
+
+
+
+                                        <p:outputLabel id="lblBiName" value="Menu Item / Category" ></p:outputLabel>
+                                        <p:autoComplete id="acBi" value="#{functionsController.selectedBillItem.itemOrCategory}" 
+                                                        completeMethod="#{itemOrCategoryController.completeItems}"
+                                                        var="ic"
+                                                        itemLabel="#{ic.name}"
+                                                        itemValue="#{ic}"
+                                                        >
+                                            <f:ajax event="itemSelect" execute="acBi" render="txtBiQty" ></f:ajax>
+                                        </p:autoComplete>
+
+                                        <h:panelGroup id="txtBiQty"  >
+                                            <h:inputText 
+                                                value="#{functionsController.selectedBillItem.longVal}"
+                                                rendered="#{functionsController.selectedBillItem.itemOrCategory.type eq 'MenuItemCategory'}"></h:inputText>
+
+                                        </h:panelGroup>
+
+                                        <p:commandButton id="btnAddBi" value="Add" action="#{functionsController.addBillItem()}" 
+                                                         process="btnAddBi txtBiQty acBi"
+                                                         update="tblBi txtBiQty acBi" ></p:commandButton>
+
+                                    </h:panelGrid >
+
+                                    <p:commandButton value="Up" id="btnMoveUp" process="btnMoveUp tblBi" update="tblBi"
+                                                     action="#{functionsController.moveUp()}"  ></p:commandButton>
+                                    <p:commandButton value="Down" id="btnMoveDown" process="btnMoveDown tblBi" update="tblBi"
+                                                     action="#{functionsController.moveDown()}" ></p:commandButton>
+                                    <p:commandButton value="Remove" id="btnRemove" process="btnRemove tblBi" update="tblBi"
+                                                     action="#{functionsController.removeBi()}" ></p:commandButton>
+
+
+                                    <h:panelGroup id="tblBi" 
+                                                  rendered="#{functionsController.functionEvent ne null and functionsController.functionEvent.id ne null and !empty functionsController.functionEvent.billItems}">
+
+
+
+                                        <p:dataTable  value="#{functionsController.functionEvent.billItems}"
+                                                      var="bi" 
+                                                      selectionMode="single"
+                                                      rowKey="#{bi.id}"
+                                                      selection="#{functionsController.editingItem}"
+                                                      rowStyleClass="#{(bi.retired eq true)?'displayNone':''}">
+
+                                            <p:column headerText="Item"   >
+                                                <p:outputLabel value="#{bi.itemOrCategory.name}" ></p:outputLabel>
+                                            </p:column>
+                                            <p:column headerText="No. of Choices" style="width: 50px;" >
+                                                <p:outputLabel value="#{bi.longVal}" rendered="#{bi.longVal gt 0}" ></p:outputLabel>
+                                            </p:column>
+
+                                        </p:dataTable>
+
+
+
+                                    </h:panelGroup>
+
+                                </h:panelGroup>
+
+
+
+                            </p:panel>
+
+                        </h:panelGrid>
+
+                        <f:facet name="footer" >
+                            <p:messages autoUpdate="true"  ></p:messages>
+                        </f:facet>
+
+
+                    </p:panel>
+
+
+
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

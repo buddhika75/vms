@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BillItemCreateDlg" widgetVar="BillItemCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateBillItemTitle}">
+            <h:form id="BillItemCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{billItemController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateBillItemLabel_itemOrCategory}" for="itemOrCategory" />
+                        <p:selectOneMenu id="itemOrCategory" value="#{billItemController.selected.itemOrCategory}" >
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="itemOrCategoryItem"
+                                           itemValue="#{itemOrCategoryItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateBillItemLabel_grossRate}" for="grossRate" />
+                        <p:inputText id="grossRate" value="#{billItemController.selected.grossRate}" title="#{bundle.CreateBillItemTitle_grossRate}" />
+                        <p:outputLabel value="#{bundle.CreateBillItemLabel_itemDiscountRate}" for="itemDiscountRate" />
+                        <p:inputText id="itemDiscountRate" value="#{billItemController.selected.itemDiscountRate}" title="#{bundle.CreateBillItemTitle_itemDiscountRate}" />
+                        <p:outputLabel value="#{bundle.CreateBillItemLabel_billDiscountRate}" for="billDiscountRate" />
+                        <p:inputText id="billDiscountRate" value="#{billItemController.selected.billDiscountRate}" title="#{bundle.CreateBillItemTitle_billDiscountRate}" />
+                        <p:outputLabel value="#{bundle.CreateBillItemLabel_netRate}" for="netRate" />
+                        <p:inputText id="netRate" value="#{billItemController.selected.netRate}" title="#{bundle.CreateBillItemTitle_netRate}" />
+                        <p:outputLabel value="#{bundle.CreateBillItemLabel_bill}" for="bill" />
+                        <p:selectOneMenu id="bill" value="#{billItemController.selected.bill}" >
+                            <f:selectItems value="#{billController.itemsAvailableSelectOne}"
+                                           var="billItem"
+                                           itemValue="#{billItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateBillItemLabel_billItemType}" for="billItemType" />
+                        <p:inputText id="billItemType" value="#{billItemController.selected.billItemType}" title="#{bundle.CreateBillItemTitle_billItemType}" />
+                        <p:outputLabel value="#{bundle.CreateBillItemLabel_parent}" for="parent" />
+                        <p:selectOneMenu id="parent" value="#{billItemController.selected.parent}" >
+                            <f:selectItems value="#{billItemController.itemsAvailableSelectOne}"
+                                           var="parentItem"
+                                           itemValue="#{parentItem}"/>
+                        </p:selectOneMenu>
+                        </p:panelGrid>
+                    <p:commandButton actionListener="#{billItemController.create}" value="#{bundle.Save}" update="display,:BillItemListForm:datalist,:growl" oncomplete="handleSubmit(args,'BillItemCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="BillItemCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

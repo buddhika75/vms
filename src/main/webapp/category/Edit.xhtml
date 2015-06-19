@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CategoryEditDlg" widgetVar="CategoryEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCategoryTitle}">
+            <h:form id="CategoryEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{categoryController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCategoryLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{categoryController.selected.name}" title="#{bundle.EditCategoryTitle_name}" />
+                        <p:outputLabel value="#{bundle.EditCategoryLabel_code}" for="code" />
+                        <p:inputText id="code" value="#{categoryController.selected.code}" title="#{bundle.EditCategoryTitle_code}" />
+                        <p:outputLabel value="#{bundle.EditCategoryLabel_barcode}" for="barcode" />
+                        <p:inputText id="barcode" value="#{categoryController.selected.barcode}" title="#{bundle.EditCategoryTitle_barcode}" />
+                        <p:outputLabel value="#{bundle.EditCategoryLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{categoryController.selected.description}" title="#{bundle.EditCategoryTitle_description}" />
+                        <p:outputLabel value="#{bundle.EditCategoryLabel_orderNo}" for="orderNo" />
+                        <p:inputText id="orderNo" value="#{categoryController.selected.orderNo}" title="#{bundle.EditCategoryTitle_orderNo}" />
+                        
+                         <p:outputLabel value="#{bundle.EditCategoryLabel_parent}" for="parent" />
+                        <p:selectOneMenu id="parent" value="#{categoryController.selected.parent}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="parentItem"
+                                           itemValue="#{parentItem}"
+                                           itemLabel="#{parentItem.name}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCategoryLabel_type}" for="cmbType" />
+                        <p:selectOneMenu id="cmbType" value="#{categoryController.selected.type}">
+                            <f:selectItem itemLabel="Select"></f:selectItem>
+                            <f:selectItems value="#{enumController.itemOrCategoryTypes}"></f:selectItems>                           
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{categoryController.update}" value="#{bundle.Save}" update="display,:CategoryListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CategoryEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CategoryEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
