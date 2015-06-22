@@ -1,9 +1,9 @@
 package vms.controllers;
 
-import vms.hotel.entity.Person;
+import vms.entity.Person;
 import vms.controllers.util.JsfUtil;
 import vms.controllers.util.JsfUtil.PersistAction;
-import vms.hotel.faces.PersonFacade;
+import vms.faces.PersonFacade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class PersonController implements Serializable {
 
     @EJB
-    private vms.hotel.faces.PersonFacade ejbFacade;
+    private vms.faces.PersonFacade ejbFacade;
     private List<Person> items = null;
     private Person selected;
 

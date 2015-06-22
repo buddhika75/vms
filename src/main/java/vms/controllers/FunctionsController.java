@@ -6,15 +6,15 @@
 package vms.controllers;
 
 import vms.controllers.util.JsfUtil;
-import vms.hotel.entity.Bill;
-import vms.hotel.entity.BillItem;
-import vms.hotel.entity.Item;
-import vms.hotel.entity.ItemOrCategory;
-import vms.hotel.enums.BillItemType;
-import vms.hotel.enums.BillType;
-import vms.hotel.enums.ItemOrCategoryType;
-import vms.hotel.faces.BillFacade;
-import vms.hotel.faces.BillItemFacade;
+import vms.entity.Bill;
+import vms.entity.BillItem;
+import vms.entity.Item;
+import vms.entity.ItemOrCategory;
+import vms.enums.BillItemType;
+import vms.enums.BillType;
+import vms.enums.ItemOrCategoryType;
+import vms.faces.BillFacade;
+import vms.faces.BillItemFacade;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;

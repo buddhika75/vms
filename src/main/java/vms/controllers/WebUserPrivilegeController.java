@@ -7,11 +7,11 @@ package vms.controllers;
 
 import com.sun.corba.se.impl.util.Utility;
 import vms.controllers.util.JsfUtil;
-import vms.hotel.entity.WebUser;
-import vms.hotel.entity.WebUserPrivilege;
-import vms.hotel.enums.Privilege;
-import vms.hotel.faces.WebUserFacade;
-import vms.hotel.faces.WebUserPrivilegeFacade;
+import vms.entity.WebUser;
+import vms.entity.WebUserPrivilege;
+import vms.enums.Privilege;
+import vms.faces.WebUserFacade;
+import vms.faces.WebUserPrivilegeFacade;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;

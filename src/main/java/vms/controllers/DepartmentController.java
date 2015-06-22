@@ -1,9 +1,9 @@
 package vms.controllers;
 
-import vms.hotel.entity.Department;
+import vms.entity.Department;
 import vms.controllers.util.JsfUtil;
 import vms.controllers.util.JsfUtil.PersistAction;
-import vms.hotel.faces.DepartmentFacade;
+import vms.faces.DepartmentFacade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class DepartmentController implements Serializable {
 
     @EJB
-    private vms.hotel.faces.DepartmentFacade ejbFacade;
+    private vms.faces.DepartmentFacade ejbFacade;
     private List<Department> items = null;
     private Department selected;
 

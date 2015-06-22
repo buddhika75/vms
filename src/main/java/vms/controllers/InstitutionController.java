@@ -1,9 +1,9 @@
 package vms.controllers;
 
-import vms.hotel.entity.Institution;
+import vms.entity.Institution;
 import vms.controllers.util.JsfUtil;
 import vms.controllers.util.JsfUtil.PersistAction;
-import vms.hotel.faces.InstitutionFacade;
+import vms.faces.InstitutionFacade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class InstitutionController implements Serializable {
 
     @EJB
-    private vms.hotel.faces.InstitutionFacade ejbFacade;
+    private vms.faces.InstitutionFacade ejbFacade;
     private List<Institution> items = null;
     private Institution selected;
 

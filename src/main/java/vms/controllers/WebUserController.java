@@ -1,12 +1,12 @@
 package vms.controllers;
 
-import vms.hotel.entity.WebUser;
+import vms.entity.WebUser;
 import vms.controllers.util.JsfUtil;
 import vms.controllers.util.JsfUtil.PersistAction;
-import vms.hotel.entity.Institution;
-import vms.hotel.entity.Person;
-import vms.hotel.entity.Staff;
-import vms.hotel.faces.WebUserFacade;
+import vms.entity.Institution;
+import vms.entity.Person;
+import vms.entity.Staff;
+import vms.faces.WebUserFacade;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -31,7 +31,7 @@ import javax.inject.Inject;
 public class WebUserController implements Serializable {
 
     @EJB
-    private vms.hotel.faces.WebUserFacade ejbFacade;
+    private vms.faces.WebUserFacade ejbFacade;
     private List<WebUser> items = null;
     private WebUser selected;
 

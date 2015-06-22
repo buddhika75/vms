@@ -1,9 +1,9 @@
 package vms.controllers;
 
-import vms.hotel.entity.Bill;
+import vms.entity.Bill;
 import vms.controllers.util.JsfUtil;
 import vms.controllers.util.JsfUtil.PersistAction;
-import vms.hotel.faces.BillFacade;
+import vms.faces.BillFacade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class BillController implements Serializable {
 
     @EJB
-    private vms.hotel.faces.BillFacade ejbFacade;
+    private vms.faces.BillFacade ejbFacade;
     private List<Bill> items = null;
     private Bill selected;
 

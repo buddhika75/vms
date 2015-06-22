@@ -1,9 +1,9 @@
 package vms.controllers;
 
-import vms.hotel.entity.Staff;
+import vms.entity.Staff;
 import vms.controllers.util.JsfUtil;
 import vms.controllers.util.JsfUtil.PersistAction;
-import vms.hotel.faces.StaffFacade;
+import vms.faces.StaffFacade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class StaffController implements Serializable {
 
     @EJB
-    private vms.hotel.faces.StaffFacade ejbFacade;
+    private vms.faces.StaffFacade ejbFacade;
     private List<Staff> items = null;
     private Staff selected;
 

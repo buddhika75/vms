@@ -1,9 +1,9 @@
 package vms.controllers;
 
-import vms.hotel.entity.Category;
+import vms.entity.Category;
 import vms.controllers.util.JsfUtil;
 import vms.controllers.util.JsfUtil.PersistAction;
-import vms.hotel.faces.CategoryFacade;
+import vms.faces.CategoryFacade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class CategoryController implements Serializable {
 
     @EJB
-    private vms.hotel.faces.CategoryFacade ejbFacade;
+    private vms.faces.CategoryFacade ejbFacade;
     private List<Category> items = null;
     private Category selected;
 

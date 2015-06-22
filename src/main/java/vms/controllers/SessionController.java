@@ -6,9 +6,9 @@
 package vms.controllers;
 
 import vms.controllers.util.JsfUtil;
-import vms.hotel.entity.DepartmentOrInstitution;
-import vms.hotel.entity.WebUser;
-import vms.hotel.faces.WebUserFacade;
+import vms.entity.DepartmentOrInstitution;
+import vms.entity.WebUser;
+import vms.faces.WebUserFacade;
 import java.util.HashMap;
 import java.util.Map;
 import javax.ejb.EJB;

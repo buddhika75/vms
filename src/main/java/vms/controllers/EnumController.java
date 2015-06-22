@@ -5,9 +5,9 @@
  */
 package vms.controllers;
 
-import vms.hotel.enums.DepartmentOrInstitutionType;
-import vms.hotel.enums.ItemOrCategoryType;
-import vms.hotel.enums.Privilege;
+import vms.enums.DepartmentOrInstitutionType;
+import vms.enums.ItemOrCategoryType;
+import vms.enums.Privilege;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 

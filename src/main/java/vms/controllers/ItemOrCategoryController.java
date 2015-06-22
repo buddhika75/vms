@@ -1,9 +1,9 @@
 package vms.controllers;
 
-import vms.hotel.entity.ItemOrCategory;
+import vms.entity.ItemOrCategory;
 import vms.controllers.util.JsfUtil;
 import vms.controllers.util.JsfUtil.PersistAction;
-import vms.hotel.faces.ItemOrCategoryFacade;
+import vms.faces.ItemOrCategoryFacade;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -26,7 +26,7 @@ import javax.faces.convert.FacesConverter;
 public class ItemOrCategoryController implements Serializable {
 
     @EJB
-    private vms.hotel.faces.ItemOrCategoryFacade ejbFacade;
+    private vms.faces.ItemOrCategoryFacade ejbFacade;
     private List<ItemOrCategory> items = null;
     private ItemOrCategory selected;
 

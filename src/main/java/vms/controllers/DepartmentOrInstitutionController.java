@@ -1,10 +1,10 @@
 package vms.controllers;
 
-import vms.hotel.entity.DepartmentOrInstitution;
+import vms.entity.DepartmentOrInstitution;
 import vms.controllers.util.JsfUtil;
 import vms.controllers.util.JsfUtil.PersistAction;
-import vms.hotel.enums.DepartmentOrInstitutionType;
-import vms.hotel.faces.DepartmentOrInstitutionFacade;
+import vms.enums.DepartmentOrInstitutionType;
+import vms.faces.DepartmentOrInstitutionFacade;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ import javax.inject.Inject;
 public class DepartmentOrInstitutionController implements Serializable {
 
     @EJB
-    private vms.hotel.faces.DepartmentOrInstitutionFacade ejbFacade;
+    private vms.faces.DepartmentOrInstitutionFacade ejbFacade;
     private List<DepartmentOrInstitution> items = null;
     private DepartmentOrInstitution selected;
 
