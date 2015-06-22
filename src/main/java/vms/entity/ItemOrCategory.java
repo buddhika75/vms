@@ -18,6 +18,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -29,7 +30,6 @@ import javax.persistence.Temporal;
 @Entity
 public class ItemOrCategory implements Serializable {
     @OneToMany(mappedBy = "itemOrCategory")
-    private List<BillItemOrCategory> billItemOrCategorys;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,6 +39,7 @@ public class ItemOrCategory implements Serializable {
     String name;
     String code;
     String barcode;
+    @Lob
     String description;
     int orderNo;
     
@@ -72,6 +73,11 @@ public class ItemOrCategory implements Serializable {
     
     @Enumerated(EnumType.ORDINAL)
     ItemOrCategoryType type;
+    
+    @ManyToOne
+    ItemOrCategory category;
+    @ManyToOne
+    ItemOrCategory reference;
 
     public Long getId() {
         return id;

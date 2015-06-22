@@ -11,9 +11,16 @@ package vms.enums;
  */
 public enum ItemOrCategoryType {
     Vehicle,
-    VehicleComponant,
+    VehicleComponent,
     Appointment,
     Schedule,
     Event,
     Activity,
+    Form,
+    FormPage,
+    FormComponent,
+    Make,
+    Model,
+    
+    
 }

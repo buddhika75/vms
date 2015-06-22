@@ -20,6 +20,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import vms.enums.ItemOrCategoryType;
 
 @ManagedBean(name = "itemOrCategoryController")
 @SessionScoped
@@ -133,6 +134,12 @@ public class ItemOrCategoryController implements Serializable {
         return getFacade().findBySQL(sql, m);
     }
 
+    public List<ItemOrCategory> getItemFromSelectedType(ItemOrCategoryType type){
+        Map m = new HashMap();
+        String sql = "select c from ItemOrCategory c where c.type=:type ";
+        m.put("type", type);
+        return getFacade().findBySQL(sql, m);
+    }
     
     public List<ItemOrCategory> getItemsAvailableSelectMany() {
         return getFacade().findAll();

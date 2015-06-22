@@ -10,12 +10,9 @@ package vms.enums;
  * @author Buddhika
  */
 public enum BillType {
-    FunctionMenu,
-    PaymentAdvance,
-    Sale,
-    Purchase,
-    FunctionEvent,
-    
+    FilledForm,
+    Schedule,
+    Activity,
     
     
 }

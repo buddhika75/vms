@@ -14,5 +14,7 @@ public enum BillItemType {
     Payment,
     BillFee,
     BillComponent,
+    FilledFormItem,
+    
     
 }
