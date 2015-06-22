@@ -21,6 +21,12 @@ public class Presentation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    ItemOrCategory itemOrCategory;
+    int height;
+    int width;
+    int top;
+    int left;
+    
 
     public Long getId() {
         return id;

@@ -7,6 +7,7 @@ import vms.enums.DepartmentOrInstitutionType;
 import vms.faces.DepartmentOrInstitutionFacade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
-@ManagedBean(name = "departmentOrInstitutionController")
+@ManagedBean
 @SessionScoped
 public class DepartmentOrInstitutionController implements Serializable {
 
@@ -34,46 +35,34 @@ public class DepartmentOrInstitutionController implements Serializable {
 
     List<DepartmentOrInstitution> halls;
 
-    public List<DepartmentOrInstitution> getHalls() {
+    public List<DepartmentOrInstitution> getBanks() {
         if (null == halls || halls.isEmpty()) {
-            fillHalls();
+            List<DepartmentOrInstitutionType> dit = new ArrayList<DepartmentOrInstitutionType>();
+            dit.add(DepartmentOrInstitutionType.Bank);
+            return fillInsOrDeps(dit, null);
         } else {
+            return new ArrayList<DepartmentOrInstitution>();
         }
-        return halls;
     }
 
     @Inject
     SessionController sessionController;
-    
-    public void fillHalls() {
+
+    public List<DepartmentOrInstitution> fillInsOrDeps(List<DepartmentOrInstitutionType> types, DepartmentOrInstitution parent) {
         String j;
-        j = "select h from Department h where h.retired=false and h.departmentOrInstitutionType=:dit ";
+        j = "select h from DepartmentOrInstitution h where h.retired=false and h.departmentOrInstitutionType in :dit ";
         Map m = new HashMap();
-        if(sessionController.getInstitution()!=null){
-            j = j+ " and h.parent=:ins ";
-            m.put("ins", sessionController.getInstitution());
+        if (parent != null) {
+            j = j + " and h.parent=:ins ";
+            m.put("ins", parent);
         }
         j = j + "order by h.name";
-        
-        m.put("dit", DepartmentOrInstitutionType.Hall);
-        System.out.println("m = " + m);
-        System.out.println("j = " + j);
-        halls = ejbFacade.findBySQL(j, m);
-        System.out.println("halls = " + halls);
+
+        m.put("dit", types);
+        return ejbFacade.findBySQL(j, m);
     }
 
-    public void completeInstitutions() {
-        String j;
-        j = "select h from Institution h where h.retired=false and h.departmentOrInstitutionType=:dit order by h.name";
-        Map m = new HashMap();
-        m.put("dit", DepartmentOrInstitutionType.Hall);
-        halls = ejbFacade.findBySQL(j, m);
-    }
-
-    public void setHalls(List<DepartmentOrInstitution> halls) {
-        this.halls = halls;
-    }
-
+ 
     public DepartmentOrInstitutionController() {
     }
 

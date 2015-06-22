@@ -10,16 +10,10 @@ package vms.enums;
  * @author buddhika
  */
 public enum ItemOrCategoryType {
-    EventCategory,
-    RoomCategory,
-    MenuItemCategory,
+    Vehicle,
+    VehicleComponant,
+    Appointment,
+    Schedule,
     Event,
-    Room,
-    MenuItem,
-    Speciality,
-    Role,
-    @Deprecated
-    HallCategory,
-    @Deprecated
-    Hall,
+    Activity,
 }

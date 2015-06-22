@@ -13,9 +13,4 @@ package vms.enums;
 public enum Privilege {
     Administrator,
     Management,
-    FunctionMenuCreation,
-    AddingFunctions,
-    CancellingFunctions,
-    AcceptPayments,
-    ReturnPayments,
 }
