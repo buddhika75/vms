@@ -14,4 +14,5 @@ public enum BillCategory {
     PreBill,
     CancelBill,
     RefundBill,
+    OrderBill,
 }
