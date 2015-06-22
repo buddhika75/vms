@@ -11,4 +11,5 @@
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="dsR" object-type="user" pool-name="mysql_vms_rootPool"/>
+    <jdbc-resource enabled="true" jndi-name="dsss" object-type="user" pool-name="mysql_vms_rootPool"/>
 </resources>
