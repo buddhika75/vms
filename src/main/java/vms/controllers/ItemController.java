@@ -29,6 +29,7 @@ public class ItemController implements Serializable {
     @EJB
     private vms.faces.ItemFacade ejbFacade;
     private List<Item> items = null;
+    private List<Item> vehicleComponent = null;
     private Item selected;
 
     public ItemController() {
@@ -59,13 +60,28 @@ public class ItemController implements Serializable {
         return selected;
     }
 
+    
+    public void createVehicleComponent(){
+        selected.setType(ItemOrCategoryType.VehicleComponent);
+        create();
+        vehicleComponent = null;
+    }
+     
+    public List<Item> getItemListOfType(ItemOrCategoryType type){
+        Map m =new HashMap();
+        String sql = "select i from Item i where i.type=:type order by i.name";
+        m.put("type", type);
+        return getFacade().findBySQL(sql, m);
+    }
+    
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("ItemCreated"));
+        persist(PersistAction.CREATE, "ItemCreated");
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
-
+       
+            
     public void update() {
         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("ItemUpdated"));
     }
@@ -84,6 +100,19 @@ public class ItemController implements Serializable {
         }
         return items;
     }
+
+    public List<Item> getVehicleComponent() {
+        if(vehicleComponent == null){
+            vehicleComponent=getItemListOfType(ItemOrCategoryType.VehicleComponent);
+        }
+        return vehicleComponent;
+    }
+
+    public void setVehicleComponent(List<Item> vehicleComponent) {
+        this.vehicleComponent = vehicleComponent;
+    }
+    
+    
 
     private void persist(PersistAction persistAction, String successMessage) {
         if (selected != null) {

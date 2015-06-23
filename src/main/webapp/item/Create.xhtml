@@ -12,26 +12,12 @@
             <h:form id="ItemCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{itemController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateItemLabel_name}" for="name" />
+                        <p:outputLabel value="Name" for="name" />
                         <p:inputText id="name" value="#{itemController.selected.name}" title="#{bundle.CreateItemTitle_name}" />
-                        <p:outputLabel value="#{bundle.CreateItemLabel_code}" for="code" />
-                        <p:inputText id="code" value="#{itemController.selected.code}" title="#{bundle.CreateItemTitle_code}" />
-                        <p:outputLabel value="#{bundle.CreateItemLabel_barcode}" for="barcode" />
-                        <p:inputText id="barcode" value="#{itemController.selected.barcode}" title="#{bundle.CreateItemTitle_barcode}" />
-                        <p:outputLabel value="#{bundle.CreateItemLabel_description}" for="description" />
+                        
+                        <p:outputLabel value="Description" for="description" />
                         <p:inputText id="description" value="#{itemController.selected.description}" title="#{bundle.CreateItemTitle_description}" />
-                        <p:outputLabel value="#{bundle.CreateItemLabel_orderNo}" for="orderNo" />
-                        <p:inputText id="orderNo" value="#{itemController.selected.orderNo}" title="#{bundle.CreateItemTitle_orderNo}" />
-                       
-                        <p:outputLabel value="#{bundle.CreateItemLabel_parent}" for="parent" />
-                        <p:selectOneMenu id="parent" value="#{itemController.selected.parent}" >
-                            <f:selectItem itemLabel="Select" ></f:selectItem>
-                            <f:selectItems value="#{itemOrCategoryController.category}"
-                                           var="parentItem"
-                                           itemValue="#{parentItem}"
-                                           itemLabel="#{parentItem.name}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateItemLabel_type}" for="cmbType" />
+                        <p:outputLabel value="Type" for="cmbType" />
                         <p:selectOneMenu id="cmbType" value="#{itemController.selected.type}">
                             <f:selectItem itemLabel="Select"></f:selectItem>
                             <f:selectItems value="#{enumController.itemOrCategoryTypes}"></f:selectItems>
