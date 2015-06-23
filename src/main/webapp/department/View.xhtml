@@ -8,32 +8,32 @@
 
     <ui:composition>
 
-        <p:dialog id="DepartmentViewDlg" widgetVar="DepartmentViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDepartmentTitle}">
+        <p:dialog id="DepartmentViewDlg" widgetVar="DepartmentViewDialog" modal="true" resizable="false" appendTo="@(body)" header="View Department">
             <h:form id="DepartmentViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{departmentController.selected != null}">
-                        <h:outputText value="#{bundle.ViewDepartmentLabel_departmentOrInstitutionType}"/>
+                        <h:outputText value="Department Or Institution Type"/>
                         <h:outputText value="#{departmentController.selected.departmentOrInstitutionType}" title="#{bundle.ViewDepartmentTitle_departmentOrInstitutionType}"/>
-                        <h:outputText value="#{bundle.ViewDepartmentLabel_departmentCode}"/>
+                        <h:outputText value="Department Code"/>
                         <h:outputText value="#{departmentController.selected.departmentCode}" title="#{bundle.ViewDepartmentTitle_departmentCode}"/>
-                        <h:outputText value="#{bundle.ViewDepartmentLabel_name}"/>
+                        <h:outputText value="Name"/>
                         <h:outputText value="#{departmentController.selected.name}" title="#{bundle.ViewDepartmentTitle_name}"/>
-                        <h:outputText value="#{bundle.ViewDepartmentLabel_printingName}"/>
+                        <h:outputText value="Printing Name"/>
                         <h:outputText value="#{departmentController.selected.printingName}" title="#{bundle.ViewDepartmentTitle_printingName}"/>
-                        <h:outputText value="#{bundle.ViewDepartmentLabel_address}"/>
+                        <h:outputText value="Address"/>
                         <h:outputText value="#{departmentController.selected.address}" title="#{bundle.ViewDepartmentTitle_address}"/>
-                        <h:outputText value="#{bundle.ViewDepartmentLabel_telephone1}"/>
+                        <h:outputText value="Telephone 1"/>
                         <h:outputText value="#{departmentController.selected.telephone1}" title="#{bundle.ViewDepartmentTitle_telephone1}"/>
-                        <h:outputText value="#{bundle.ViewDepartmentLabel_telephone2}"/>
+                        <h:outputText value="Telephone 2"/>
                         <h:outputText value="#{departmentController.selected.telephone2}" title="#{bundle.ViewDepartmentTitle_telephone2}"/>
-                        <h:outputText value="#{bundle.ViewDepartmentLabel_fax}"/>
+                        <h:outputText value="Fax"/>
                         <h:outputText value="#{departmentController.selected.fax}" title="#{bundle.ViewDepartmentTitle_fax}"/>
-                        <h:outputText value="#{bundle.ViewDepartmentLabel_email}"/>
+                        <h:outputText value="Email"/>
                         <h:outputText value="#{departmentController.selected.email}" title="#{bundle.ViewDepartmentTitle_email}"/>
-                        <h:outputText value="#{bundle.ViewDepartmentLabel_parent}"/>
+                        <h:outputText value="Parent"/>
                         <h:outputText value="#{departmentController.selected.parent}" title="#{bundle.ViewDepartmentTitle_parent}"/>
                         </p:panelGrid>
-                    <p:commandButton value="#{bundle.Close}" onclick="DepartmentViewDialog.hide()"/>
+                    <p:commandButton value="Close" onclick="DepartmentViewDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

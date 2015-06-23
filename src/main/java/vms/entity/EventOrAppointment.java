@@ -84,6 +84,11 @@ public class EventOrAppointment implements Serializable {
     Double doubleValue2;
     Integer intValue1;
     Integer intValue2;
+    
+    String stringValue1;
+    String stringValue2;
+    String stringValue3;
+    
 
     public Integer getThisMilage() {
         return thisMilage;
@@ -360,6 +365,32 @@ public class EventOrAppointment implements Serializable {
     public void setCompleted(Boolean completed) {
         this.completed = completed;
     }
+
+    public String getStringValue1() {
+        return stringValue1;
+    }
+
+    public void setStringValue1(String stringValue1) {
+        this.stringValue1 = stringValue1;
+    }
+
+    public String getStringValue2() {
+        return stringValue2;
+    }
+
+    public void setStringValue2(String stringValue2) {
+        this.stringValue2 = stringValue2;
+    }
+
+    public String getStringValue3() {
+        return stringValue3;
+    }
+
+    public void setStringValue3(String stringValue3) {
+        this.stringValue3 = stringValue3;
+    }
+    
+    
 
     
     

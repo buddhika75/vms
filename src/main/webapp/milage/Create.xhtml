@@ -24,16 +24,9 @@
                                            var="itemUnitItem"
                                            itemValue="#{itemUnitItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateMilageLabel_staff}" for="staff" />
-                        <p:selectOneMenu id="staff" value="#{milageController.selected.staff}" >
-                            <f:selectItems value="#{staffController.itemsAvailableSelectOne}"
-                                           var="staffItem"
-                                           itemValue="#{staffItem}"/>
-                        </p:selectOneMenu>
+
                         <p:outputLabel value="#{bundle.CreateMilageLabel_milageValue}" for="milageValue" />
                         <p:inputText id="milageValue" value="#{milageController.selected.milageValue}" title="#{bundle.CreateMilageTitle_milageValue}" />
-                        <p:outputLabel value="#{bundle.CreateMilageLabel_type}" for="type" />
-                        <p:inputText id="type" value="#{milageController.selected.type}" title="#{bundle.CreateMilageTitle_type}" />
                         <p:outputLabel value="#{bundle.CreateMilageLabel_milageDate}" for="milageDate" />
                         <p:calendar id="milageDate" pattern="dd MMM yyyy HH:mm:ss" value="#{milageController.selected.milageDate}" title="#{bundle.EditMilageTitle_milageDate}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateMilageLabel_createdDate}" for="createdDate" />
@@ -47,7 +40,7 @@
                         <p:outputLabel value="#{bundle.CreateMilageLabel_id}" for="id" />
                         <p:inputText id="id" value="#{milageController.selected.id}" title="#{bundle.CreateMilageTitle_id}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{milageController.create}" value="#{bundle.Save}" update="display,:MilageListForm:datalist,:growl" oncomplete="handleSubmit(args,'MilageCreateDialog');"/>
+                    <p:commandButton actionListener="#{milageController.createManual}" value="#{bundle.Save}" update="display,:MilageListForm:datalist,:growl" oncomplete="handleSubmit(args,'MilageCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="MilageCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

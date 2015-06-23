@@ -10,12 +10,12 @@
 
 
         <ui:define name="title">
-            <h:outputText value="List Schedule Title"></h:outputText>
+            <h:outputText value="Manage Schedules"></h:outputText>
         </ui:define>
 
         <ui:define name="body">
             <h:form id="ScheduleListForm">
-                <p:panel header="Schedules">
+                <p:panel header="Manage Schedules">
                     <p:dataTable id="datalist" value="#{scheduleController.items}" var="item"
                                  selectionMode="single" selection="#{scheduleController.selected}"
                                  paginator="true"
