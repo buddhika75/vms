@@ -8,7 +8,7 @@
 
     <ui:composition>
 
-        <p:dialog id="CategoryViewDlg" widgetVar="CategoryViewDialog" modal="true" resizable="false" appendTo="@(body)" header="View Category">
+        <p:dialog id="CategoryViewDlg" widgetVar="CategoryViewDialog" modal="true" resizable="false" appendTo="@(body)" header="View Province">
             <h:form id="CategoryViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{categoryController.selected != null}">
@@ -18,10 +18,8 @@
                         <h:outputText value="Description"/>
                         <h:outputText value="#{categoryController.selected.description}" title="#{bundle.ViewCategoryTitle_description}"/>
                         
-                        <h:outputText value="Type"/>
-                        <h:outputText value="#{categoryController.selected.type}" title="#{bundle.ViewCategoryTitle_type}"/>
                     </p:panelGrid>
-                    <p:commandButton value="#{bundle.Close}" onclick="CategoryViewDialog.hide()"/>
+                    <p:commandButton value="Close" onclick="CategoryViewDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

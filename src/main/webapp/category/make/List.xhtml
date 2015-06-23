@@ -10,13 +10,13 @@
 
 
         <ui:define name="title">
-            <h:outputText value="Category List"></h:outputText>
+            <h:outputText value="Make List"></h:outputText>
         </ui:define>
 
         <ui:define name="body">
             <h:form id="CategoryListForm">
-                <p:panel header="Categoty Title">
-                    <p:dataTable id="datalist" value="#{categoryController.items}" var="item"
+                <p:panel header="Make List">
+                    <p:dataTable id="datalist" value="#{categoryController.makes}" var="item"
                                  selectionMode="single" selection="#{categoryController.selected}"
                                  paginator="true"
                                  rowKey="#{item.id}"
@@ -32,20 +32,14 @@
                             </f:facet>
                             <h:outputText value="#{item.name}"/>
                         </p:column>
-                        
+                       
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="Description"/>
                             </f:facet>
                             <h:outputText value="#{item.description}"/>
                         </p:column>
-                        
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="Type"/>
-                            </f:facet>
-                            <h:outputText value="#{item.type}"/>
-                        </p:column>
+                       
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="Create" actionListener="#{categoryController.prepareCreate}" update=":CategoryCreateForm" oncomplete="PF('CategoryCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="View" update=":CategoryViewForm" oncomplete="PF('CategoryViewDialog').show()" disabled="#{empty categoryController.selected}"/>

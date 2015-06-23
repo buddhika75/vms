@@ -25,6 +25,7 @@ public enum ItemOrCategoryType {
     TaxCategory,
     Country,
     Colour,
+    Province, 
     
     
 }

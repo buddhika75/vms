@@ -8,7 +8,7 @@
 
     <ui:composition>
 
-        <p:dialog id="CategoryEditDlg" widgetVar="CategoryEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Edit Category">
+        <p:dialog id="CategoryEditDlg" widgetVar="CategoryEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Edit Province">
             <h:form id="CategoryEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{categoryController.selected != null}">
@@ -18,13 +18,8 @@
                         <p:outputLabel value="Description" for="description" />
                         <p:inputText id="description" value="#{categoryController.selected.description}" title="#{bundle.EditCategoryTitle_description}" />
                         
-                        <p:outputLabel value="Type" for="cmbType" />
-                        <p:selectOneMenu id="cmbType" value="#{categoryController.selected.type}">
-                            <f:selectItem itemLabel="Select"></f:selectItem>
-                            <f:selectItems value="#{enumController.itemOrCategoryTypes}"></f:selectItems>                           
-                        </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{categoryController.update}" value="Save" update="display,:CategoryListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CategoryEditDialog');"/>
+                    <p:commandButton actionListener="#{categoryController.update}" value="Update " update="display,:CategoryListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CategoryEditDialog');"/>
                     <p:commandButton value="Cancel" onclick="CategoryEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

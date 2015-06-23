@@ -12,19 +12,19 @@
             <h:form id="CategoryCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{categoryController.selected != null}">                     
-                        <p:outputLabel value="#{bundle.CreateCategoryLabel_name}" for="name" />
+                        <p:outputLabel value="Name" for="name" />
                         <p:inputText id="name" value="#{categoryController.selected.name}" title="#{bundle.CreateCategoryTitle_name}" />
-                        <p:outputLabel value="#{bundle.CreateCategoryLabel_code}" for="code" />
+                        <p:outputLabel value="Code" for="code" />
                         <p:inputText id="code" value="#{categoryController.selected.code}" title="#{bundle.CreateCategoryTitle_code}" />
-                        <p:outputLabel value="#{bundle.CreateCategoryLabel_barcode}" for="barcode" />
+                        <p:outputLabel value="Barcode" for="barcode" />
                         <p:inputText id="barcode" value="#{categoryController.selected.barcode}" title="#{bundle.CreateCategoryTitle_barcode}" />
-                        <p:outputLabel value="#{bundle.CreateCategoryLabel_description}" for="description" />
+                        <p:outputLabel value="Description" for="description" />
                         <p:inputText id="description" value="#{categoryController.selected.description}" title="#{bundle.CreateCategoryTitle_description}" />
-                        <p:outputLabel value="#{bundle.CreateCategoryLabel_orderNo}" for="orderNo" />
+                        <p:outputLabel value="Order No" for="orderNo" />
                         <p:inputText id="orderNo" value="#{categoryController.selected.orderNo}" title="#{bundle.CreateCategoryTitle_orderNo}" />
                         
                    
-                        <p:outputLabel value="#{bundle.CreateCategoryLabel_parent}" for="parent" />
+                        <p:outputLabel value="Parent" for="parent" />
                         <p:selectOneMenu id="parent" value="#{categoryController.selected.parent}" >
                             <f:selectItem itemLabel="Select" ></f:selectItem>
                             <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
@@ -32,14 +32,14 @@
                                            itemValue="#{parentItem}"
                                            itemLabel="#{parentItem.name}"/>
                         </p:selectOneMenu>
-                          <p:outputLabel value="#{bundle.CreateCategoryLabel_type}" for="cmbType" />             
+                          <p:outputLabel value="Type" for="cmbType" />             
                         <p:selectOneMenu id="cmbType" value="#{categoryController.selected.type}">
                             <f:selectItem itemLabel="Select"></f:selectItem>
                             <f:selectItems value="#{enumController.itemOrCategoryTypes}" ></f:selectItems>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{categoryController.create}" value="#{bundle.Save}" update="display,:CategoryListForm:datalist,:growl" oncomplete="handleSubmit(args,'CategoryCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="CategoryCreateDialog.hide()"/>
+                    <p:commandButton actionListener="#{categoryController.create}" value="Save" update="display,:CategoryListForm:datalist,:growl" oncomplete="handleSubmit(args,'CategoryCreateDialog');"/>
+                    <p:commandButton value="Cancel" onclick="CategoryCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>
