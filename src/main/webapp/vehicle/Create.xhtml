@@ -78,7 +78,7 @@
                             <td colspan="9"> 
                                 <p:outputLabel value="11. Fuel Type" for="fuelType" />
                                 <p:selectOneMenu id="fuelType" value="#{vehicleController.selected.fuelType}" >
-                                    <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                    <f:selectItems value="#{categoryController.fuel}"
                                                    var="fuelTypeItem"
                                                    itemValue="#{fuelTypeItem}"/>
                                 </p:selectOneMenu>
