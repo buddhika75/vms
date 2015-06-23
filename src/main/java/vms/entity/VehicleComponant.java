@@ -18,10 +18,10 @@ import javax.persistence.Temporal;
 @Entity
 @Inheritance
 public class VehicleComponant extends ItemUnit {
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     Date fromDate;
     Integer fromMilage;
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     Date toDate;
     Integer toMilage;
     @OneToOne
