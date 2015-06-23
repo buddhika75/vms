@@ -13,14 +13,14 @@ import vms.faces.WebUserFacade;
 import java.util.HashMap;
 import java.util.Map;
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author buddhika
  */
-@ManagedBean
+@Named
 @SessionScoped
 public class SessionController implements Serializable{
     WebUser loggedUser;
@@ -59,7 +59,9 @@ public class SessionController implements Serializable{
             return;
         }
         logged=true;
-        institution = loggedUser.getInstitution();
+        //institution = loggedUser.getInstitution();
+        setInstitution(loggedUser.getInstitution());
+        System.out.println("loggedUser.getInstitution() = " + loggedUser.getInstitution().getName());
         JsfUtil.addSuccessMessage("Logged successfully");
     }
     
