@@ -6,7 +6,9 @@ import vms.controllers.util.JsfUtil.PersistAction;
 import vms.faces.VehicleFacade;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +21,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
+import vms.entity.DepartmentOrInstitution;
 
 @Named("vehicleController")
 @SessionScoped
@@ -133,7 +136,21 @@ public class VehicleController implements Serializable {
     public List<Vehicle> getItemsAvailableSelectOne() {
         return getFacade().findAll();
     }
+    
+    public List<Vehicle> getVechiclesOfLoggedInstitution() {
+        return getVechiclesOfSelectedInstitution(sessionController.getInstitution());
+    }
+    
+    public List<Vehicle> getVechiclesOfSelectedInstitution(DepartmentOrInstitution dor) {
+        String jpql;
+        Map m = new HashMap();
+        jpql = "select v from Vehicle v where v.ownerDepartmentOrInstitution=:dor order by v.name";
+        m.put("dor", dor);
+        return getFacade().findBySQL(jpql, m);
+    }
 
+    
+    
     @FacesConverter(forClass = Vehicle.class)
     public static class VehicleControllerConverter implements Converter {
 

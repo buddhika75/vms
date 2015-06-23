@@ -41,6 +41,7 @@ public class EventOrAppointment implements Serializable {
     Date toDate;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date thisDate;
+    Integer thisMilage;
     String name;
     @Lob
     String description;
@@ -83,6 +84,15 @@ public class EventOrAppointment implements Serializable {
     Double doubleValue2;
     Integer intValue1;
     Integer intValue2;
+
+    public Integer getThisMilage() {
+        return thisMilage;
+    }
+
+    public void setThisMilage(Integer thisMilage) {
+        this.thisMilage = thisMilage;
+    }
+    
     
 
     public Long getId() {
