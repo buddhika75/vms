@@ -6,6 +6,7 @@ import vms.controllers.util.JsfUtil.PersistAction;
 import vms.faces.AppointmentFacade;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -18,6 +19,8 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Inject;
+import vms.enums.EventOrAppointmentType;
 
 @Named("appointmentController")
 @SessionScoped
@@ -55,6 +58,16 @@ public class AppointmentController implements Serializable {
         return selected;
     }
 
+    @Inject
+    SessionController sessionController;
+    
+    public void manualCreate(){
+        selected.setCreateAt(new Date());
+        selected.setCreatedBy(sessionController.getLoggedUser());
+        selected.setType(EventOrAppointmentType.ItemUnitAppointmentManual);
+        create();
+    }
+    
     public void create() {
         persist(PersistAction.CREATE, "Appointment Created");
         if (!JsfUtil.isValidationFailed()) {

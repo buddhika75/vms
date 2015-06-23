@@ -8,29 +8,83 @@
 
     <ui:composition>
 
-        <p:dialog id="ScheduleViewDlg" widgetVar="ScheduleViewDialog" modal="true" resizable="false" appendTo="@(body)" header="View Schedule">
+        <p:dialog id="ScheduleViewDlg" widgetVar="ScheduleViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewScheduleTitle}">
             <h:form id="ScheduleViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{scheduleController.selected != null}">
-                        <h:outputText value="Vehicle"/>
-                        <h:outputText value="#{scheduleController.selected.forItemUnit.name}" title="#{bundle.ViewScheduleTitle_forItemUnit}"/>
-                         <h:outputText value="Category"/>
-                        <h:outputText value="#{scheduleController.selected.category.name}" title="#{bundle.ViewScheduleTitle_category}"/>
-                       <h:outputText value="Sheduled On"/>
-                        <h:outputText value="#{scheduleController.selected.thisDate}" title="#{bundle.ViewScheduleTitle_thisDate}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <h:outputText value="#{bundle.ViewScheduleLabel_id}"/>
+                        <h:outputText value="#{scheduleController.selected.id}" title="#{bundle.ViewScheduleTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_type}"/>
+                        <h:outputText value="#{scheduleController.selected.type}" title="#{bundle.ViewScheduleTitle_type}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_fromDate}"/>
+                        <h:outputText value="#{scheduleController.selected.fromDate}" title="#{bundle.ViewScheduleTitle_fromDate}">
+                            <f:convertDateTime pattern="dd MMM yyyy" />
                         </h:outputText>
-                        <h:outputText value="Place"/>
-                        <h:outputText value="#{scheduleController.selected.fromDepartmentOrInstitution.name}" title="#{bundle.ViewScheduleTitle_fromDepartmentOrInstitution}"/>
-                       <h:outputText value="Name"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_fromMilage}"/>
+                        <h:outputText value="#{scheduleController.selected.fromMilage}" title="#{bundle.ViewScheduleTitle_fromMilage}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_toMilage}"/>
+                        <h:outputText value="#{scheduleController.selected.toMilage}" title="#{bundle.ViewScheduleTitle_toMilage}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_fromDepartmentOrInstitution}"/>
+                        <h:outputText value="#{scheduleController.selected.fromDepartmentOrInstitution}" title="#{bundle.ViewScheduleTitle_fromDepartmentOrInstitution}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_toDepartmentOrInstitution}"/>
+                        <h:outputText value="#{scheduleController.selected.toDepartmentOrInstitution}" title="#{bundle.ViewScheduleTitle_toDepartmentOrInstitution}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_toDate}"/>
+                        <h:outputText value="#{scheduleController.selected.toDate}" title="#{bundle.ViewScheduleTitle_toDate}">
+                            <f:convertDateTime pattern="dd MMM yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_thisDate}"/>
+                        <h:outputText value="#{scheduleController.selected.thisDate}" title="#{bundle.ViewScheduleTitle_thisDate}">
+                            <f:convertDateTime pattern="dd MMM yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_name}"/>
                         <h:outputText value="#{scheduleController.selected.name}" title="#{bundle.ViewScheduleTitle_name}"/>
-                        <h:outputText value="Description"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_description}"/>
                         <h:outputText value="#{scheduleController.selected.description}" title="#{bundle.ViewScheduleTitle_description}"/>
-                        <h:outputText value="Milage"/>
-                         <h:outputText value="#{scheduleController.selected.thisMilage}" title="#{bundle.ViewScheduleTitle_fromMilage}"/>
-                        <h:outputText value="Cost"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_event}"/>
+                        <h:outputText value="#{scheduleController.selected.event}" title="#{bundle.ViewScheduleTitle_event}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_appointment}"/>
+                        <h:outputText value="#{scheduleController.selected.appointment}" title="#{bundle.ViewScheduleTitle_appointment}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_createdBy}"/>
+                        <h:outputText value="#{scheduleController.selected.createdBy}" title="#{bundle.ViewScheduleTitle_createdBy}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_createAt}"/>
+                        <h:outputText value="#{scheduleController.selected.createAt}" title="#{bundle.ViewScheduleTitle_createAt}">
+                            <f:convertDateTime pattern="dd MMM yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_createrComments}"/>
+                        <h:outputText value="#{scheduleController.selected.createrComments}" title="#{bundle.ViewScheduleTitle_createrComments}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_cancelledBy}"/>
+                        <h:outputText value="#{scheduleController.selected.cancelledBy}" title="#{bundle.ViewScheduleTitle_cancelledBy}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_cancelledAt}"/>
+                        <h:outputText value="#{scheduleController.selected.cancelledAt}" title="#{bundle.ViewScheduleTitle_cancelledAt}">
+                            <f:convertDateTime pattern="dd MMM yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_calcellerComments}"/>
+                        <h:outputText value="#{scheduleController.selected.calcellerComments}" title="#{bundle.ViewScheduleTitle_calcellerComments}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_dailyFrequency}"/>
+                        <h:outputText value="#{scheduleController.selected.dailyFrequency}" title="#{bundle.ViewScheduleTitle_dailyFrequency}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_monthlyFrequency}"/>
+                        <h:outputText value="#{scheduleController.selected.monthlyFrequency}" title="#{bundle.ViewScheduleTitle_monthlyFrequency}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_yearlyFrequency}"/>
+                        <h:outputText value="#{scheduleController.selected.yearlyFrequency}" title="#{bundle.ViewScheduleTitle_yearlyFrequency}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_milageFrequency}"/>
+                        <h:outputText value="#{scheduleController.selected.milageFrequency}" title="#{bundle.ViewScheduleTitle_milageFrequency}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_category}"/>
+                        <h:outputText value="#{scheduleController.selected.category}" title="#{bundle.ViewScheduleTitle_category}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_forItem}"/>
+                        <h:outputText value="#{scheduleController.selected.forItem}" title="#{bundle.ViewScheduleTitle_forItem}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_forCategory}"/>
+                        <h:outputText value="#{scheduleController.selected.forCategory}" title="#{bundle.ViewScheduleTitle_forCategory}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_forItemUnit}"/>
+                        <h:outputText value="#{scheduleController.selected.forItemUnit}" title="#{bundle.ViewScheduleTitle_forItemUnit}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_doubleValue1}"/>
                         <h:outputText value="#{scheduleController.selected.doubleValue1}" title="#{bundle.ViewScheduleTitle_doubleValue1}"/>
-                         </p:panelGrid>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_doubleValue2}"/>
+                        <h:outputText value="#{scheduleController.selected.doubleValue2}" title="#{bundle.ViewScheduleTitle_doubleValue2}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_intValue1}"/>
+                        <h:outputText value="#{scheduleController.selected.intValue1}" title="#{bundle.ViewScheduleTitle_intValue1}"/>
+                        <h:outputText value="#{bundle.ViewScheduleLabel_intValue2}"/>
+                        <h:outputText value="#{scheduleController.selected.intValue2}" title="#{bundle.ViewScheduleTitle_intValue2}"/>
+                    </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="ScheduleViewDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

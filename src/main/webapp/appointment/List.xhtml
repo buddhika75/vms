@@ -44,7 +44,7 @@
                                 <h:outputText value="#{bundle.ListAppointmentTitle_fromDate}"/>
                             </f:facet>
                             <h:outputText value="#{item.fromDate}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                                <f:convertDateTime pattern="dd MMM yyyy" />
                             </h:outputText>
                         </p:column>
                         <p:column>
@@ -76,7 +76,7 @@
                                 <h:outputText value="#{bundle.ListAppointmentTitle_toDate}"/>
                             </f:facet>
                             <h:outputText value="#{item.toDate}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                                <f:convertDateTime pattern="dd MMM yyyy" />
                             </h:outputText>
                         </p:column>
                         <p:column>
@@ -84,7 +84,7 @@
                                 <h:outputText value="#{bundle.ListAppointmentTitle_thisDate}"/>
                             </f:facet>
                             <h:outputText value="#{item.thisDate}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                                <f:convertDateTime pattern="dd MMM yyyy" />
                             </h:outputText>
                         </p:column>
                         <p:column>
@@ -122,7 +122,7 @@
                                 <h:outputText value="#{bundle.ListAppointmentTitle_createAt}"/>
                             </f:facet>
                             <h:outputText value="#{item.createAt}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                                <f:convertDateTime pattern="dd MMM yyyy" />
                             </h:outputText>
                         </p:column>
                         <p:column>
@@ -142,7 +142,7 @@
                                 <h:outputText value="#{bundle.ListAppointmentTitle_cancelledAt}"/>
                             </f:facet>
                             <h:outputText value="#{item.cancelledAt}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                                <f:convertDateTime pattern="dd MMM yyyy" />
                             </h:outputText>
                         </p:column>
                         <p:column>
