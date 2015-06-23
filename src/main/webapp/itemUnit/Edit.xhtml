@@ -12,6 +12,35 @@
             <h:form id="ItemUnitEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{itemUnitController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditItemUnitLabel_fromDate}" for="fromDate" />
+                        <p:calendar id="fromDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{itemUnitController.selected.fromDate}" title="#{bundle.EditItemUnitTitle_fromDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditItemUnitLabel_toDate}" for="toDate" />
+                        <p:calendar id="toDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{itemUnitController.selected.toDate}" title="#{bundle.EditItemUnitTitle_toDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditItemUnitLabel_fromMilage}" for="fromMilage" />
+                        <p:inputText id="fromMilage" value="#{itemUnitController.selected.fromMilage}" title="#{bundle.EditItemUnitTitle_fromMilage}" />
+                        <p:outputLabel value="#{bundle.EditItemUnitLabel_toMilage}" for="toMilage" />
+                        <p:inputText id="toMilage" value="#{itemUnitController.selected.toMilage}" title="#{bundle.EditItemUnitTitle_toMilage}" />
+                        <p:outputLabel value="#{bundle.EditItemUnitLabel_continuedFrom}" for="continuedFrom" />
+                        <p:selectOneMenu id="continuedFrom" value="#{itemUnitController.selected.continuedFrom}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemUnitController.itemsAvailableSelectOne}"
+                                           var="continuedFromItem"
+                                           itemValue="#{continuedFromItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditItemUnitLabel_continuedTo}" for="continuedTo" />
+                        <p:selectOneMenu id="continuedTo" value="#{itemUnitController.selected.continuedTo}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemUnitController.itemsAvailableSelectOne}"
+                                           var="continuedToItem"
+                                           itemValue="#{continuedToItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditItemUnitLabel_parent}" for="parent" />
+                        <p:selectOneMenu id="parent" value="#{itemUnitController.selected.parent}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemUnitController.itemsAvailableSelectOne}"
+                                           var="parentItem"
+                                           itemValue="#{parentItem}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditItemUnitLabel_name}" for="name" />
                         <p:inputText id="name" value="#{itemUnitController.selected.name}" title="#{bundle.EditItemUnitTitle_name}" />
                         <p:outputLabel value="#{bundle.EditItemUnitLabel_code}" for="code" />
