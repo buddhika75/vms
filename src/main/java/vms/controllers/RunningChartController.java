@@ -1,6 +1,5 @@
 package vms.controllers;
 
-import com.sun.xml.internal.ws.resources.UtilMessages;
 import vms.entity.RunningChart;
 import vms.controllers.util.JsfUtil;
 import vms.controllers.util.JsfUtil.PersistAction;
