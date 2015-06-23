@@ -87,9 +87,6 @@ public class RunningChartController implements Serializable {
         selected.setType(EventOrAppointmentType.RunnigChartEntry);
         create();
     }
-
-    @Inject
-    SessionController sessionController;
     
     public void manualCreate(){
         selected.setCreateAt(new Date());
