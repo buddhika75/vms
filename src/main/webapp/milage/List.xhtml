@@ -10,12 +10,12 @@
 
 
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListMilageTitle}"></h:outputText>
+            <h:outputText value="List Milage"></h:outputText>
         </ui:define>
 
         <ui:define name="body">
             <h:form id="MilageListForm">
-                <p:panel header="#{bundle.ListMilageTitle}">
+                <p:panel header="List Milage">
                     <p:dataTable id="datalist" value="#{milageController.items}" var="item"
                                  selectionMode="single" selection="#{milageController.selected}"
                                  paginator="true"
@@ -29,31 +29,31 @@
                         
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMilageTitle_vehicle}"/>
+                                <h:outputText value="Vehicle"/>
                             </f:facet>
                             <h:outputText value="#{item.vehicle}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMilageTitle_itemUnit}"/>
+                                <h:outputText value="Item Unit"/>
                             </f:facet>
                             <h:outputText value="#{item.itemUnit}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMilageTitle_milageValue}"/>
+                                <h:outputText value="Milage Value"/>
                             </f:facet>
                             <h:outputText value="#{item.milageValue}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMilageTitle_type}"/>
+                                <h:outputText value="Type"/>
                             </f:facet>
                             <h:outputText value="#{item.type}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMilageTitle_milageDate}"/>
+                                <h:outputText value="Milage Date"/>
                             </f:facet>
                             <h:outputText value="#{item.milageDate}">
                                 <f:convertDateTime pattern="dd MMM yyyy HH:mm:ss" />
@@ -61,7 +61,7 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMilageTitle_createdDate}"/>
+                                <h:outputText value="Created Date"/>
                             </f:facet>
                             <h:outputText value="#{item.createdDate}">
                                 <f:convertDateTime pattern="dd MMM yyyy HH:mm:ss" />
@@ -69,21 +69,21 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMilageTitle_createdBy}"/>
+                                <h:outputText value="Created By"/>
                             </f:facet>
                             <h:outputText value="#{item.createdBy}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMilageTitle_id}"/>
+                                <h:outputText value="Id"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{milageController.prepareCreate}" update=":MilageCreateForm" oncomplete="PF('MilageCreateDialog').show()"/>
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MilageViewForm" oncomplete="PF('MilageViewDialog').show()" disabled="#{empty milageController.selected}"/>
-                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MilageEditForm" oncomplete="PF('MilageEditDialog').show()" disabled="#{empty milageController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{milageController.destroy}" update=":growl,datalist" disabled="#{empty milageController.selected}"/>
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="Create" actionListener="#{milageController.prepareCreate}" update=":MilageCreateForm" oncomplete="PF('MilageCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="View" update=":MilageViewForm" oncomplete="PF('MilageViewDialog').show()" disabled="#{empty milageController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="Edit" update=":MilageEditForm" oncomplete="PF('MilageEditDialog').show()" disabled="#{empty milageController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="Delete" actionListener="#{milageController.destroy}" update=":growl,datalist" disabled="#{empty milageController.selected}"/>
                         </f:facet>
                     </p:dataTable>
                 </p:panel>
