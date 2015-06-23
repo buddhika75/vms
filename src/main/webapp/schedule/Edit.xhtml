@@ -8,123 +8,42 @@
 
     <ui:composition>
 
-        <p:dialog id="ScheduleEditDlg" widgetVar="ScheduleEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditScheduleTitle}">
+        <p:dialog id="ScheduleEditDlg" widgetVar="ScheduleEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Edit Schedule">
             <h:form id="ScheduleEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{scheduleController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{scheduleController.selected.id}" title="#{bundle.EditScheduleTitle_id}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_type}" for="type" />
-                        <p:inputText id="type" value="#{scheduleController.selected.type}" title="#{bundle.EditScheduleTitle_type}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_fromDate}" for="fromDate" />
-                        <p:calendar id="fromDate" pattern="MM/dd/yyyy" value="#{scheduleController.selected.fromDate}" title="#{bundle.EditScheduleTitle_fromDate}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_fromMilage}" for="fromMilage" />
-                        <p:inputText id="fromMilage" value="#{scheduleController.selected.fromMilage}" title="#{bundle.EditScheduleTitle_fromMilage}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_toMilage}" for="toMilage" />
-                        <p:inputText id="toMilage" value="#{scheduleController.selected.toMilage}" title="#{bundle.EditScheduleTitle_toMilage}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_fromDepartmentOrInstitution}" for="fromDepartmentOrInstitution" />
-                        <p:selectOneMenu id="fromDepartmentOrInstitution" value="#{scheduleController.selected.fromDepartmentOrInstitution}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{departmentOrInstitutionController.itemsAvailableSelectOne}"
-                                           var="fromDepartmentOrInstitutionItem"
-                                           itemValue="#{fromDepartmentOrInstitutionItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_toDepartmentOrInstitution}" for="toDepartmentOrInstitution" />
-                        <p:selectOneMenu id="toDepartmentOrInstitution" value="#{scheduleController.selected.toDepartmentOrInstitution}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{departmentOrInstitutionController.itemsAvailableSelectOne}"
-                                           var="toDepartmentOrInstitutionItem"
-                                           itemValue="#{toDepartmentOrInstitutionItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_toDate}" for="toDate" />
-                        <p:calendar id="toDate" pattern="MM/dd/yyyy" value="#{scheduleController.selected.toDate}" title="#{bundle.EditScheduleTitle_toDate}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_thisDate}" for="thisDate" />
-                        <p:calendar id="thisDate" pattern="MM/dd/yyyy" value="#{scheduleController.selected.thisDate}" title="#{bundle.EditScheduleTitle_thisDate}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_name}" for="name" />
-                        <p:inputText id="name" value="#{scheduleController.selected.name}" title="#{bundle.EditScheduleTitle_name}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_description}" for="description" />
-                        <p:inputTextarea rows="4" cols="30" id="description" value="#{scheduleController.selected.description}" title="#{bundle.EditScheduleTitle_description}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_event}" for="event" />
-                        <p:selectOneMenu id="event" value="#{scheduleController.selected.event}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{eventOrAppointmentController.itemsAvailableSelectOne}"
-                                           var="eventItem"
-                                           itemValue="#{eventItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_appointment}" for="appointment" />
-                        <p:selectOneMenu id="appointment" value="#{scheduleController.selected.appointment}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{eventOrAppointmentController.itemsAvailableSelectOne}"
-                                           var="appointmentItem"
-                                           itemValue="#{appointmentItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_createdBy}" for="createdBy" />
-                        <p:selectOneMenu id="createdBy" value="#{scheduleController.selected.createdBy}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{webUserController.itemsAvailableSelectOne}"
-                                           var="createdByItem"
-                                           itemValue="#{createdByItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_createAt}" for="createAt" />
-                        <p:calendar id="createAt" pattern="MM/dd/yyyy" value="#{scheduleController.selected.createAt}" title="#{bundle.EditScheduleTitle_createAt}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_createrComments}" for="createrComments" />
-                        <p:inputTextarea rows="4" cols="30" id="createrComments" value="#{scheduleController.selected.createrComments}" title="#{bundle.EditScheduleTitle_createrComments}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_cancelledBy}" for="cancelledBy" />
-                        <p:selectOneMenu id="cancelledBy" value="#{scheduleController.selected.cancelledBy}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{webUserController.itemsAvailableSelectOne}"
-                                           var="cancelledByItem"
-                                           itemValue="#{cancelledByItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_cancelledAt}" for="cancelledAt" />
-                        <p:calendar id="cancelledAt" pattern="MM/dd/yyyy" value="#{scheduleController.selected.cancelledAt}" title="#{bundle.EditScheduleTitle_cancelledAt}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_calcellerComments}" for="calcellerComments" />
-                        <p:inputTextarea rows="4" cols="30" id="calcellerComments" value="#{scheduleController.selected.calcellerComments}" title="#{bundle.EditScheduleTitle_calcellerComments}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_dailyFrequency}" for="dailyFrequency" />
-                        <p:inputText id="dailyFrequency" value="#{scheduleController.selected.dailyFrequency}" title="#{bundle.EditScheduleTitle_dailyFrequency}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_monthlyFrequency}" for="monthlyFrequency" />
-                        <p:inputText id="monthlyFrequency" value="#{scheduleController.selected.monthlyFrequency}" title="#{bundle.EditScheduleTitle_monthlyFrequency}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_yearlyFrequency}" for="yearlyFrequency" />
-                        <p:inputText id="yearlyFrequency" value="#{scheduleController.selected.yearlyFrequency}" title="#{bundle.EditScheduleTitle_yearlyFrequency}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_milageFrequency}" for="milageFrequency" />
-                        <p:inputText id="milageFrequency" value="#{scheduleController.selected.milageFrequency}" title="#{bundle.EditScheduleTitle_milageFrequency}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_category}" for="category" />
-                        <p:selectOneMenu id="category" value="#{scheduleController.selected.category}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
-                                           var="categoryItem"
-                                           itemValue="#{categoryItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_forItem}" for="forItem" />
-                        <p:selectOneMenu id="forItem" value="#{scheduleController.selected.forItem}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
-                                           var="forItemItem"
-                                           itemValue="#{forItemItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_forCategory}" for="forCategory" />
-                        <p:selectOneMenu id="forCategory" value="#{scheduleController.selected.forCategory}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
-                                           var="forCategoryItem"
-                                           itemValue="#{forCategoryItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_forItemUnit}" for="forItemUnit" />
+                         <p:outputLabel value="Vehicle" for="forItemUnit" />
                         <p:selectOneMenu id="forItemUnit" value="#{scheduleController.selected.forItemUnit}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{itemUnitController.itemsAvailableSelectOne}"
                                            var="forItemUnitItem"
                                            itemValue="#{forItemUnitItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_doubleValue1}" for="doubleValue1" />
+                         <p:outputLabel value="Category" for="category" />
+                        <p:selectOneMenu id="category" value="#{scheduleController.selected.category}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{categoryController.vechical}"
+                                           var="categoryItem"
+                                           itemValue="#{categoryItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Date" for="thisDate" />
+                        <p:calendar id="thisDate" pattern="MM/dd/yyyy" value="#{scheduleController.selected.thisDate}" title="#{bundle.EditScheduleTitle_thisDate}"  showOn="button"/>
+                        <p:outputLabel value="Place" for="fromDepartmentOrInstitution" />
+                        <p:selectOneMenu id="fromDepartmentOrInstitution" value="#{scheduleController.selected.fromDepartmentOrInstitution}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{departmentOrInstitutionController.itemsAvailableSelectOne}"
+                                           var="fromDepartmentOrInstitutionItem"
+                                           itemValue="#{fromDepartmentOrInstitutionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Name" for="name" />
+                        <p:inputText id="name" value="#{scheduleController.selected.name}" title="#{bundle.EditScheduleTitle_name}" />
+                        <p:outputLabel value="Description" for="description" />
+                        <p:inputTextarea rows="4" cols="30" id="description" value="#{scheduleController.selected.description}" title="#{bundle.EditScheduleTitle_description}" />
+                        <p:outputLabel value="Milage" for="fromMilage" />
+                        <p:inputText id="fromMilage" value="#{scheduleController.selected.thisMilage}" title="#{bundle.EditScheduleTitle_fromMilage}" />
+                         <p:outputLabel value="Cost" for="doubleValue1" />
                         <p:inputText id="doubleValue1" value="#{scheduleController.selected.doubleValue1}" title="#{bundle.EditScheduleTitle_doubleValue1}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_doubleValue2}" for="doubleValue2" />
-                        <p:inputText id="doubleValue2" value="#{scheduleController.selected.doubleValue2}" title="#{bundle.EditScheduleTitle_doubleValue2}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_intValue1}" for="intValue1" />
-                        <p:inputText id="intValue1" value="#{scheduleController.selected.intValue1}" title="#{bundle.EditScheduleTitle_intValue1}" />
-                        <p:outputLabel value="#{bundle.EditScheduleLabel_intValue2}" for="intValue2" />
-                        <p:inputText id="intValue2" value="#{scheduleController.selected.intValue2}" title="#{bundle.EditScheduleTitle_intValue2}" />
-                    </p:panelGrid>
+                         </p:panelGrid>
                     <p:commandButton actionListener="#{scheduleController.update}" value="#{bundle.Save}" update="display,:ScheduleListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ScheduleEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ScheduleEditDialog.hide()"/>
                 </h:panelGroup>
