@@ -219,8 +219,8 @@
                     
                     
                
-                    <p:commandButton actionListener="#{vehicleController.update}" value="#{bundle.Save}" update="display,:VehicleListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VehicleEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="VehicleEditDialog.hide()"/>
+                    <p:commandButton actionListener="#{vehicleController.update}" value="Save" update="display,:VehicleListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VehicleEditDialog');"/>
+                    <p:commandButton value="Cancel" onclick="VehicleEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>
