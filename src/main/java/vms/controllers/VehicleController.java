@@ -62,13 +62,12 @@ public class VehicleController implements Serializable {
     }
 
     public void create() {
-        System.out.println("this = " + sessionController);
-        System.out.println("this = " + sessionController.getInstitution().getName());        
         if(sessionController.getInstitution()==null){
             JsfUtil.addErrorMessage("You do not belog to any institution. So you can not add vehicles.");
             return;
         }else{
             selected.setOwnerDepartmentOrInstitution(sessionController.getInstitution());
+            selected.setName(selected.getRegistrationNo());
         }
         persist(PersistAction.CREATE, "Vehicle Created");
         if (!JsfUtil.isValidationFailed()) {
