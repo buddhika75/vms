@@ -6,6 +6,7 @@ import vms.controllers.util.JsfUtil.PersistAction;
 import vms.faces.ScheduleFacade;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -18,6 +19,9 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Inject;
+import javax.mail.Session;
+import vms.enums.EventOrAppointmentType;
 
 @Named("scheduleController")
 @SessionScoped
@@ -27,6 +31,8 @@ public class ScheduleController implements Serializable {
     private vms.faces.ScheduleFacade ejbFacade;
     private List<Schedule> items = null;
     private Schedule selected;
+    @Inject
+    SessionController sessionController;
 
     public ScheduleController() {
     }
@@ -56,18 +62,25 @@ public class ScheduleController implements Serializable {
     }
 
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("ScheduleCreated"));
+        selected.setCreateAt(new Date());
+        selected.setCreatedBy(sessionController.getLoggedUser());
+        selected.setFromDate(selected.getThisDate());
+        selected.setToDate(selected.getThisDate());
+        selected.setFromMilage(selected.getThisMilage());
+        selected.setToMilage(selected.getThisMilage());
+        selected.setType(EventOrAppointmentType.ItemUnitScheduleManual);
+        persist(PersistAction.CREATE, ("ScheduleCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("ScheduleUpdated"));
+        persist(PersistAction.UPDATE, ("ScheduleUpdated"));
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("ScheduleDeleted"));
+        persist(PersistAction.DELETE, ("ScheduleDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
@@ -100,11 +113,11 @@ public class ScheduleController implements Serializable {
                 if (msg.length() > 0) {
                     JsfUtil.addErrorMessage(msg);
                 } else {
-                    JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                    JsfUtil.addErrorMessage(ex, ("PersistenceErrorOccured"));
                 }
             } catch (Exception ex) {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
-                JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                JsfUtil.addErrorMessage(ex, ("PersistenceErrorOccured"));
             }
         }
     }

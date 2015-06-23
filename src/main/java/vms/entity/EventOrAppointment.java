@@ -29,7 +29,7 @@ public class EventOrAppointment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     Date fromDate;
     Integer fromMilage;
     Integer toMilage;
@@ -37,10 +37,11 @@ public class EventOrAppointment implements Serializable {
     DepartmentOrInstitution fromDepartmentOrInstitution;
     @ManyToOne
     DepartmentOrInstitution toDepartmentOrInstitution;
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     Date toDate;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date thisDate;
+    Integer thisMilage;
     String name;
     @Lob
     String description;
@@ -50,7 +51,7 @@ public class EventOrAppointment implements Serializable {
     EventOrAppointment appointment;
     @ManyToOne
     WebUser createdBy;
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     Date createAt;
     @Lob
     String createrComments;
@@ -58,7 +59,7 @@ public class EventOrAppointment implements Serializable {
     Boolean completed;
     @ManyToOne
     WebUser cancelledBy;
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     Date cancelledAt;
     @Lob
     String calcellerComments;
@@ -83,6 +84,15 @@ public class EventOrAppointment implements Serializable {
     Double doubleValue2;
     Integer intValue1;
     Integer intValue2;
+
+    public Integer getThisMilage() {
+        return thisMilage;
+    }
+
+    public void setThisMilage(Integer thisMilage) {
+        this.thisMilage = thisMilage;
+    }
+    
     
 
     public Long getId() {
