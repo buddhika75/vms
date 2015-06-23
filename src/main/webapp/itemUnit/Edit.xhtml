@@ -8,114 +8,76 @@
 
     <ui:composition>
 
-        <p:dialog id="ItemUnitEditDlg" widgetVar="ItemUnitEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditItemUnitTitle}">
+        <p:dialog id="ItemUnitEditDlg" widgetVar="ItemUnitEditDialog" modal="true" resizable="false" 
+                  appendTo="@(body)" header="Edit Components">
             <h:form id="ItemUnitEditForm">
                 <h:panelGroup id="display">
+
                     <p:panelGrid columns="2" rendered="#{itemUnitController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_fromDate}" for="fromDate" />
-                        <p:calendar id="fromDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{itemUnitController.selected.fromDate}" title="#{bundle.EditItemUnitTitle_fromDate}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_toDate}" for="toDate" />
-                        <p:calendar id="toDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{itemUnitController.selected.toDate}" title="#{bundle.EditItemUnitTitle_toDate}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_fromMilage}" for="fromMilage" />
-                        <p:inputText id="fromMilage" value="#{itemUnitController.selected.fromMilage}" title="#{bundle.EditItemUnitTitle_fromMilage}" />
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_toMilage}" for="toMilage" />
-                        <p:inputText id="toMilage" value="#{itemUnitController.selected.toMilage}" title="#{bundle.EditItemUnitTitle_toMilage}" />
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_continuedFrom}" for="continuedFrom" />
-                        <p:selectOneMenu id="continuedFrom" value="#{itemUnitController.selected.continuedFrom}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{itemUnitController.itemsAvailableSelectOne}"
-                                           var="continuedFromItem"
-                                           itemValue="#{continuedFromItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_continuedTo}" for="continuedTo" />
-                        <p:selectOneMenu id="continuedTo" value="#{itemUnitController.selected.continuedTo}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{itemUnitController.itemsAvailableSelectOne}"
-                                           var="continuedToItem"
-                                           itemValue="#{continuedToItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_parent}" for="parent" />
+                        <p:outputLabel value="Vehicle" for="parent" />
                         <p:selectOneMenu id="parent" value="#{itemUnitController.selected.parent}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{itemUnitController.itemsAvailableSelectOne}"
+                            <f:selectItem itemLabel="Select a Vehicle" ></f:selectItem>
+                            <f:selectItems value="#{vehicleController.vechiclesOfLoggedInstitution}"
                                            var="parentItem"
                                            itemValue="#{parentItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_name}" for="name" />
-                        <p:inputText id="name" value="#{itemUnitController.selected.name}" title="#{bundle.EditItemUnitTitle_name}" />
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_code}" for="code" />
-                        <p:inputText id="code" value="#{itemUnitController.selected.code}" title="#{bundle.EditItemUnitTitle_code}" />
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_barcode}" for="barcode" />
-                        <p:inputText id="barcode" value="#{itemUnitController.selected.barcode}" title="#{bundle.EditItemUnitTitle_barcode}" />
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_serialNo}" for="serialNo" />
-                        <p:inputText id="serialNo" value="#{itemUnitController.selected.serialNo}" title="#{bundle.EditItemUnitTitle_serialNo}" />
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_description}" for="description" />
-                        <p:inputTextarea rows="4" cols="30" id="description" value="#{itemUnitController.selected.description}" title="#{bundle.EditItemUnitTitle_description}" />
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_ownerDepartmentOrInstitution}" for="ownerDepartmentOrInstitution" />
-                        <p:selectOneMenu id="ownerDepartmentOrInstitution" value="#{itemUnitController.selected.ownerDepartmentOrInstitution}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{departmentOrInstitutionController.itemsAvailableSelectOne}"
-                                           var="ownerDepartmentOrInstitutionItem"
-                                           itemValue="#{ownerDepartmentOrInstitutionItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_ownerPerson}" for="ownerPerson" />
-                        <p:selectOneMenu id="ownerPerson" value="#{itemUnitController.selected.ownerPerson}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{personController.itemsAvailableSelectOne}"
-                                           var="ownerPersonItem"
-                                           itemValue="#{ownerPersonItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_quantity}" for="quantity" />
-                        <p:inputText id="quantity" value="#{itemUnitController.selected.quantity}" title="#{bundle.EditItemUnitTitle_quantity}" />
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_item}" for="item" />
+
+                        <p:outputLabel value="Item" for="item" />
                         <p:selectOneMenu id="item" value="#{itemUnitController.selected.item}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{itemController.itemsAvailableSelectOne}"
+                            <f:selectItem itemLabel="Select the Component" ></f:selectItem>
+                            <f:selectItems value="#{itemController.vehicleComponent}"
                                            var="itemItem"
                                            itemValue="#{itemItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_make}" for="make" />
+
+                        <p:outputLabel value="Make" for="make" />
                         <p:selectOneMenu id="make" value="#{itemUnitController.selected.make}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                            <f:selectItem itemLabel="Select the Make" ></f:selectItem>
+                            <f:selectItems value="#{categoryController.makes}"
                                            var="makeItem"
                                            itemValue="#{makeItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_model}" for="model" />
+                        <p:outputLabel value="Model" for="model" />
                         <p:selectOneMenu id="model" value="#{itemUnitController.selected.model}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                            <f:selectItem itemLabel="Select the Model" ></f:selectItem>
+                            <f:selectItems value="#{categoryController.models}"
                                            var="modelItem"
                                            itemValue="#{modelItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_countryOfOrigin}" for="countryOfOrigin" />
-                        <p:selectOneMenu id="countryOfOrigin" value="#{itemUnitController.selected.countryOfOrigin}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
-                                           var="countryOfOriginItem"
-                                           itemValue="#{countryOfOriginItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_yearOfManufacturer}" for="yearOfManufacturer" />
-                        <p:inputText id="yearOfManufacturer" value="#{itemUnitController.selected.yearOfManufacturer}" title="#{bundle.EditItemUnitTitle_yearOfManufacturer}" />
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_countryOfImport}" for="countryOfImport" />
-                        <p:selectOneMenu id="countryOfImport" value="#{itemUnitController.selected.countryOfImport}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
-                                           var="countryOfImportItem"
-                                           itemValue="#{countryOfImportItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_colour}" for="colour" />
-                        <p:selectOneMenu id="colour" value="#{itemUnitController.selected.colour}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
-                                           var="colourItem"
-                                           itemValue="#{colourItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditItemUnitLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{itemUnitController.selected.id}" title="#{bundle.EditItemUnitTitle_id}" />
+
+                        <p:outputLabel value="Serial" for="serialNo" />
+                        <p:inputText id="serialNo" value="#{itemUnitController.selected.serialNo}" title="#{bundle.CreateItemUnitTitle_serialNo}" />
+
+                        <p:outputLabel value="Description" for="description" />
+                        <p:inputTextarea rows="4" cols="30" id="description" value="#{itemUnitController.selected.description}" title="#{bundle.CreateItemUnitTitle_description}" />
+
+                        <p:outputLabel value="Quantity" for="quantity" />
+                        <p:inputText id="quantity" value="#{itemUnitController.selected.quantity}" title="#{bundle.CreateItemUnitTitle_quantity}" />
+
+                        <p:outputLabel value="Installation" />
+                        <p:separator ></p:separator>
+
+                        <p:outputLabel value="Date" for="fromDate" />
+                        <p:calendar id="fromDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{itemUnitController.selected.fromDate}" 
+                                    title="Date"  />
+                        <p:outputLabel value="Milage" for="fromMilage" />
+                        <p:inputText id="fromMilage" value="#{itemUnitController.selected.fromMilage}" title="Milage" />
+
+                        <p:outputLabel value="Removal" for="parent" />
+                        <p:separator ></p:separator>
+
+                        <p:outputLabel value="Date" for="toDate" />
+                        <p:calendar id="toDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{itemUnitController.selected.toDate}"
+                                    title="Date"  />
+                        <p:outputLabel value="Milage" for="toMilage" />
+                        <p:inputText id="toMilage" value="#{itemUnitController.selected.toMilage}" title="Milage" />
+
+
+
+
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{itemUnitController.update}" value="#{bundle.Save}" update="display,:ItemUnitListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ItemUnitEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="ItemUnitEditDialog.hide()"/>
+                    <p:commandButton actionListener="#{itemUnitController.update}" value="Save" update="display,:ItemUnitListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ItemUnitEditDialog');"/>
+                    <p:commandButton value="Cancel" onclick="ItemUnitEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

@@ -12,6 +12,7 @@
                   resizable="false" appendTo="@(body)" header="Create New Component">
             <h:form id="ItemUnitCreateForm">
                 <h:panelGroup id="display">
+                    
                     <p:panelGrid columns="2" rendered="#{itemUnitController.selected != null}">
                         <p:outputLabel value="Vehicle" for="parent" />
                         <p:selectOneMenu id="parent" value="#{itemUnitController.selected.parent}" >
@@ -21,25 +22,29 @@
                                            itemValue="#{parentItem}"/>
                         </p:selectOneMenu>
 
-                        <p:outputLabel value="Installation" for="parent" />
-                        <p:separator ></p:separator>
+                        <p:outputLabel value="Item" for="item" />
+                        <p:selectOneMenu id="item" value="#{itemUnitController.selected.item}" >
+                            <f:selectItem itemLabel="Select the Component" ></f:selectItem>
+                            <f:selectItems value="#{itemController.vehicleComponent}"
+                                           var="itemItem"
+                                           itemValue="#{itemItem}"/>
+                        </p:selectOneMenu>
 
-                        <p:outputLabel value="Date" for="fromDate" />
-                        <p:calendar id="fromDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{itemUnitController.selected.fromDate}" title="#{bundle.EditItemUnitTitle_fromDate}"  showOn="button"/>
-                        <p:outputLabel value="Milage on" for="fromMilage" />
-                        <p:inputText id="fromMilage" value="#{itemUnitController.selected.fromMilage}" title="#{bundle.CreateItemUnitTitle_fromMilage}" />
-
-                        <p:outputLabel value="Removal" for="parent" />
-                        <p:separator ></p:separator>
-
-                        <p:outputLabel value="Date" for="toDate" />
-                        <p:calendar id="toDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{itemUnitController.selected.toDate}" title="#{bundle.EditItemUnitTitle_toDate}"  showOn="button"/>
-                        <p:outputLabel value="Milage" for="toMilage" />
-                        <p:inputText id="toMilage" value="#{itemUnitController.selected.toMilage}" title="#{bundle.CreateItemUnitTitle_toMilage}" />
-
-                        <p:separator ></p:separator>
-                        <p:separator ></p:separator>
-
+                        <p:outputLabel value="Make" for="make" />
+                        <p:selectOneMenu id="make" value="#{itemUnitController.selected.make}" >
+                            <f:selectItem itemLabel="Select the Make" ></f:selectItem>
+                            <f:selectItems value="#{categoryController.makes}"
+                                           var="makeItem"
+                                           itemValue="#{makeItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Model" for="model" />
+                        <p:selectOneMenu id="model" value="#{itemUnitController.selected.model}" >
+                            <f:selectItem itemLabel="Select the Model" ></f:selectItem>
+                            <f:selectItems value="#{categoryController.models}"
+                                           var="modelItem"
+                                           itemValue="#{modelItem}"/>
+                        </p:selectOneMenu>
+                        
                         <p:outputLabel value="Serial" for="serialNo" />
                         <p:inputText id="serialNo" value="#{itemUnitController.selected.serialNo}" title="#{bundle.CreateItemUnitTitle_serialNo}" />
 
@@ -49,27 +54,29 @@
                         <p:outputLabel value="Quantity" for="quantity" />
                         <p:inputText id="quantity" value="#{itemUnitController.selected.quantity}" title="#{bundle.CreateItemUnitTitle_quantity}" />
 
-                        <p:outputLabel value="Item" for="item" />
-                        <p:selectOneMenu id="item" value="#{itemUnitController.selected.item}" >
-                            <f:selectItems value="#{itemController.vehicleComponent}"
-                                           var="itemItem"
-                                           itemValue="#{itemItem}"/>
-                        </p:selectOneMenu>
+                        <p:outputLabel value="Installation" />
+                        <p:separator ></p:separator>
 
-                        <p:outputLabel value="Make" for="make" />
-                        <p:selectOneMenu id="make" value="#{itemUnitController.selected.make}" >
-                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
-                                           var="makeItem"
-                                           itemValue="#{makeItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="Model" for="model" />
-                        <p:selectOneMenu id="model" value="#{itemUnitController.selected.model}" >
-                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
-                                           var="modelItem"
-                                           itemValue="#{modelItem}"/>
-                        </p:selectOneMenu>
+                        <p:outputLabel value="Date" for="fromDate" />
+                        <p:calendar id="fromDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{itemUnitController.selected.fromDate}" 
+                                    title="Date"  />
+                        <p:outputLabel value="Milage" for="fromMilage" />
+                        <p:inputText id="fromMilage" value="#{itemUnitController.selected.fromMilage}" title="Milage" />
+
+                        <p:outputLabel value="Removal" for="parent" />
+                        <p:separator ></p:separator>
+
+                        <p:outputLabel value="Date" for="toDate" />
+                        <p:calendar id="toDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{itemUnitController.selected.toDate}"
+                                    title="Date"  />
+                        <p:outputLabel value="Milage" for="toMilage" />
+                        <p:inputText id="toMilage" value="#{itemUnitController.selected.toMilage}" title="Milage" />
+
+                     
+
+                        
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{itemUnitController.create}" value="#{bundle.Save}" update="display,:ItemUnitListForm:datalist,:growl" oncomplete="handleSubmit(args,'ItemUnitCreateDialog');"/>
+                    <p:commandButton actionListener="#{itemUnitController.createVehicleComponents}" value="#{bundle.Save}" update="display,:ItemUnitListForm:datalist,:growl" oncomplete="handleSubmit(args,'ItemUnitCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ItemUnitCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
