@@ -10,12 +10,12 @@
 
 
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListVehicleTitle}"></h:outputText>
+            <h:outputText value="List Vehicle"></h:outputText>
         </ui:define>
 
         <ui:define name="body">
             <h:form id="VehicleListForm">
-                <p:panel header="#{bundle.ListVehicleTitle}">
+                <p:panel header="List Vehicle">
                     <p:dataTable id="datalist" value="#{vehicleController.items}" var="item"
                                  selectionMode="single" selection="#{vehicleController.selected}"
                                  paginator="true"
@@ -29,139 +29,139 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_engineNo}"/>
+                                <h:outputText value="Engine No"/>
                             </f:facet>
                             <h:outputText value="#{item.engineNo}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_chassicNo}"/>
+                                <h:outputText value="Chassi No"/>
                             </f:facet>
                             <h:outputText value="#{item.chassicNo}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_engineCapasity}"/>
+                                <h:outputText value="Engine Capasity"/>
                             </f:facet>
                             <h:outputText value="#{item.engineCapasity}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_registrationNo}"/>
+                                <h:outputText value="Registration No"/>
                             </f:facet>
                             <h:outputText value="#{item.registrationNo}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_currentOwner}"/>
+                                <h:outputText value="Current Owner"/>
                             </f:facet>
                             <h:outputText value="#{item.currentOwner}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_conditions}"/>
+                                <h:outputText value="Conditions"/>
                             </f:facet>
                             <h:outputText value="#{item.conditions}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_vehicleClass}"/>
+                                <h:outputText value="Vehicle Class"/>
                             </f:facet>
                             <h:outputText value="#{item.vehicleClass}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_taxacionClass}"/>
+                                <h:outputText value="Taxacion Class"/>
                             </f:facet>
                             <h:outputText value="#{item.taxacionClass}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_statusWhenRegistered}"/>
+                                <h:outputText value="Status When Registered"/>
                             </f:facet>
                             <h:outputText value="#{item.statusWhenRegistered}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_fuelType}"/>
+                                <h:outputText value="Fuel Type"/>
                             </f:facet>
                             <h:outputText value="#{item.fuelType}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_typeOfBody}"/>
+                                <h:outputText value="Type Of Body"/>
                             </f:facet>
                             <h:outputText value="#{item.typeOfBody}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_previousOwners}"/>
+                                <h:outputText value="Previous Owners"/>
                             </f:facet>
                             <h:outputText value="#{item.previousOwners}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_seatingCapacity}"/>
+                                <h:outputText value="Seating Capacity"/>
                             </f:facet>
                             <h:outputText value="#{item.seatingCapacity}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_weightUnloaded}"/>
+                                <h:outputText value="Weight Unloaded"/>
                             </f:facet>
                             <h:outputText value="#{item.weightUnloaded}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_weightGross}"/>
+                                <h:outputText value="Weight Gross"/>
                             </f:facet>
                             <h:outputText value="#{item.weightGross}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_tyreSizeFront}"/>
+                                <h:outputText value="Tyre Size Front"/>
                             </f:facet>
                             <h:outputText value="#{item.tyreSizeFront}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_tyreSizeRear}"/>
+                                <h:outputText value="Tyre Size Rear"/>
                             </f:facet>
                             <h:outputText value="#{item.tyreSizeRear}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_duelTyresFront}"/>
+                                <h:outputText value="Duel Tyres Front"/>
                             </f:facet>
                             <p:selectBooleanCheckbox value="#{item.duelTyresFront}" disabled="true"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_duelTyresRear}"/>
+                                <h:outputText value="Duel Tyres Rear"/>
                             </f:facet>
                             <p:selectBooleanCheckbox value="#{item.duelTyresRear}" disabled="true"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_lengthInMeters}"/>
+                                <h:outputText value="Length In Meters"/>
                             </f:facet>
                             <h:outputText value="#{item.lengthInMeters}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_widthInMeters}"/>
+                                <h:outputText value="Width In Meters"/>
                             </f:facet>
                             <h:outputText value="#{item.widthInMeters}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_heightInCm}"/>
+                                <h:outputText value="Height In Cm"/>
                             </f:facet>
                             <h:outputText value="#{item.heightInCm}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_dateOfFirstRegistration}"/>
+                                <h:outputText value="Date Of First Registration"/>
                             </f:facet>
                             <h:outputText value="#{item.dateOfFirstRegistration}">
                                 <f:convertDateTime pattern="dd MMM yyyy" />
@@ -169,103 +169,103 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_taxes}"/>
+                                <h:outputText value="Taxes"/>
                             </f:facet>
                             <h:outputText value="#{item.taxes}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_name}"/>
+                                <h:outputText value="Name"/>
                             </f:facet>
                             <h:outputText value="#{item.name}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_code}"/>
+                                <h:outputText value="Code}"/>
                             </f:facet>
                             <h:outputText value="#{item.code}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_barcode}"/>
+                                <h:outputText value="Barcode"/>
                             </f:facet>
                             <h:outputText value="#{item.barcode}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_serialNo}"/>
+                                <h:outputText value="Serial No"/>
                             </f:facet>
                             <h:outputText value="#{item.serialNo}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_description}"/>
+                                <h:outputText value="Description"/>
                             </f:facet>
                             <h:outputText value="#{item.description}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_ownerDepartmentOrInstitution}"/>
+                                <h:outputText value="Owner Department Or Institution"/>
                             </f:facet>
                             <h:outputText value="#{item.ownerDepartmentOrInstitution}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_ownerPerson}"/>
+                                <h:outputText value="Owner Person"/>
                             </f:facet>
                             <h:outputText value="#{item.ownerPerson}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_quantity}"/>
+                                <h:outputText value="Quantity"/>
                             </f:facet>
                             <h:outputText value="#{item.quantity}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_item}"/>
+                                <h:outputText value="Item"/>
                             </f:facet>
                             <h:outputText value="#{item.item}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_make}"/>
+                                <h:outputText value="Make"/>
                             </f:facet>
                             <h:outputText value="#{item.make}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_model}"/>
+                                <h:outputText value="Model"/>
                             </f:facet>
                             <h:outputText value="#{item.model}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_countryOfOrigin}"/>
+                                <h:outputText value="Country Of Origin"/>
                             </f:facet>
                             <h:outputText value="#{item.countryOfOrigin}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_yearOfManufacturer}"/>
+                                <h:outputText value="Year Of Manufacturer"/>
                             </f:facet>
                             <h:outputText value="#{item.yearOfManufacturer}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_countryOfImport}"/>
+                                <h:outputText value="Country Of Import"/>
                             </f:facet>
                             <h:outputText value="#{item.countryOfImport}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_colour}"/>
+                                <h:outputText value="Colour"/>
                             </f:facet>
                             <h:outputText value="#{item.colour}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVehicleTitle_id}"/>
+                                <h:outputText value="Id"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
                         </p:column>
