@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EventOrAppointmentEditDlg" widgetVar="EventOrAppointmentEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEventOrAppointmentTitle}">
+            <h:form id="EventOrAppointmentEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{eventOrAppointmentController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{eventOrAppointmentController.selected.id}" title="#{bundle.EditEventOrAppointmentTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_type}" for="type" />
+                        <p:inputText id="type" value="#{eventOrAppointmentController.selected.type}" title="#{bundle.EditEventOrAppointmentTitle_type}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_fromDate}" for="fromDate" />
+                        <p:calendar id="fromDate" pattern="MM/dd/yyyy" value="#{eventOrAppointmentController.selected.fromDate}" title="#{bundle.EditEventOrAppointmentTitle_fromDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_fromMilage}" for="fromMilage" />
+                        <p:inputText id="fromMilage" value="#{eventOrAppointmentController.selected.fromMilage}" title="#{bundle.EditEventOrAppointmentTitle_fromMilage}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_toMilage}" for="toMilage" />
+                        <p:inputText id="toMilage" value="#{eventOrAppointmentController.selected.toMilage}" title="#{bundle.EditEventOrAppointmentTitle_toMilage}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_fromDepartmentOrInstitution}" for="fromDepartmentOrInstitution" />
+                        <p:selectOneMenu id="fromDepartmentOrInstitution" value="#{eventOrAppointmentController.selected.fromDepartmentOrInstitution}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{departmentOrInstitutionController.itemsAvailableSelectOne}"
+                                           var="fromDepartmentOrInstitutionItem"
+                                           itemValue="#{fromDepartmentOrInstitutionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_toDepartmentOrInstitution}" for="toDepartmentOrInstitution" />
+                        <p:selectOneMenu id="toDepartmentOrInstitution" value="#{eventOrAppointmentController.selected.toDepartmentOrInstitution}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{departmentOrInstitutionController.itemsAvailableSelectOne}"
+                                           var="toDepartmentOrInstitutionItem"
+                                           itemValue="#{toDepartmentOrInstitutionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_toDate}" for="toDate" />
+                        <p:calendar id="toDate" pattern="MM/dd/yyyy" value="#{eventOrAppointmentController.selected.toDate}" title="#{bundle.EditEventOrAppointmentTitle_toDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_thisDate}" for="thisDate" />
+                        <p:calendar id="thisDate" pattern="MM/dd/yyyy" value="#{eventOrAppointmentController.selected.thisDate}" title="#{bundle.EditEventOrAppointmentTitle_thisDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{eventOrAppointmentController.selected.name}" title="#{bundle.EditEventOrAppointmentTitle_name}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_description}" for="description" />
+                        <p:inputTextarea rows="4" cols="30" id="description" value="#{eventOrAppointmentController.selected.description}" title="#{bundle.EditEventOrAppointmentTitle_description}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_event}" for="event" />
+                        <p:selectOneMenu id="event" value="#{eventOrAppointmentController.selected.event}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{eventOrAppointmentController.itemsAvailableSelectOne}"
+                                           var="eventItem"
+                                           itemValue="#{eventItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_appointment}" for="appointment" />
+                        <p:selectOneMenu id="appointment" value="#{eventOrAppointmentController.selected.appointment}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{eventOrAppointmentController.itemsAvailableSelectOne}"
+                                           var="appointmentItem"
+                                           itemValue="#{appointmentItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_createdBy}" for="createdBy" />
+                        <p:selectOneMenu id="createdBy" value="#{eventOrAppointmentController.selected.createdBy}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{webUserController.itemsAvailableSelectOne}"
+                                           var="createdByItem"
+                                           itemValue="#{createdByItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_createAt}" for="createAt" />
+                        <p:calendar id="createAt" pattern="MM/dd/yyyy" value="#{eventOrAppointmentController.selected.createAt}" title="#{bundle.EditEventOrAppointmentTitle_createAt}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_createrComments}" for="createrComments" />
+                        <p:inputTextarea rows="4" cols="30" id="createrComments" value="#{eventOrAppointmentController.selected.createrComments}" title="#{bundle.EditEventOrAppointmentTitle_createrComments}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_cancelledBy}" for="cancelledBy" />
+                        <p:selectOneMenu id="cancelledBy" value="#{eventOrAppointmentController.selected.cancelledBy}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{webUserController.itemsAvailableSelectOne}"
+                                           var="cancelledByItem"
+                                           itemValue="#{cancelledByItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_cancelledAt}" for="cancelledAt" />
+                        <p:calendar id="cancelledAt" pattern="MM/dd/yyyy" value="#{eventOrAppointmentController.selected.cancelledAt}" title="#{bundle.EditEventOrAppointmentTitle_cancelledAt}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_calcellerComments}" for="calcellerComments" />
+                        <p:inputTextarea rows="4" cols="30" id="calcellerComments" value="#{eventOrAppointmentController.selected.calcellerComments}" title="#{bundle.EditEventOrAppointmentTitle_calcellerComments}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_dailyFrequency}" for="dailyFrequency" />
+                        <p:inputText id="dailyFrequency" value="#{eventOrAppointmentController.selected.dailyFrequency}" title="#{bundle.EditEventOrAppointmentTitle_dailyFrequency}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_monthlyFrequency}" for="monthlyFrequency" />
+                        <p:inputText id="monthlyFrequency" value="#{eventOrAppointmentController.selected.monthlyFrequency}" title="#{bundle.EditEventOrAppointmentTitle_monthlyFrequency}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_yearlyFrequency}" for="yearlyFrequency" />
+                        <p:inputText id="yearlyFrequency" value="#{eventOrAppointmentController.selected.yearlyFrequency}" title="#{bundle.EditEventOrAppointmentTitle_yearlyFrequency}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_milageFrequency}" for="milageFrequency" />
+                        <p:inputText id="milageFrequency" value="#{eventOrAppointmentController.selected.milageFrequency}" title="#{bundle.EditEventOrAppointmentTitle_milageFrequency}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_category}" for="category" />
+                        <p:selectOneMenu id="category" value="#{eventOrAppointmentController.selected.category}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="categoryItem"
+                                           itemValue="#{categoryItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_forItem}" for="forItem" />
+                        <p:selectOneMenu id="forItem" value="#{eventOrAppointmentController.selected.forItem}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="forItemItem"
+                                           itemValue="#{forItemItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_forCategory}" for="forCategory" />
+                        <p:selectOneMenu id="forCategory" value="#{eventOrAppointmentController.selected.forCategory}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="forCategoryItem"
+                                           itemValue="#{forCategoryItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_forItemUnit}" for="forItemUnit" />
+                        <p:selectOneMenu id="forItemUnit" value="#{eventOrAppointmentController.selected.forItemUnit}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemUnitController.itemsAvailableSelectOne}"
+                                           var="forItemUnitItem"
+                                           itemValue="#{forItemUnitItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_doubleValue1}" for="doubleValue1" />
+                        <p:inputText id="doubleValue1" value="#{eventOrAppointmentController.selected.doubleValue1}" title="#{bundle.EditEventOrAppointmentTitle_doubleValue1}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_doubleValue2}" for="doubleValue2" />
+                        <p:inputText id="doubleValue2" value="#{eventOrAppointmentController.selected.doubleValue2}" title="#{bundle.EditEventOrAppointmentTitle_doubleValue2}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_intValue1}" for="intValue1" />
+                        <p:inputText id="intValue1" value="#{eventOrAppointmentController.selected.intValue1}" title="#{bundle.EditEventOrAppointmentTitle_intValue1}" />
+                        <p:outputLabel value="#{bundle.EditEventOrAppointmentLabel_intValue2}" for="intValue2" />
+                        <p:inputText id="intValue2" value="#{eventOrAppointmentController.selected.intValue2}" title="#{bundle.EditEventOrAppointmentTitle_intValue2}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{eventOrAppointmentController.update}" value="#{bundle.Save}" update="display,:EventOrAppointmentListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EventOrAppointmentEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EventOrAppointmentEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
