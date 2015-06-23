@@ -12,21 +12,13 @@
             <h:form id="ItemViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{itemController.selected != null}">
-                        <h:outputText value="#{bundle.ViewItemLabel_name}"/>
+                        <h:outputText value="Name"/>
                         <h:outputText value="#{itemController.selected.name}" title="#{bundle.ViewItemTitle_name}"/>
-                        <h:outputText value="#{bundle.ViewItemLabel_code}"/>
-                        <h:outputText value="#{itemController.selected.code}" title="#{bundle.ViewItemTitle_code}"/>
-                        <h:outputText value="#{bundle.ViewItemLabel_barcode}"/>
-                        <h:outputText value="#{itemController.selected.barcode}" title="#{bundle.ViewItemTitle_barcode}"/>
-                        <h:outputText value="#{bundle.ViewItemLabel_description}"/>
+                        <h:outputText value="Description"/>
                         <h:outputText value="#{itemController.selected.description}" title="#{bundle.ViewItemTitle_description}"/>
-                        <h:outputText value="#{bundle.ViewItemLabel_orderNo}"/>
-                        <h:outputText value="#{itemController.selected.orderNo}" title="#{bundle.ViewItemTitle_orderNo}"/>
-                        
-                        <h:outputText value="#{bundle.ViewItemLabel_parent}"/>
+                        <h:outputText value="Category"/>
                         <h:outputText value="#{itemController.selected.parent.name}" title="#{bundle.ViewItemTitle_parent}"/>
-                        <h:outputText value="#{bundle.ViewItemLabel_type}"/>
-                        <h:outputText value="#{itemController.selected.type}" title="#{bundle.ViewItemTitle_type}"/>
+                        
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="ItemViewDialog.hide()"/>
                 </h:panelGroup>

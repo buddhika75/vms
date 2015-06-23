@@ -227,7 +227,7 @@ public class ItemUnit implements Serializable {
 
     @Override
     public String toString() {
-        return "vms.entity.ItemUnit[ id=" + id + " ]";
+        return name;
     }
 
 }
