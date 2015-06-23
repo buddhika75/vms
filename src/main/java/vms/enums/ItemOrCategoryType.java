@@ -21,6 +21,10 @@ public enum ItemOrCategoryType {
     FormComponent,
     Make,
     Model,
+    VehicleCategory,
+    TaxCategory,
+    Country,
+    Colour,
     
     
 }
