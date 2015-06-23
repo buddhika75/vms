@@ -6,7 +6,9 @@ import vms.controllers.util.JsfUtil.PersistAction;
 import vms.faces.VehicleFacade;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +21,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
+import vms.entity.DepartmentOrInstitution;
 
 @Named("vehicleController")
 @SessionScoped
@@ -59,26 +62,25 @@ public class VehicleController implements Serializable {
     }
 
     public void create() {
-        System.out.println("this = " + sessionController);
-        System.out.println("this = " + sessionController.getInstitution().getName());        
         if(sessionController.getInstitution()==null){
             JsfUtil.addErrorMessage("You do not belog to any institution. So you can not add vehicles.");
             return;
         }else{
             selected.setOwnerDepartmentOrInstitution(sessionController.getInstitution());
+            selected.setName(selected.getRegistrationNo());
         }
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("VehicleCreated"));
+        persist(PersistAction.CREATE, "Vehicle Created");
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("VehicleUpdated"));
+        persist(PersistAction.UPDATE, ("VehicleUpdated"));
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("VehicleDeleted"));
+        persist(PersistAction.DELETE, ("VehicleDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
@@ -111,11 +113,11 @@ public class VehicleController implements Serializable {
                 if (msg.length() > 0) {
                     JsfUtil.addErrorMessage(msg);
                 } else {
-                    JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                    JsfUtil.addErrorMessage(ex, ("PersistenceErrorOccured"));
                 }
             } catch (Exception ex) {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
-                JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                JsfUtil.addErrorMessage(ex, ("PersistenceErrorOccured"));
             }
         }
     }
@@ -131,7 +133,21 @@ public class VehicleController implements Serializable {
     public List<Vehicle> getItemsAvailableSelectOne() {
         return getFacade().findAll();
     }
+    
+    public List<Vehicle> getVechiclesOfLoggedInstitution() {
+        return getVechiclesOfSelectedInstitution(sessionController.getInstitution());
+    }
+    
+    public List<Vehicle> getVechiclesOfSelectedInstitution(DepartmentOrInstitution dor) {
+        String jpql;
+        Map m = new HashMap();
+        jpql = "select v from Vehicle v where v.ownerDepartmentOrInstitution=:dor order by v.name";
+        m.put("dor", dor);
+        return getFacade().findBySQL(jpql, m);
+    }
 
+    
+    
     @FacesConverter(forClass = Vehicle.class)
     public static class VehicleControllerConverter implements Converter {
 
