@@ -12,43 +12,43 @@
             <h:form id="PersonViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{personController.selected != null}">
-                        <h:outputText value="#{bundle.ViewPersonLabel_passportNo}"/>
+                        <h:outputText value="PassportNo"/>
                         <h:outputText value="#{personController.selected.passportNo}" title="#{bundle.ViewPersonTitle_passportNo}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_nameWithTitle}"/>
+                        <h:outputText value="Name With Title"/>
                         <h:outputText value="#{personController.selected.nameWithTitle}" title="#{bundle.ViewPersonTitle_nameWithTitle}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_sex}"/>
+                        <h:outputText value="Sex"/>
                         <h:outputText value="#{personController.selected.sex}" title="#{bundle.ViewPersonTitle_sex}"/>
-                         <h:outputText value="#{bundle.ViewPersonLabel_description}"/>
+                         <h:outputText value="Description"/>
                         <h:outputText value="#{personController.selected.description}" title="#{bundle.ViewPersonTitle_description}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_name}"/>
+                        <h:outputText value="Name"/>
                         <h:outputText value="#{personController.selected.name}" title="#{bundle.ViewPersonTitle_name}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_address}"/>
+                        <h:outputText value="Address"/>
                         <h:outputText value="#{personController.selected.address}" title="#{bundle.ViewPersonTitle_address}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_fax}"/>
+                        <h:outputText value="Fax"/>
                         <h:outputText value="#{personController.selected.fax}" title="#{bundle.ViewPersonTitle_fax}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_email}"/>
+                        <h:outputText value="Email"/>
                         <h:outputText value="#{personController.selected.email}" title="#{bundle.ViewPersonTitle_email}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_website}"/>
+                        <h:outputText value="Website"/>
                         <h:outputText value="#{personController.selected.website}" title="#{bundle.ViewPersonTitle_website}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_mobile}"/>
+                        <h:outputText value="Mobile"/>
                         <h:outputText value="#{personController.selected.mobile}" title="#{bundle.ViewPersonTitle_mobile}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_institution}"/>
+                        <h:outputText value="Institution"/>
                         <h:outputText value="#{personController.selected.institution}" title="#{bundle.ViewPersonTitle_institution}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_department}"/>
+                        <h:outputText value="Department"/>
                         <h:outputText value="#{personController.selected.department}" title="#{bundle.ViewPersonTitle_department}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_title}"/>
+                        <h:outputText value="Title"/>
                         <h:outputText value="#{personController.selected.title}" title="#{bundle.ViewPersonTitle_title}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_dob}"/>
+                        <h:outputText value="DOB"/>
                         <h:outputText value="#{personController.selected.dob}" title="#{bundle.ViewPersonTitle_dob}">
                             <f:convertDateTime pattern="dd MMM yyyy HH:mm:ss" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewPersonLabel_fullName}"/>
+                        <h:outputText value="Full Name"/>
                         <h:outputText value="#{personController.selected.fullName}" title="#{bundle.ViewPersonTitle_fullName}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_nameWithInitials}"/>
+                        <h:outputText value="Name With Initials"/>
                         <h:outputText value="#{personController.selected.nameWithInitials}" title="#{bundle.ViewPersonTitle_nameWithInitials}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_phone}"/>
+                        <h:outputText value="Phone"/>
                         <h:outputText value="#{personController.selected.phone}" title="#{bundle.ViewPersonTitle_phone}"/>
-                        <h:outputText value="#{bundle.ViewPersonLabel_nic}"/>
+                        <h:outputText value="NIC"/>
                         <h:outputText value="#{personController.selected.nic}" title="#{bundle.ViewPersonTitle_nic}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="PersonViewDialog.hide()"/>
