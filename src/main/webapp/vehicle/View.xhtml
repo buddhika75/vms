@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VehicleViewDlg" widgetVar="VehicleViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVehicleTitle}">
+            <h:form id="VehicleViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vehicleController.selected != null}">
+                        <h:outputText value="#{bundle.ViewVehicleLabel_engineNo}"/>
+                        <h:outputText value="#{vehicleController.selected.engineNo}" title="#{bundle.ViewVehicleTitle_engineNo}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_chassicNo}"/>
+                        <h:outputText value="#{vehicleController.selected.chassicNo}" title="#{bundle.ViewVehicleTitle_chassicNo}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_engineCapasity}"/>
+                        <h:outputText value="#{vehicleController.selected.engineCapasity}" title="#{bundle.ViewVehicleTitle_engineCapasity}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_registrationNo}"/>
+                        <h:outputText value="#{vehicleController.selected.registrationNo}" title="#{bundle.ViewVehicleTitle_registrationNo}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_currentOwner}"/>
+                        <h:outputText value="#{vehicleController.selected.currentOwner}" title="#{bundle.ViewVehicleTitle_currentOwner}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_conditions}"/>
+                        <h:outputText value="#{vehicleController.selected.conditions}" title="#{bundle.ViewVehicleTitle_conditions}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_vehicleClass}"/>
+                        <h:outputText value="#{vehicleController.selected.vehicleClass}" title="#{bundle.ViewVehicleTitle_vehicleClass}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_taxacionClass}"/>
+                        <h:outputText value="#{vehicleController.selected.taxacionClass}" title="#{bundle.ViewVehicleTitle_taxacionClass}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_statusWhenRegistered}"/>
+                        <h:outputText value="#{vehicleController.selected.statusWhenRegistered}" title="#{bundle.ViewVehicleTitle_statusWhenRegistered}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_fuelType}"/>
+                        <h:outputText value="#{vehicleController.selected.fuelType}" title="#{bundle.ViewVehicleTitle_fuelType}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_typeOfBody}"/>
+                        <h:outputText value="#{vehicleController.selected.typeOfBody}" title="#{bundle.ViewVehicleTitle_typeOfBody}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_previousOwners}"/>
+                        <h:outputText value="#{vehicleController.selected.previousOwners}" title="#{bundle.ViewVehicleTitle_previousOwners}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_seatingCapacity}"/>
+                        <h:outputText value="#{vehicleController.selected.seatingCapacity}" title="#{bundle.ViewVehicleTitle_seatingCapacity}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_weightUnloaded}"/>
+                        <h:outputText value="#{vehicleController.selected.weightUnloaded}" title="#{bundle.ViewVehicleTitle_weightUnloaded}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_weightGross}"/>
+                        <h:outputText value="#{vehicleController.selected.weightGross}" title="#{bundle.ViewVehicleTitle_weightGross}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_tyreSizeFront}"/>
+                        <h:outputText value="#{vehicleController.selected.tyreSizeFront}" title="#{bundle.ViewVehicleTitle_tyreSizeFront}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_tyreSizeRear}"/>
+                        <h:outputText value="#{vehicleController.selected.tyreSizeRear}" title="#{bundle.ViewVehicleTitle_tyreSizeRear}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_duelTyresFront}"/>
+                        <p:selectBooleanCheckbox value="#{vehicleController.selected.duelTyresFront}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_duelTyresRear}"/>
+                        <p:selectBooleanCheckbox value="#{vehicleController.selected.duelTyresRear}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_lengthInMeters}"/>
+                        <h:outputText value="#{vehicleController.selected.lengthInMeters}" title="#{bundle.ViewVehicleTitle_lengthInMeters}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_widthInMeters}"/>
+                        <h:outputText value="#{vehicleController.selected.widthInMeters}" title="#{bundle.ViewVehicleTitle_widthInMeters}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_heightInCm}"/>
+                        <h:outputText value="#{vehicleController.selected.heightInCm}" title="#{bundle.ViewVehicleTitle_heightInCm}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_dateOfFirstRegistration}"/>
+                        <h:outputText value="#{vehicleController.selected.dateOfFirstRegistration}" title="#{bundle.ViewVehicleTitle_dateOfFirstRegistration}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_taxes}"/>
+                        <h:outputText value="#{vehicleController.selected.taxes}" title="#{bundle.ViewVehicleTitle_taxes}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_name}"/>
+                        <h:outputText value="#{vehicleController.selected.name}" title="#{bundle.ViewVehicleTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_code}"/>
+                        <h:outputText value="#{vehicleController.selected.code}" title="#{bundle.ViewVehicleTitle_code}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_barcode}"/>
+                        <h:outputText value="#{vehicleController.selected.barcode}" title="#{bundle.ViewVehicleTitle_barcode}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_serialNo}"/>
+                        <h:outputText value="#{vehicleController.selected.serialNo}" title="#{bundle.ViewVehicleTitle_serialNo}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_description}"/>
+                        <h:outputText value="#{vehicleController.selected.description}" title="#{bundle.ViewVehicleTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_ownerDepartmentOrInstitution}"/>
+                        <h:outputText value="#{vehicleController.selected.ownerDepartmentOrInstitution}" title="#{bundle.ViewVehicleTitle_ownerDepartmentOrInstitution}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_ownerPerson}"/>
+                        <h:outputText value="#{vehicleController.selected.ownerPerson}" title="#{bundle.ViewVehicleTitle_ownerPerson}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_quantity}"/>
+                        <h:outputText value="#{vehicleController.selected.quantity}" title="#{bundle.ViewVehicleTitle_quantity}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_item}"/>
+                        <h:outputText value="#{vehicleController.selected.item}" title="#{bundle.ViewVehicleTitle_item}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_make}"/>
+                        <h:outputText value="#{vehicleController.selected.make}" title="#{bundle.ViewVehicleTitle_make}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_model}"/>
+                        <h:outputText value="#{vehicleController.selected.model}" title="#{bundle.ViewVehicleTitle_model}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_countryOfOrigin}"/>
+                        <h:outputText value="#{vehicleController.selected.countryOfOrigin}" title="#{bundle.ViewVehicleTitle_countryOfOrigin}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_yearOfManufacturer}"/>
+                        <h:outputText value="#{vehicleController.selected.yearOfManufacturer}" title="#{bundle.ViewVehicleTitle_yearOfManufacturer}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_countryOfImport}"/>
+                        <h:outputText value="#{vehicleController.selected.countryOfImport}" title="#{bundle.ViewVehicleTitle_countryOfImport}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_colour}"/>
+                        <h:outputText value="#{vehicleController.selected.colour}" title="#{bundle.ViewVehicleTitle_colour}"/>
+                        <h:outputText value="#{bundle.ViewVehicleLabel_id}"/>
+                        <h:outputText value="#{vehicleController.selected.id}" title="#{bundle.ViewVehicleTitle_id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="VehicleViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

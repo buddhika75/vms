@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ItemUnitViewDlg" widgetVar="ItemUnitViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewItemUnitTitle}">
+            <h:form id="ItemUnitViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{itemUnitController.selected != null}">
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_name}"/>
+                        <h:outputText value="#{itemUnitController.selected.name}" title="#{bundle.ViewItemUnitTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_code}"/>
+                        <h:outputText value="#{itemUnitController.selected.code}" title="#{bundle.ViewItemUnitTitle_code}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_barcode}"/>
+                        <h:outputText value="#{itemUnitController.selected.barcode}" title="#{bundle.ViewItemUnitTitle_barcode}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_serialNo}"/>
+                        <h:outputText value="#{itemUnitController.selected.serialNo}" title="#{bundle.ViewItemUnitTitle_serialNo}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_description}"/>
+                        <h:outputText value="#{itemUnitController.selected.description}" title="#{bundle.ViewItemUnitTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_ownerDepartmentOrInstitution}"/>
+                        <h:outputText value="#{itemUnitController.selected.ownerDepartmentOrInstitution}" title="#{bundle.ViewItemUnitTitle_ownerDepartmentOrInstitution}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_ownerPerson}"/>
+                        <h:outputText value="#{itemUnitController.selected.ownerPerson}" title="#{bundle.ViewItemUnitTitle_ownerPerson}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_quantity}"/>
+                        <h:outputText value="#{itemUnitController.selected.quantity}" title="#{bundle.ViewItemUnitTitle_quantity}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_item}"/>
+                        <h:outputText value="#{itemUnitController.selected.item}" title="#{bundle.ViewItemUnitTitle_item}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_make}"/>
+                        <h:outputText value="#{itemUnitController.selected.make}" title="#{bundle.ViewItemUnitTitle_make}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_model}"/>
+                        <h:outputText value="#{itemUnitController.selected.model}" title="#{bundle.ViewItemUnitTitle_model}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_countryOfOrigin}"/>
+                        <h:outputText value="#{itemUnitController.selected.countryOfOrigin}" title="#{bundle.ViewItemUnitTitle_countryOfOrigin}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_yearOfManufacturer}"/>
+                        <h:outputText value="#{itemUnitController.selected.yearOfManufacturer}" title="#{bundle.ViewItemUnitTitle_yearOfManufacturer}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_countryOfImport}"/>
+                        <h:outputText value="#{itemUnitController.selected.countryOfImport}" title="#{bundle.ViewItemUnitTitle_countryOfImport}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_colour}"/>
+                        <h:outputText value="#{itemUnitController.selected.colour}" title="#{bundle.ViewItemUnitTitle_colour}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_id}"/>
+                        <h:outputText value="#{itemUnitController.selected.id}" title="#{bundle.ViewItemUnitTitle_id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ItemUnitViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

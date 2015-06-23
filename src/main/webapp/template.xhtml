@@ -32,10 +32,9 @@
                             <p:menuitem value="Users Privilege" outcome="/webUser/webuser_privilege.xhtml" />
                         </p:submenu>
                         <p:submenu label="Function" icon="ui-icon-pin-s" >
-                            <p:menuitem value="New Function" action="#{functionsEventController.createNewEvent}" ajax="false" />
-                            <p:menuitem value="Function Booking" action="#{functionsEventController.createEventBooking()}" ajax="false" />
+                            <p:menuitem value="Manage Vehicles" outcome="/vehicle/List.xhtml" />
                         </p:submenu>
-                        
+
                         <p:submenu label="Report"  icon="ui-icon-clipboard">
                             <p:menuitem value="Hall Detail Report" outcome="/functions/hall_hadling_report.xhtml" />
                             <p:menuitem value="Event Search" outcome="/functions/all_event_list.xhtml" />
@@ -43,7 +42,8 @@
                         <p:submenu label="Manager"  icon="ui-icon-mail-open">
                             <p:menuitem value="Functions Menu" outcome="/functions/functions.xhtml" />
                             <p:menuitem value="Manage Forms" outcome="/forms/List.xhtml" />
-                            
+
+
                         </p:submenu>
 
 
@@ -69,36 +69,36 @@
 
                 <h:panelGroup rendered="#{sessionController.logged}">
                     <ui:insert name="body"/>
-                      
+
                 </h:panelGroup>
 
                 <h:panelGroup rendered="#{!sessionController.logged}" >
 
                     <h:form >
                         <p:panel header="Login Form" style="margin-left: 20%;margin-right: 20%; text-align: center; ">
-<!--                            <p:panelGrid >
-                                <p:row >
-                                    <p:column >
-                                        <p:outputLabel value="Username" ></p:outputLabel>
-                                    </p:column>
-                                    <p:column >
-                                        <p:inputText value="{sessionController.userName}" ></p:inputText>
-                                    </p:column>
-                                </p:row>
-                                <p:row >
-                                    <p:column >
-                                        <p:outputLabel value="Password" ></p:outputLabel>
-                                    </p:column>
-                                    <p:column >
-                                        <p:inputText value="{sessionController.password}" ></p:inputText>
-                                    </p:column>
-                                </p:row>
-                                <p:row >
-                                    <p:column colspan="2" >
-                                        <p:commandButton action="{sessionController.login()}"  value="Login" ajax="false" ></p:commandButton>
-                                    </p:column>
-                                </p:row>
-                            </p:panelGrid>-->
+                            <!--                            <p:panelGrid >
+                                                            <p:row >
+                                                                <p:column >
+                                                                    <p:outputLabel value="Username" ></p:outputLabel>
+                                                                </p:column>
+                                                                <p:column >
+                                                                    <p:inputText value="{sessionController.userName}" ></p:inputText>
+                                                                </p:column>
+                                                            </p:row>
+                                                            <p:row >
+                                                                <p:column >
+                                                                    <p:outputLabel value="Password" ></p:outputLabel>
+                                                                </p:column>
+                                                                <p:column >
+                                                                    <p:inputText value="{sessionController.password}" ></p:inputText>
+                                                                </p:column>
+                                                            </p:row>
+                                                            <p:row >
+                                                                <p:column colspan="2" >
+                                                                    <p:commandButton action="{sessionController.login()}"  value="Login" ajax="false" ></p:commandButton>
+                                                                </p:column>
+                                                            </p:row>
+                                                        </p:panelGrid>-->
 
                             <h:panelGrid columns="2" style="margin-left: 30%">
                                 <h:outputLabel value="Username"  style="text-align: left; margin: 5px; padding: 5px;"  ></h:outputLabel>

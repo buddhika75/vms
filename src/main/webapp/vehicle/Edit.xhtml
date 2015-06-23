@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VehicleEditDlg" widgetVar="VehicleEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditVehicleTitle}">
+            <h:form id="VehicleEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vehicleController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_engineNo}" for="engineNo" />
+                        <p:inputText id="engineNo" value="#{vehicleController.selected.engineNo}" title="#{bundle.EditVehicleTitle_engineNo}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_chassicNo}" for="chassicNo" />
+                        <p:inputText id="chassicNo" value="#{vehicleController.selected.chassicNo}" title="#{bundle.EditVehicleTitle_chassicNo}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_engineCapasity}" for="engineCapasity" />
+                        <p:inputText id="engineCapasity" value="#{vehicleController.selected.engineCapasity}" title="#{bundle.EditVehicleTitle_engineCapasity}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_registrationNo}" for="registrationNo" />
+                        <p:inputText id="registrationNo" value="#{vehicleController.selected.registrationNo}" title="#{bundle.EditVehicleTitle_registrationNo}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_currentOwner}" for="currentOwner" />
+                        <p:inputText id="currentOwner" value="#{vehicleController.selected.currentOwner}" title="#{bundle.EditVehicleTitle_currentOwner}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_conditions}" for="conditions" />
+                        <p:inputText id="conditions" value="#{vehicleController.selected.conditions}" title="#{bundle.EditVehicleTitle_conditions}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_vehicleClass}" for="vehicleClass" />
+                        <p:selectOneMenu id="vehicleClass" value="#{vehicleController.selected.vehicleClass}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="vehicleClassItem"
+                                           itemValue="#{vehicleClassItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_taxacionClass}" for="taxacionClass" />
+                        <p:selectOneMenu id="taxacionClass" value="#{vehicleController.selected.taxacionClass}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="taxacionClassItem"
+                                           itemValue="#{taxacionClassItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_statusWhenRegistered}" for="statusWhenRegistered" />
+                        <p:inputTextarea rows="4" cols="30" id="statusWhenRegistered" value="#{vehicleController.selected.statusWhenRegistered}" title="#{bundle.EditVehicleTitle_statusWhenRegistered}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_fuelType}" for="fuelType" />
+                        <p:selectOneMenu id="fuelType" value="#{vehicleController.selected.fuelType}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="fuelTypeItem"
+                                           itemValue="#{fuelTypeItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_typeOfBody}" for="typeOfBody" />
+                        <p:selectOneMenu id="typeOfBody" value="#{vehicleController.selected.typeOfBody}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="typeOfBodyItem"
+                                           itemValue="#{typeOfBodyItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_previousOwners}" for="previousOwners" />
+                        <p:inputTextarea rows="4" cols="30" id="previousOwners" value="#{vehicleController.selected.previousOwners}" title="#{bundle.EditVehicleTitle_previousOwners}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_seatingCapacity}" for="seatingCapacity" />
+                        <p:inputText id="seatingCapacity" value="#{vehicleController.selected.seatingCapacity}" title="#{bundle.EditVehicleTitle_seatingCapacity}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_weightUnloaded}" for="weightUnloaded" />
+                        <p:inputText id="weightUnloaded" value="#{vehicleController.selected.weightUnloaded}" title="#{bundle.EditVehicleTitle_weightUnloaded}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_weightGross}" for="weightGross" />
+                        <p:inputText id="weightGross" value="#{vehicleController.selected.weightGross}" title="#{bundle.EditVehicleTitle_weightGross}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_tyreSizeFront}" for="tyreSizeFront" />
+                        <p:inputText id="tyreSizeFront" value="#{vehicleController.selected.tyreSizeFront}" title="#{bundle.EditVehicleTitle_tyreSizeFront}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_tyreSizeRear}" for="tyreSizeRear" />
+                        <p:inputText id="tyreSizeRear" value="#{vehicleController.selected.tyreSizeRear}" title="#{bundle.EditVehicleTitle_tyreSizeRear}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_duelTyresFront}" for="duelTyresFront" />
+                        <p:selectBooleanCheckbox id="duelTyresFront" value="#{vehicleController.selected.duelTyresFront}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_duelTyresRear}" for="duelTyresRear" />
+                        <p:selectBooleanCheckbox id="duelTyresRear" value="#{vehicleController.selected.duelTyresRear}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_lengthInMeters}" for="lengthInMeters" />
+                        <p:inputText id="lengthInMeters" value="#{vehicleController.selected.lengthInMeters}" title="#{bundle.EditVehicleTitle_lengthInMeters}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_widthInMeters}" for="widthInMeters" />
+                        <p:inputText id="widthInMeters" value="#{vehicleController.selected.widthInMeters}" title="#{bundle.EditVehicleTitle_widthInMeters}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_heightInCm}" for="heightInCm" />
+                        <p:inputText id="heightInCm" value="#{vehicleController.selected.heightInCm}" title="#{bundle.EditVehicleTitle_heightInCm}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_dateOfFirstRegistration}" for="dateOfFirstRegistration" />
+                        <p:calendar id="dateOfFirstRegistration" pattern="MM/dd/yyyy" value="#{vehicleController.selected.dateOfFirstRegistration}" title="#{bundle.EditVehicleTitle_dateOfFirstRegistration}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_taxes}" for="taxes" />
+                        <p:inputTextarea rows="4" cols="30" id="taxes" value="#{vehicleController.selected.taxes}" title="#{bundle.EditVehicleTitle_taxes}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{vehicleController.selected.name}" title="#{bundle.EditVehicleTitle_name}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_code}" for="code" />
+                        <p:inputText id="code" value="#{vehicleController.selected.code}" title="#{bundle.EditVehicleTitle_code}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_barcode}" for="barcode" />
+                        <p:inputText id="barcode" value="#{vehicleController.selected.barcode}" title="#{bundle.EditVehicleTitle_barcode}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_serialNo}" for="serialNo" />
+                        <p:inputText id="serialNo" value="#{vehicleController.selected.serialNo}" title="#{bundle.EditVehicleTitle_serialNo}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_description}" for="description" />
+                        <p:inputTextarea rows="4" cols="30" id="description" value="#{vehicleController.selected.description}" title="#{bundle.EditVehicleTitle_description}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_ownerDepartmentOrInstitution}" for="ownerDepartmentOrInstitution" />
+                        <p:selectOneMenu id="ownerDepartmentOrInstitution" value="#{vehicleController.selected.ownerDepartmentOrInstitution}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{departmentOrInstitutionController.itemsAvailableSelectOne}"
+                                           var="ownerDepartmentOrInstitutionItem"
+                                           itemValue="#{ownerDepartmentOrInstitutionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_ownerPerson}" for="ownerPerson" />
+                        <p:selectOneMenu id="ownerPerson" value="#{vehicleController.selected.ownerPerson}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{personController.itemsAvailableSelectOne}"
+                                           var="ownerPersonItem"
+                                           itemValue="#{ownerPersonItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_quantity}" for="quantity" />
+                        <p:inputText id="quantity" value="#{vehicleController.selected.quantity}" title="#{bundle.EditVehicleTitle_quantity}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_item}" for="item" />
+                        <p:selectOneMenu id="item" value="#{vehicleController.selected.item}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemController.itemsAvailableSelectOne}"
+                                           var="itemItem"
+                                           itemValue="#{itemItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_make}" for="make" />
+                        <p:selectOneMenu id="make" value="#{vehicleController.selected.make}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="makeItem"
+                                           itemValue="#{makeItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_model}" for="model" />
+                        <p:selectOneMenu id="model" value="#{vehicleController.selected.model}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="modelItem"
+                                           itemValue="#{modelItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_countryOfOrigin}" for="countryOfOrigin" />
+                        <p:selectOneMenu id="countryOfOrigin" value="#{vehicleController.selected.countryOfOrigin}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="countryOfOriginItem"
+                                           itemValue="#{countryOfOriginItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_yearOfManufacturer}" for="yearOfManufacturer" />
+                        <p:inputText id="yearOfManufacturer" value="#{vehicleController.selected.yearOfManufacturer}" title="#{bundle.EditVehicleTitle_yearOfManufacturer}" />
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_countryOfImport}" for="countryOfImport" />
+                        <p:selectOneMenu id="countryOfImport" value="#{vehicleController.selected.countryOfImport}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="countryOfImportItem"
+                                           itemValue="#{countryOfImportItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_colour}" for="colour" />
+                        <p:selectOneMenu id="colour" value="#{vehicleController.selected.colour}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="colourItem"
+                                           itemValue="#{colourItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditVehicleLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{vehicleController.selected.id}" title="#{bundle.EditVehicleTitle_id}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{vehicleController.update}" value="#{bundle.Save}" update="display,:VehicleListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VehicleEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VehicleEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

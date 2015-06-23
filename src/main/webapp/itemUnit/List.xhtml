@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListItemUnitTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="ItemUnitListForm">
+                <p:panel header="#{bundle.ListItemUnitTitle}">
+                    <p:dataTable id="datalist" value="#{itemUnitController.items}" var="item"
+                                 selectionMode="single" selection="#{itemUnitController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_code}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.code}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_barcode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.barcode}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_serialNo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serialNo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_ownerDepartmentOrInstitution}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ownerDepartmentOrInstitution}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_ownerPerson}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ownerPerson}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_quantity}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.quantity}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_item}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.item}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_make}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.make}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_model}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.model}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_countryOfOrigin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.countryOfOrigin}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_yearOfManufacturer}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yearOfManufacturer}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_countryOfImport}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.countryOfImport}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_colour}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.colour}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{itemUnitController.prepareCreate}" update=":ItemUnitCreateForm" oncomplete="PF('ItemUnitCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ItemUnitViewForm" oncomplete="PF('ItemUnitViewDialog').show()" disabled="#{empty itemUnitController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":ItemUnitEditForm" oncomplete="PF('ItemUnitEditDialog').show()" disabled="#{empty itemUnitController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{itemUnitController.destroy}" update=":growl,datalist" disabled="#{empty itemUnitController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

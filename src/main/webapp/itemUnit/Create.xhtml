@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ItemUnitCreateDlg" widgetVar="ItemUnitCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateItemUnitTitle}">
+            <h:form id="ItemUnitCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{itemUnitController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{itemUnitController.selected.name}" title="#{bundle.CreateItemUnitTitle_name}" />
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_code}" for="code" />
+                        <p:inputText id="code" value="#{itemUnitController.selected.code}" title="#{bundle.CreateItemUnitTitle_code}" />
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_barcode}" for="barcode" />
+                        <p:inputText id="barcode" value="#{itemUnitController.selected.barcode}" title="#{bundle.CreateItemUnitTitle_barcode}" />
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_serialNo}" for="serialNo" />
+                        <p:inputText id="serialNo" value="#{itemUnitController.selected.serialNo}" title="#{bundle.CreateItemUnitTitle_serialNo}" />
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_description}" for="description" />
+                        <p:inputTextarea rows="4" cols="30" id="description" value="#{itemUnitController.selected.description}" title="#{bundle.CreateItemUnitTitle_description}" />
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_ownerDepartmentOrInstitution}" for="ownerDepartmentOrInstitution" />
+                        <p:selectOneMenu id="ownerDepartmentOrInstitution" value="#{itemUnitController.selected.ownerDepartmentOrInstitution}" >
+                            <f:selectItems value="#{departmentOrInstitutionController.itemsAvailableSelectOne}"
+                                           var="ownerDepartmentOrInstitutionItem"
+                                           itemValue="#{ownerDepartmentOrInstitutionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_ownerPerson}" for="ownerPerson" />
+                        <p:selectOneMenu id="ownerPerson" value="#{itemUnitController.selected.ownerPerson}" >
+                            <f:selectItems value="#{personController.itemsAvailableSelectOne}"
+                                           var="ownerPersonItem"
+                                           itemValue="#{ownerPersonItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_quantity}" for="quantity" />
+                        <p:inputText id="quantity" value="#{itemUnitController.selected.quantity}" title="#{bundle.CreateItemUnitTitle_quantity}" />
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_item}" for="item" />
+                        <p:selectOneMenu id="item" value="#{itemUnitController.selected.item}" >
+                            <f:selectItems value="#{itemController.itemsAvailableSelectOne}"
+                                           var="itemItem"
+                                           itemValue="#{itemItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_make}" for="make" />
+                        <p:selectOneMenu id="make" value="#{itemUnitController.selected.make}" >
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="makeItem"
+                                           itemValue="#{makeItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_model}" for="model" />
+                        <p:selectOneMenu id="model" value="#{itemUnitController.selected.model}" >
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="modelItem"
+                                           itemValue="#{modelItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_countryOfOrigin}" for="countryOfOrigin" />
+                        <p:selectOneMenu id="countryOfOrigin" value="#{itemUnitController.selected.countryOfOrigin}" >
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="countryOfOriginItem"
+                                           itemValue="#{countryOfOriginItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_yearOfManufacturer}" for="yearOfManufacturer" />
+                        <p:inputText id="yearOfManufacturer" value="#{itemUnitController.selected.yearOfManufacturer}" title="#{bundle.CreateItemUnitTitle_yearOfManufacturer}" />
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_countryOfImport}" for="countryOfImport" />
+                        <p:selectOneMenu id="countryOfImport" value="#{itemUnitController.selected.countryOfImport}" >
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="countryOfImportItem"
+                                           itemValue="#{countryOfImportItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_colour}" for="colour" />
+                        <p:selectOneMenu id="colour" value="#{itemUnitController.selected.colour}" >
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="colourItem"
+                                           itemValue="#{colourItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateItemUnitLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{itemUnitController.selected.id}" title="#{bundle.CreateItemUnitTitle_id}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{itemUnitController.create}" value="#{bundle.Save}" update="display,:ItemUnitListForm:datalist,:growl" oncomplete="handleSubmit(args,'ItemUnitCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ItemUnitCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
