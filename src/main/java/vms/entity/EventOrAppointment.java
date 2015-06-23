@@ -59,6 +59,8 @@ public class EventOrAppointment implements Serializable {
     Boolean completed;
     @ManyToOne
     WebUser cancelledBy;
+    @ManyToOne
+    Vehicle vehicle;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     Date cancelledAt;
     @Lob
@@ -388,6 +390,14 @@ public class EventOrAppointment implements Serializable {
 
     public void setStringValue3(String stringValue3) {
         this.stringValue3 = stringValue3;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
     
     
