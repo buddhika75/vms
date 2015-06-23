@@ -6,12 +6,16 @@
 package vms.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -19,6 +23,9 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class ItemUnit implements Serializable {
+    
+    @OneToMany(mappedBy = "parent")
+    private List<ItemUnit> itemUnits;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -47,6 +54,28 @@ public class ItemUnit implements Serializable {
     ItemOrCategory countryOfImport;
     @ManyToOne
     ItemOrCategory colour;
+
+    @ManyToOne
+    ItemUnit parent;
+
+    public List<ItemUnit> getItemUnits() {
+        if (itemUnits == null) {
+            itemUnits = new ArrayList<ItemUnit>();
+        }
+        return itemUnits;
+    }
+
+    public void setItemUnits(List<ItemUnit> itemUnits) {
+        this.itemUnits = itemUnits;
+    }
+
+    public ItemUnit getParent() {
+        return parent;
+    }
+
+    public void setParent(ItemUnit parent) {
+        this.parent = parent;
+    }
 
     public String getName() {
         return name;
@@ -167,11 +196,6 @@ public class ItemUnit implements Serializable {
     public void setColour(ItemOrCategory colour) {
         this.colour = colour;
     }
-    
-    
-    
-    
-    
 
     public Long getId() {
         return id;
@@ -205,5 +229,5 @@ public class ItemUnit implements Serializable {
     public String toString() {
         return "vms.entity.ItemUnit[ id=" + id + " ]";
     }
-    
+
 }
