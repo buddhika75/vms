@@ -30,6 +30,14 @@ public class CategoryController implements Serializable {
     private List<Category> items = null;
     private List<Category> models = null;
     private List<Category> makes = null;
+    private List<Category> vehicleCategory = null;
+    private List<Category> taxCategory = null;
+    private List<Category> country = null;
+    private List<Category> colour = null;
+    private List<Category> schedule = null;
+    private List<Category> event = null;
+    private List<Category> activity = null;
+    private List<Category> province = null;
             
     private Category selected;
 
@@ -72,9 +80,100 @@ public class CategoryController implements Serializable {
         return makes;
     }
 
+    
     public void setMakes(List<Category> makes) {
         this.makes = makes;
     }
+
+    public List<Category> getVechical() {
+        if(vehicleCategory == null){
+            vehicleCategory=getCategoryListOfType(ItemOrCategoryType.VehicleCategory);
+        }
+        return vehicleCategory;
+    }
+
+    public void setVechical(List<Category> vechical) {
+        this.vehicleCategory = vechical;
+    }
+
+    public List<Category> getTax() {
+        if(taxCategory == null){
+            taxCategory=getCategoryListOfType(ItemOrCategoryType.TaxCategory);
+        }
+        return taxCategory;
+    }
+
+    public void setTax(List<Category> tax) {
+        this.taxCategory = tax;
+    }
+
+    public List<Category> getCountry() {
+        if(country == null){
+            country=getCategoryListOfType(ItemOrCategoryType.Country);
+        }
+        return country;
+    }
+
+    public void setCountry(List<Category> country) {
+        this.country = country;
+    }
+
+    public List<Category> getColour() {
+        if(colour == null){
+            colour=getCategoryListOfType(ItemOrCategoryType.Colour);
+        }
+        return colour;
+    }
+
+    public void setColour(List<Category> colour) {
+        this.colour = colour;
+    }
+
+    public List<Category> getSchedule() {
+        if(schedule == null){
+            schedule=getCategoryListOfType(ItemOrCategoryType.Schedule);
+        }
+        return schedule;
+    }
+
+    public void setSchedule(List<Category> schedule) {
+        this.schedule = schedule;
+    }
+
+    public List<Category> getEvent() {
+        if(event == null){
+            event=getCategoryListOfType(ItemOrCategoryType.Event);
+        }
+        return event;
+    }
+
+    public void setEvent(List<Category> event) {
+        this.event = event;
+    }
+
+    public List<Category> getActivity() {
+        if(activity == null){
+            activity=getCategoryListOfType(ItemOrCategoryType.Activity);
+        }
+        return activity;
+    }
+
+    public void setActivity(List<Category> activity) {
+        this.activity = activity;
+    }
+
+    public List<Category> getProvince() {
+        if(province == null){
+            province=getCategoryListOfType(ItemOrCategoryType.Province);
+        }
+        return province;
+    }
+
+    public void setProvince(List<Category> province) {
+        this.province = province;
+    }
+    
+    
 
     public Category prepareCreate() {
         selected = new Category();
@@ -99,6 +198,54 @@ public class CategoryController implements Serializable {
         selected.setType(ItemOrCategoryType.Model);
         create();
         models = null;
+    }
+    
+    public void createVechicalCategory(){
+        selected.setType(ItemOrCategoryType.VehicleCategory);
+        create();
+        vehicleCategory = null;
+    }
+    
+    public void createTaxCategory(){
+        selected.setType(ItemOrCategoryType.TaxCategory);
+        create();
+        taxCategory = null;
+    }
+    
+    public void createCountry(){
+        selected.setType(ItemOrCategoryType.Country);
+        create();
+        country = null;
+    }
+    
+    public void createColour(){
+        selected.setType(ItemOrCategoryType.Colour);
+        create();
+        colour = null;
+    }
+    
+    public void createSchedule(){
+        selected.setType(ItemOrCategoryType.Schedule);
+        create();
+        schedule = null;
+    }
+    
+    public void createEvent(){
+        selected.setType(ItemOrCategoryType.Event);
+        create();
+        event = null;
+    }
+    
+    public void createActivity(){
+        selected.setType(ItemOrCategoryType.Activity);
+        create();
+        activity = null;
+    }
+    
+    public void createProvince(){
+        selected.setType(ItemOrCategoryType.Province);
+        create();
+        province = null;
     }
     
     public void update() {
