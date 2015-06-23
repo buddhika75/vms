@@ -24,7 +24,7 @@
                         </p:selectOneMenu>
                         
                         <p:outputLabel value="Date" for="thisDate" />
-                        <p:calendar id="thisDate" pattern="MM/dd/yyyy" value="#{scheduleController.selected.thisDate}" title="#{bundle.EditScheduleTitle_thisDate}"  showOn="button"/>
+                        <p:calendar id="thisDate" pattern="dd MMM yyyy" value="#{scheduleController.selected.thisDate}" title="#{bundle.EditScheduleTitle_thisDate}"  showOn="button"/>
                         
                         <p:outputLabel value="Name" for="name" />
                         <p:inputText id="name" value="#{scheduleController.selected.name}" title="#{bundle.CreateScheduleTitle_name}" />

@@ -38,8 +38,7 @@
                         </p:submenu>
                         <p:submenu label="Function" icon="ui-icon-pin-s" >
                             <p:menuitem value="Manage Vehicles" outcome="/vehicle/List.xhtml" />
-                            <p:menuitem outcome="/appointment/List" value="Appointments"/>
-                            <p:menuitem outcome="/event/List" value="Events"/>
+                            <p:menuitem outcome="/event/List" value="Activities"/>
                             <p:menuitem outcome="/schedule/List" value="Schedules"/>
                         </p:submenu>
 
@@ -84,30 +83,6 @@
 
                     <h:form >
                         <p:panel header="Login Form" style="margin-left: 20%;margin-right: 20%; text-align: center; ">
-                            <!--                            <p:panelGrid >
-                                                            <p:row >
-                                                                <p:column >
-                                                                    <p:outputLabel value="Username" ></p:outputLabel>
-                                                                </p:column>
-                                                                <p:column >
-                                                                    <p:inputText value="{sessionController.userName}" ></p:inputText>
-                                                                </p:column>
-                                                            </p:row>
-                                                            <p:row >
-                                                                <p:column >
-                                                                    <p:outputLabel value="Password" ></p:outputLabel>
-                                                                </p:column>
-                                                                <p:column >
-                                                                    <p:inputText value="{sessionController.password}" ></p:inputText>
-                                                                </p:column>
-                                                            </p:row>
-                                                            <p:row >
-                                                                <p:column colspan="2" >
-                                                                    <p:commandButton action="{sessionController.login()}"  value="Login" ajax="false" ></p:commandButton>
-                                                                </p:column>
-                                                            </p:row>
-                                                        </p:panelGrid>-->
-
                             <h:panelGrid columns="2" style="margin-left: 30%">
                                 <h:outputLabel value="Username"  style="text-align: left; margin: 5px; padding: 5px;"  ></h:outputLabel>
                                 <p:inputText autocomplete="off"   value="#{sessionController.userName}"  style="text-align: left; margin: 5px; padding: 5px;" ></p:inputText>
