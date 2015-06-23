@@ -57,14 +57,14 @@
                             <td colspan="9"> 
                                 <p:outputLabel value="8. Vehicle Class" for="vehicleClass" />
                                 <p:selectOneMenu id="vehicleClass" value="#{vehicleController.selected.vehicleClass}" >
-                                    <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                    <f:selectItems value="#{categoryController.vechical}"
                                                    var="vehicleClassItem"
                                                    itemValue="#{vehicleClassItem}"/>
                                 </p:selectOneMenu> </td>
                             <td colspan="9"> 
                                 <p:outputLabel value="9. Taxacion Class" for="taxacionClass" />
-                                <p:selectOneMenu id="taxacionClass" value="#{categoryController.tax}" >
-                                    <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                <p:selectOneMenu id="taxacionClass" value="#{vehicleController.selected.taxacionClass}" >
+                                    <f:selectItems value="#{categoryController.tax}"
                                                    var="taxacionClassItem"
                                                    itemValue="#{taxacionClassItem}"/>
                                 </p:selectOneMenu>
@@ -88,7 +88,7 @@
                             <td colspan="9">
                                 <p:outputLabel value="12. Make" for="make" />
                                 <p:selectOneMenu id="make" value="#{vehicleController.selected.make}" >
-                                    <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                    <f:selectItems value="#{categoryController.makes}"
                                                    var="makeItem"
                                                    itemValue="#{makeItem}"/>
                                 </p:selectOneMenu>
@@ -96,7 +96,7 @@
                             <td colspan="9"> 
                                 <p:outputLabel value="13. Country Of Origin" for="countryOfOrigin" />
                                 <p:selectOneMenu id="countryOfOrigin" value="#{vehicleController.selected.countryOfOrigin}" >
-                                    <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                    <f:selectItems value="#{categoryController.country}"
                                                    var="countryOfOriginItem"
                                                    itemValue="#{countryOfOriginItem}"/>
                                 </p:selectOneMenu>
@@ -106,7 +106,7 @@
                             <td colspan="9">
                                 <p:outputLabel value="14. Model" for="model" />
                                 <p:selectOneMenu id="model" value="#{vehicleController.selected.model}" >
-                                    <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                    <f:selectItems value="#{categoryController.models}"
                                                    var="modelItem"
                                                    itemValue="#{modelItem}"/>
                                 </p:selectOneMenu>
@@ -138,7 +138,7 @@
                             <td colspan="9">
                                 <p:outputLabel value="18.Colour" for="colour" />
                                 <p:selectOneMenu id="colour" value="#{vehicleController.selected.colour}" >
-                                    <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                    <f:selectItems value="#{categoryController.colour}"
                                                    var="colourItem"
                                                    itemValue="#{colourItem}"/>
                                 </p:selectOneMenu>
@@ -198,7 +198,7 @@
                         </tr>
                         <tr>
                             <td colspan="9">
-                            <p:outputLabel value="25. Date Of First Registration}" for="dateOfFirstRegistration" />
+                            <p:outputLabel value="25. Date Of First Registration" for="dateOfFirstRegistration" />
                         <p:calendar id="dateOfFirstRegistration" pattern="MM/dd/yyyy" value="#{vehicleController.selected.dateOfFirstRegistration}" title="#{bundle.EditVehicleTitle_dateOfFirstRegistration}"  showOn="button"/>
                             </td>
                         </tr>
