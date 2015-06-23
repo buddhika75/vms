@@ -6,10 +6,15 @@
 package vms.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -21,6 +26,30 @@ public class EventOrAppointment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date fromDate;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date toDate;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date thisDate;
+    @OneToOne
+    EventOrAppointment event;
+    @OneToOne(mappedBy = "event")
+    EventOrAppointment appointment;
+    @ManyToOne
+    WebUser createdBy;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date createAt;
+    @Lob
+    String createrComments;
+    @ManyToOne
+    WebUser cancelledBy;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date cancelledAt;
+    @Lob
+    String calcellerComments;
+    
+    
 
     public Long getId() {
         return id;
