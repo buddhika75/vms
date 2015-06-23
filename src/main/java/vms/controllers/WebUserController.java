@@ -52,13 +52,17 @@ public class WebUserController implements Serializable {
         return "/webUser/List";
     }
 
-    public void saveWebUser() {
+    public String saveWebUser() {
         if (webUser.getId() == null) {
             ejbFacade.create(webUser);
+            webUser = null;
+            
             JsfUtil.addSuccessMessage("New User Created");
+            return "/webUser/webuser_index.xhtml"; 
         } else {
             ejbFacade.edit(webUser);
             JsfUtil.addSuccessMessage("User Details Updated");
+            return "/webUser/webuser_index.xhtml";
         }
 
     }

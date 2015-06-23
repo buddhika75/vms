@@ -39,6 +39,7 @@ public class CategoryController implements Serializable {
     private List<Category> activity = null;
     private List<Category> province = null;
     private List<Category> vehicleComponent = null;
+    private List<Category> fuel = null;
             
     private Category selected;
 
@@ -184,6 +185,17 @@ public class CategoryController implements Serializable {
     public void setVehicleComponent(List<Category> vehicleComponent) {
         this.vehicleComponent = vehicleComponent;
     }
+
+    public List<Category> getFuel() {
+        if(fuel == null){
+            fuel=getCategoryListOfType(ItemOrCategoryType.Fuel);
+        }
+        return fuel;
+    }
+
+    public void setFuel(List<Category> fuel) {
+        this.fuel = fuel;
+    }
     
     
 
@@ -264,6 +276,12 @@ public class CategoryController implements Serializable {
         selected.setType(ItemOrCategoryType.VehicleComponent);
         create();
         vehicleComponent = null;
+    }
+    
+    public void createFuel(){
+        selected.setType(ItemOrCategoryType.Fuel);
+        create();
+        fuel = null;
     }
     
     public void update() {
