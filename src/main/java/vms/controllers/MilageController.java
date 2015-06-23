@@ -18,6 +18,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import vms.enums.MilageType;
 
 @Named("milageController")
 @SessionScoped
@@ -60,6 +61,11 @@ public class MilageController implements Serializable {
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
+    }
+    
+    public void createManual(){
+        selected.setType(MilageType.ManualRecording);
+        create();
     }
 
     public void update() {
