@@ -17,8 +17,9 @@
         <h:form >
             <p:panel header="Manage Categories">
                 <h:panelGrid columns="2">
-                    <p:panel style="width:600px;margin:auto" >
-                        <h:panelGrid columns="1" styleClass="alignTop">
+                    
+                    <p:panel style="margin-left: 400px">
+                        <h:panelGrid columns="1" >
                             <p:commandButton styleClass="linkButton" value="Makes" action="/category/make/List" ajax="false"/>
                             <p:commandButton styleClass="linkButton" value="Models" action="/category/model/List" ajax="false"/>
                             <p:commandButton styleClass="linkButton" value="Vehicle Category" action="/category/vechicalCategory/List" ajax="false"/>
@@ -27,8 +28,8 @@
                             <p:commandButton styleClass="linkButton" value="Vehicle Component" action="/category/country/List" ajax="false"/>
                         </h:panelGrid>
                     </p:panel>
-                    <p:panel style="width:600px;margin: auto">
-                        <h:panelGrid columns="1" styleClass="alignTop">
+                    <p:panel >
+                        <h:panelGrid columns="1">
                             <p:commandButton styleClass="linkButton" value="Colour" action="/category/colour/List" ajax="false"/>
                             <p:commandButton styleClass="linkButton" value="Fuel" action="/category/fuel/List" ajax="false"/>
                             <p:commandButton styleClass="linkButton" value="Schedule" action="/category/schedule/List" ajax="false"/>

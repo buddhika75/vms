@@ -40,3 +40,23 @@ table.vrf td{
     margin: 1px;
     
 }
+
+
+.noBorderGrid tr , .noBorderGrid table tbody td , .noBorderGrid table tbody tr td , .noBorderGrid table tbody tr  , noBorderGrid td , noBorderGrid tr td, noBorderGrid tbody , noBorderGrid tbody tr, noBorderGrid tbody tr td ,noBorderGrid tbody td , noBorderGrid tbody td,  noBorderGrid tfoot td{
+    border: 0px none!important;
+    border-width: 0px;
+    border-style: dashed!important;
+    margin: 1px !Important;
+    padding: 1px!important; 
+}
+
+.linkButton
+{
+    margin: 2px;
+    padding: 2px;
+    width: 300px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center;
+}

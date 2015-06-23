@@ -11,12 +11,12 @@
         <p:dialog id="CategoryViewDlg" widgetVar="CategoryViewDialog" modal="true" resizable="false" appendTo="@(body)" header="View Vehicle Component ">
             <h:form id="CategoryViewForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{categoryController.selected != null}">
+                    <p:panelGrid columns="2" rendered="#{itemController.selected != null}">
                         <h:outputText value="Name"/>
-                        <h:outputText value="#{categoryController.selected.name}" title="#{bundle.ViewCategoryTitle_name}"/>
+                        <h:outputText value="#{itemController.selected.name}" title="#{bundle.ViewCategoryTitle_name}"/>
                         
                         <h:outputText value="Description"/>
-                        <h:outputText value="#{categoryController.selected.description}" title="#{bundle.ViewCategoryTitle_description}"/>
+                        <h:outputText value="#{itemController.selected.description}" title="#{bundle.ViewCategoryTitle_description}"/>
                         
                     </p:panelGrid>
                     <p:commandButton value="Close" onclick="CategoryViewDialog.hide()"/>

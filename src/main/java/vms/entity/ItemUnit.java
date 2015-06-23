@@ -7,6 +7,7 @@ package vms.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +17,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -23,6 +25,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class ItemUnit implements Serializable {
+    
     
     @OneToMany(mappedBy = "parent")
     private List<ItemUnit> itemUnits;
@@ -57,7 +60,73 @@ public class ItemUnit implements Serializable {
 
     @ManyToOne
     ItemUnit parent;
+    
+    @OneToOne
+    ItemUnit continuedFrom;
+    @OneToOne(mappedBy = "continuedFrom")
+    private ItemUnit continuedTo;
 
+    
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    Date fromDate;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    Date toDate;
+    Integer fromMilage;
+    Integer toMilage;
+
+    public Date getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public Date getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
+    }
+
+    public Integer getFromMilage() {
+        return fromMilage;
+    }
+
+    public void setFromMilage(Integer fromMilage) {
+        this.fromMilage = fromMilage;
+    }
+
+    public Integer getToMilage() {
+        return toMilage;
+    }
+
+    public void setToMilage(Integer toMilage) {
+        this.toMilage = toMilage;
+    }
+    
+    
+    
+    
+    public ItemUnit getContinuedFrom() {
+        return continuedFrom;
+    }
+
+    public void setContinuedFrom(ItemUnit continuedFrom) {
+        this.continuedFrom = continuedFrom;
+    }
+
+    public ItemUnit getContinuedTo() {
+        return continuedTo;
+    }
+
+    public void setContinuedTo(ItemUnit continuedTo) {
+        this.continuedTo = continuedTo;
+    }
+
+    
+    
     public List<ItemUnit> getItemUnits() {
         if (itemUnits == null) {
             itemUnits = new ArrayList<ItemUnit>();

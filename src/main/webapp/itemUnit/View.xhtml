@@ -12,6 +12,24 @@
             <h:form id="ItemUnitViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{itemUnitController.selected != null}">
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_fromDate}"/>
+                        <h:outputText value="#{itemUnitController.selected.fromDate}" title="#{bundle.ViewItemUnitTitle_fromDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_toDate}"/>
+                        <h:outputText value="#{itemUnitController.selected.toDate}" title="#{bundle.ViewItemUnitTitle_toDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_fromMilage}"/>
+                        <h:outputText value="#{itemUnitController.selected.fromMilage}" title="#{bundle.ViewItemUnitTitle_fromMilage}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_toMilage}"/>
+                        <h:outputText value="#{itemUnitController.selected.toMilage}" title="#{bundle.ViewItemUnitTitle_toMilage}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_continuedFrom}"/>
+                        <h:outputText value="#{itemUnitController.selected.continuedFrom}" title="#{bundle.ViewItemUnitTitle_continuedFrom}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_continuedTo}"/>
+                        <h:outputText value="#{itemUnitController.selected.continuedTo}" title="#{bundle.ViewItemUnitTitle_continuedTo}"/>
+                        <h:outputText value="#{bundle.ViewItemUnitLabel_parent}"/>
+                        <h:outputText value="#{itemUnitController.selected.parent}" title="#{bundle.ViewItemUnitTitle_parent}"/>
                         <h:outputText value="#{bundle.ViewItemUnitLabel_name}"/>
                         <h:outputText value="#{itemUnitController.selected.name}" title="#{bundle.ViewItemUnitTitle_name}"/>
                         <h:outputText value="#{bundle.ViewItemUnitLabel_code}"/>
