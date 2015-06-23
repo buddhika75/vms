@@ -8,7 +8,8 @@
 
     <ui:composition>
 
-        <p:dialog id="AppointmentEditDlg" widgetVar="AppointmentEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAppointmentTitle}">
+        <p:dialog id="AppointmentEditDlg" widgetVar="AppointmentEditDialog" modal="true" 
+                  resizable="false" appendTo="@(body)" header="#{bundle.EditAppointmentTitle}" height="600">
             <h:form id="AppointmentEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{appointmentController.selected != null}">

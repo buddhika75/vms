@@ -78,7 +78,7 @@ public class RunningChartController implements Serializable {
         if(errorcheck()){
             return;
         }
-        
+        selected.setThisDate(selected.getFromDate());
         selected.setCreatedBy(sessionController.getLoggedUser());
         selected.setCreateAt(new Date());
         double m=selected.getToMilage()-selected.getFromMilage();

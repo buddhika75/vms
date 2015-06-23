@@ -14,16 +14,16 @@
                 <h:form>
                     <p:panelGrid columns="2" styleClass="noBorder">
 
-                        <p:outputLabel value="FromDate"/><p:calendar id="fd" value="#{scheduleController.fromDate}">
+                        <p:outputLabel value="FromDate"/><p:calendar id="fd" value="#{reportContoller.fromDate}">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </p:calendar>
 
-                        <p:outputLabel value="ToDate"/><p:calendar id="td" value="#{scheduleController.toDate}">
+                        <p:outputLabel value="ToDate"/><p:calendar id="td" value="#{reportContoller.toDate}">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </p:calendar>
 
                         <p:outputLabel value="Vehicle"/>
-                        <p:selectOneMenu id="vehicle" value="#{scheduleController.vehicle}" >
+                        <p:selectOneMenu id="vehicle" value="#{reportContoller.vehicle}" >
                             <f:selectItem itemLabel="Please Select Vehicle"/>
                             <f:selectItems value="#{vehicleController.itemsAvailableSelectOne}"
                                            var="vehicleItem"
@@ -31,13 +31,13 @@
                         </p:selectOneMenu>
 
                         <p:outputLabel/>
-                        <p:commandButton value="Process" action="#{scheduleController.getSheduleList}" ajax="false"></p:commandButton>
+                        <p:commandButton value="Process" action="#{reportContoller.createEvent}" ajax="false"></p:commandButton>
 
                     </p:panelGrid>
 
                     <p:panel>
 
-                        <p:dataTable value="#{scheduleController.schedules}" var="item" stickyHeader="true">
+                        <p:dataTable value="#{reportContoller.eventOrAppointmentList}" var="item" stickyHeader="true">
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="Vehicle"/>
