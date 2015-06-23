@@ -4,11 +4,14 @@ import vms.entity.Schedule;
 import vms.controllers.util.JsfUtil;
 import vms.controllers.util.JsfUtil.PersistAction;
 import vms.faces.ScheduleFacade;
+import java.util.Map;
+import java.util.HashMap;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.ResourceBundle;
+import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
@@ -20,7 +23,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
-import javax.mail.Session;
+import javax.persistence.TemporalType;
+import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 import vms.enums.EventOrAppointmentType;
 
 @Named("scheduleController")
@@ -30,9 +34,12 @@ public class ScheduleController implements Serializable {
     @EJB
     private vms.faces.ScheduleFacade ejbFacade;
     private List<Schedule> items = null;
+    List<Schedule> schedules;
     private Schedule selected;
     @Inject
     SessionController sessionController;
+    Date fromDate;
+    Date toDate;
 
     public ScheduleController() {
     }
@@ -53,6 +60,55 @@ public class ScheduleController implements Serializable {
 
     private ScheduleFacade getFacade() {
         return ejbFacade;
+    }
+
+    public Date getFromDate() {
+        if (fromDate == null) {
+            fromDate=new Date();
+        }
+        return fromDate;
+    }
+
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public Date getToDate() {
+        if(toDate==null){
+            Calendar c = Calendar.getInstance();
+            c.add(Calendar.DATE, 14);
+            toDate = c.getTime();
+        }
+        return toDate;
+    }
+
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
+    }
+
+    public List<Schedule> getSchedules() {
+        return schedules;
+    }
+
+    public void setSchedules(List<Schedule> schedules) {
+        this.schedules = schedules;
+    }
+    
+    
+
+    public void getSheduleList() {
+        String sql;
+        Map m =new HashMap();
+        sql = "select s from Schedule s "
+                + "where s.retired=false "
+                + " and s.thisDate between :fd and :td ";
+        
+        m.put("fd", fromDate);
+        m.put("td", toDate);
+        
+        schedules=ejbFacade.findBySQL(sql, m, TemporalType.TIMESTAMP);
+        System.out.println("schedules = " + schedules);
+        
     }
 
     public Schedule prepareCreate() {
