@@ -11,15 +11,15 @@
         <p:dialog id="CategoryCreateDlg" widgetVar="CategoryCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Create Vehicle Component">
             <h:form id="CategoryCreateForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{categoryController.selected != null}">                     
+                    <p:panelGrid columns="2" rendered="#{itemController.selected != null}">                     
                         <p:outputLabel value="Name" for="name" />
-                        <p:inputText id="name" value="#{categoryController.selected.name}" title="#{bundle.CreateCategoryTitle_name}" />
+                        <p:inputText id="name" value="#{itemController.selected.name}" title="Name" />
                         
                         <p:outputLabel value="Description" for="description" />
-                        <p:inputText id="description" value="#{categoryController.selected.description}" title="#{bundle.CreateCategoryTitle_description}" />
+                        <p:inputText id="description" value="#{itemController.selected.description}" title="Description" />
                         
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{categoryController.createVehicleComponent()}" value="Save" update="display,:CategoryListForm:datalist,:growl" oncomplete="handleSubmit(args,'CategoryCreateDialog');"/>
+                    <p:commandButton actionListener="#{itemController.createVehicleComponent()}" value="Save" update="display,:CategoryListForm:datalist,:growl" oncomplete="handleSubmit(args,'CategoryCreateDialog');"/>
                     <p:commandButton value="Cancel" onclick="CategoryCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

@@ -29,6 +29,52 @@
 
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_fromDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fromDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_toDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.toDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_fromMilage}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fromMilage}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_toMilage}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.toMilage}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_continuedFrom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.continuedFrom}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_continuedTo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.continuedTo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListItemUnitTitle_parent}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.parent}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListItemUnitTitle_name}"/>
                             </f:facet>
                             <h:outputText value="#{item.name}"/>

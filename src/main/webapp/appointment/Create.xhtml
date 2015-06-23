@@ -14,6 +14,14 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{appointmentController.selected != null}">
                         
+                        <p:outputLabel value="Vehicle"/>
+                        <p:selectOneMenu id="vehicle" value="#{appointmentController.selected.vehicle}" >
+                            <f:selectItem itemLabel="Please Select Vehicle"/>
+                            <f:selectItems value="#{vehicleController.itemsAvailableSelectOne}"
+                                           var="vehicleItem"
+                                           itemValue="#{vehicleItem}"/>
+                        </p:selectOneMenu>
+                        
                         <p:outputLabel value="From Milage"/>
                         <p:inputText id="fromMilage" value="#{appointmentController.selected.fromMilage}" title="#{bundle.CreateAppointmentTitle_fromMilage}" />
                         
@@ -36,10 +44,10 @@
                         </p:selectOneMenu>
                         
                         <p:outputLabel value="From Date"/>
-                        <p:calendar id="thisDate" pattern="MM/dd/yyyy" value="#{appointmentController.selected.fromDate}" title="#{bundle.EditAppointmentTitle_thisDate}"  showOn="button"/>
+                        <p:calendar id="thisDate" pattern="MM/dd/yyyy hh mm ss a" value="#{appointmentController.selected.fromDate}" title="#{bundle.EditAppointmentTitle_thisDate}"  showOn="button"/>
                         
                         <p:outputLabel value="To Date"/>
-                        <p:calendar id="toDate" pattern="MM/dd/yyyy" value="#{appointmentController.selected.toDate}" title="#{bundle.EditAppointmentTitle_toDate}"  showOn="button"/>                        
+                        <p:calendar id="toDate" pattern="MM/dd/yyyy hh mm ss a" value="#{appointmentController.selected.toDate}" title="#{bundle.EditAppointmentTitle_toDate}"  showOn="button"/>                        
                         
                         
                         <p:outputLabel value="Purpose of Trip"/>
