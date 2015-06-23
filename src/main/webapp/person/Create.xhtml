@@ -8,57 +8,55 @@
 
     <ui:composition>
 
-        <p:dialog id="PersonCreateDlg" widgetVar="PersonCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePersonTitle}">
+        <p:dialog id="PersonCreateDlg" widgetVar="PersonCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Create Person">
             <h:form id="PersonCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{personController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_passportNo}" for="passportNo" />
+                        <p:outputLabel value="PassportNo" for="passportNo" />
                         <p:inputText id="passportNo" value="#{personController.selected.passportNo}" title="#{bundle.CreatePersonTitle_passportNo}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_nameWithTitle}" for="nameWithTitle" />
+                        <p:outputLabel value="Name With Title" for="nameWithTitle" />
                         <p:inputText id="nameWithTitle" value="#{personController.selected.nameWithTitle}" title="#{bundle.CreatePersonTitle_nameWithTitle}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_sex}" for="sex" />
-                        <p:inputText id="sex" value="#{personController.selected.sex}" title="#{bundle.CreatePersonTitle_sex}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_description}" for="description" />
+                        <p:outputLabel value="Description" for="description" />
                         <p:inputText id="description" value="#{personController.selected.description}" title="#{bundle.CreatePersonTitle_description}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_name}" for="name" />
+                        <p:outputLabel value="Name" for="name" />
                         <p:inputText id="name" value="#{personController.selected.name}" title="#{bundle.CreatePersonTitle_name}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_address}" for="address" />
+                        <p:outputLabel value="Address" for="address" />
                         <p:inputText id="address" value="#{personController.selected.address}" title="#{bundle.CreatePersonTitle_address}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_fax}" for="fax" />
+                        <p:outputLabel value="Fax" for="fax" />
                         <p:inputText id="fax" value="#{personController.selected.fax}" title="#{bundle.CreatePersonTitle_fax}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_email}" for="email" />
+                        <p:outputLabel value="Email" for="email" />
                         <p:inputText id="email" value="#{personController.selected.email}" title="#{bundle.CreatePersonTitle_email}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_website}" for="website" />
+                        <p:outputLabel value="Website" for="website" />
                         <p:inputText id="website" value="#{personController.selected.website}" title="#{bundle.CreatePersonTitle_website}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_mobile}" for="mobile" />
+                        <p:outputLabel value="Mobile" for="mobile" />
                         <p:inputText id="mobile" value="#{personController.selected.mobile}" title="#{bundle.CreatePersonTitle_mobile}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_institution}" for="institution" />
+                        <p:outputLabel value="Institution" for="institution" />
                         <p:selectOneMenu id="institution" value="#{personController.selected.institution}" >
                             <f:selectItems value="#{institutionController.itemsAvailableSelectOne}"
                                            var="institutionItem"
                                            itemValue="#{institutionItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_department}" for="department" />
+                        <p:outputLabel value="Department" for="department" />
                         <p:selectOneMenu id="department" value="#{personController.selected.department}" >
                             <f:selectItems value="#{departmentController.itemsAvailableSelectOne}"
                                            var="departmentItem"
                                            itemValue="#{departmentItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_title}" for="title" />
+                        <p:outputLabel value="Title" for="title" />
                         <p:inputText id="title" value="#{personController.selected.title}" title="#{bundle.CreatePersonTitle_title}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_dob}" for="dob" />
+                        <p:outputLabel value="DOB" for="dob" />
                         <p:calendar id="dob" pattern="dd MMM yyyy HH:mm:ss" value="#{personController.selected.dob}" title="#{bundle.EditPersonTitle_dob}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_fullName}" for="fullName" />
+                        <p:outputLabel value="Full Name" for="fullName" />
                         <p:inputText id="fullName" value="#{personController.selected.fullName}" title="#{bundle.CreatePersonTitle_fullName}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_nameWithInitials}" for="nameWithInitials" />
+                        <p:outputLabel value="Name With Initials" for="nameWithInitials" />
                         <p:inputText id="nameWithInitials" value="#{personController.selected.nameWithInitials}" title="#{bundle.CreatePersonTitle_nameWithInitials}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_phone}" for="phone" />
+                        <p:outputLabel value="Phone" for="phone" />
                         <p:inputText id="phone" value="#{personController.selected.phone}" title="#{bundle.CreatePersonTitle_phone}" />
-                        <p:outputLabel value="#{bundle.CreatePersonLabel_nic}" for="nic" />
+                        <p:outputLabel value="NIC" for="nic" />
                         <p:inputText id="nic" value="#{personController.selected.nic}" title="#{bundle.CreatePersonTitle_nic}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{personController.create}" value="#{bundle.Save}" update="display,:PersonListForm:datalist,:growl" oncomplete="handleSubmit(args,'PersonCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="PersonCreateDialog.hide()"/>
+                    <p:commandButton actionListener="#{personController.create}" value="Save" update="display,:PersonListForm:datalist,:growl" oncomplete="handleSubmit(args,'PersonCreateDialog');"/>
+                    <p:commandButton value="Cancel" onclick="PersonCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

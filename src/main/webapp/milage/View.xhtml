@@ -8,32 +8,32 @@
 
     <ui:composition>
 
-        <p:dialog id="MilageViewDlg" widgetVar="MilageViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMilageTitle}">
+        <p:dialog id="MilageViewDlg" widgetVar="MilageViewDialog" modal="true" resizable="false" appendTo="@(body)" header="View Milage">
             <h:form id="MilageViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{milageController.selected != null}">
-                        <h:outputText value="#{bundle.ViewMilageLabel_vehicle}"/>
+                        <h:outputText value="Vehicle"/>
                         <h:outputText value="#{milageController.selected.vehicle}" title="#{bundle.ViewMilageTitle_vehicle}"/>
-                        <h:outputText value="#{bundle.ViewMilageLabel_itemUnit}"/>
+                        <h:outputText value="Item Unit"/>
                         <h:outputText value="#{milageController.selected.itemUnit}" title="#{bundle.ViewMilageTitle_itemUnit}"/>
-                        <h:outputText value="#{bundle.ViewMilageLabel_milageValue}"/>
+                        <h:outputText value="Milage Value"/>
                         <h:outputText value="#{milageController.selected.milageValue}" title="#{bundle.ViewMilageTitle_milageValue}"/>
-                        <h:outputText value="#{bundle.ViewMilageLabel_type}"/>
+                        <h:outputText value="Type"/>
                         <h:outputText value="#{milageController.selected.type}" title="#{bundle.ViewMilageTitle_type}"/>
-                        <h:outputText value="#{bundle.ViewMilageLabel_milageDate}"/>
+                        <h:outputText value="Milage Date"/>
                         <h:outputText value="#{milageController.selected.milageDate}" title="#{bundle.ViewMilageTitle_milageDate}">
                                 <f:convertDateTime pattern="dd MMM yyyy HH:mm:ss" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewMilageLabel_createdDate}"/>
+                        <h:outputText value="Created Date"/>
                         <h:outputText value="#{milageController.selected.createdDate}" title="#{bundle.ViewMilageTitle_createdDate}">
                             <f:convertDateTime pattern="dd MMM yyyy HH:mm:ss" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewMilageLabel_createdBy}"/>
+                        <h:outputText value="Created By"/>
                         <h:outputText value="#{milageController.selected.createdBy}" title="#{bundle.ViewMilageTitle_createdBy}"/>
-                        <h:outputText value="#{bundle.ViewMilageLabel_id}"/>
+                        <h:outputText value="Id"/>
                         <h:outputText value="#{milageController.selected.id}" title="#{bundle.ViewMilageTitle_id}"/>
                     </p:panelGrid>
-                    <p:commandButton value="#{bundle.Close}" onclick="MilageViewDialog.hide()"/>
+                    <p:commandButton value="Close" onclick="MilageViewDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

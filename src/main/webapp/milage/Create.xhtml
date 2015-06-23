@@ -8,17 +8,17 @@
 
     <ui:composition>
 
-        <p:dialog id="MilageCreateDlg" widgetVar="MilageCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMilageTitle}">
+        <p:dialog id="MilageCreateDlg" widgetVar="MilageCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Create Milage">
             <h:form id="MilageCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{milageController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateMilageLabel_vehicle}" for="vehicle" />
+                        <p:outputLabel value="Vehicle" for="vehicle" />
                         <p:selectOneMenu id="vehicle" value="#{milageController.selected.vehicle}" >
                             <f:selectItems value="#{vehicleController.itemsAvailableSelectOne}"
                                            var="vehicleItem"
                                            itemValue="#{vehicleItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateMilageLabel_itemUnit}" for="itemUnit" />
+                        <p:outputLabel value="Item Unit" for="itemUnit" />
                         <p:selectOneMenu id="itemUnit" value="#{milageController.selected.itemUnit}" >
                             <f:selectItems value="#{itemUnitController.itemsAvailableSelectOne}"
                                            var="itemUnitItem"
@@ -26,19 +26,19 @@
                         </p:selectOneMenu>
 
                         
-                        <p:outputLabel value="#{bundle.CreateMilageLabel_milageValue}" for="milageValue" />
+                        <p:outputLabel value="Milage Value" for="milageValue" />
                         <p:inputText id="milageValue" value="#{milageController.selected.milageValue}" title="#{bundle.CreateMilageTitle_milageValue}" />
-                        <p:outputLabel value="#{bundle.CreateMilageLabel_milageDate}" for="milageDate" />
+                        <p:outputLabel value="Milage Date" for="milageDate" />
                         <p:calendar id="milageDate" pattern="dd MMM yyyy HH:mm:ss" value="#{milageController.selected.milageDate}" title="#{bundle.EditMilageTitle_milageDate}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateMilageLabel_createdDate}" for="createdDate" />
+                        <p:outputLabel value="Created Date" for="createdDate" />
                         <p:calendar id="createdDate" pattern="dd MMM yyyy HH:mm:ss" value="#{milageController.selected.createdDate}" title="#{bundle.EditMilageTitle_createdDate}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateMilageLabel_createdBy}" for="createdBy" />
+                        <p:outputLabel value="Created By" for="createdBy" />
                         <p:selectOneMenu id="createdBy" value="#{milageController.selected.createdBy}" >
                             <f:selectItems value="#{webUserController.itemsAvailableSelectOne}"
                                            var="createdByItem"
                                            itemValue="#{createdByItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateMilageLabel_id}" for="id" />
+                        <p:outputLabel value="Id" for="id" />
                         <p:inputText id="id" value="#{milageController.selected.id}" title="#{bundle.CreateMilageTitle_id}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{milageController.createManual}" value="#{bundle.Save}" update="display,:MilageListForm:datalist,:growl" oncomplete="handleSubmit(args,'MilageCreateDialog');"/>

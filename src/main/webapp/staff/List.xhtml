@@ -10,12 +10,12 @@
 
 
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListStaffTitle}"></h:outputText>
+            <h:outputText value="Staff List"></h:outputText>
         </ui:define>
 
         <ui:define name="body">
             <h:form id="StaffListForm">
-                <p:panel header="#{bundle.ListStaffTitle}">
+                <p:panel header="Staff List">
                     <p:dataTable id="datalist" value="#{staffController.items}" var="item"
                                  selectionMode="single" selection="#{staffController.selected}"
                                  paginator="true"
@@ -30,68 +30,68 @@
                        
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStaffTitle_registration}"/>
+                                <h:outputText value="Registration"/>
                             </f:facet>
                             <h:outputText value="#{item.registration}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStaffTitle_qualification}"/>
+                                <h:outputText value="Qualification"/>
                             </f:facet>
                             <h:outputText value="#{item.qualification}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStaffTitle_code}"/>
+                                <h:outputText value="Code"/>
                             </f:facet>
                             <h:outputText value="#{item.code}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStaffTitle_person}"/>
+                                <h:outputText value="Person"/>
                             </f:facet>
                             <h:outputText value="#{item.person}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStaffTitle_speciality}"/>
+                                <h:outputText value="Speciality"/>
                             </f:facet>
                             <h:outputText value="#{item.speciality}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStaffTitle_institution}"/>
+                                <h:outputText value="Institution"/>
                             </f:facet>
                             <h:outputText value="#{item.institution}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStaffTitle_department}"/>
+                                <h:outputText value="Department"/>
                             </f:facet>
                             <h:outputText value="#{item.department}"/>
                         </p:column>
                      
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStaffTitle_staffCode}"/>
+                                <h:outputText value="Staff Code"/>
                             </f:facet>
                             <h:outputText value="#{item.staffCode}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStaffTitle_baImage}"/>
+                                <h:outputText value="Image"/>
                             </f:facet>
                             <h:outputText value="#{item.baImage}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStaffTitle_fileName}"/>
+                                <h:outputText value="File Name"/>
                             </f:facet>
                             <h:outputText value="#{item.fileName}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStaffTitle_fileType}"/>
+                                <h:outputText value="File Type"/>
                             </f:facet>
                             <h:outputText value="#{item.fileType}"/>
                         </p:column>
