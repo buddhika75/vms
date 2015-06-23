@@ -11,7 +11,7 @@
         <p:dialog id="VehicleCreateDlg"  widgetVar="VehicleCreateDialog" modal="true" resizable="true" appendTo="@(body)" header="#{bundle.CreateVehicleTitle}" height="600px" >
             
             <h:form id="VehicleCreateForm" >
-                <h:panelGroup id="display">
+                <h:panelGroup id="display" rendered="#{vehicleController.selected ne null}">
                     
                     <table border="1">
                         <tr>

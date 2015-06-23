@@ -10,6 +10,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +20,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
+import vms.enums.StaffType;
 
 /**
  *
@@ -63,6 +66,18 @@ public class Staff implements Serializable {
     byte[] baImage = new byte[1];
     String fileName;
     String fileType;
+    @Enumerated(EnumType.STRING)
+    StaffType type;
+
+    public StaffType getType() {
+        return type;
+    }
+
+    public void setType(StaffType type) {
+        this.type = type;
+    }
+    
+    
 
     public Long getId() {
         return id;
