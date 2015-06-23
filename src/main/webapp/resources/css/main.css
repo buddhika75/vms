@@ -19,3 +19,24 @@ and open the template in the editor.
 .displayNone{
     display: none;
 }
+
+
+table.vrf{
+    border: 1px solid black;
+    table-layout: fixed;
+    vertical-align: top;
+}
+
+table.vrf tr{
+    vertical-align: top;
+}
+
+table.vrf td{
+    border: 1px solid black;
+    overflow: hidden;
+    width: 100px;
+    vertical-align: top;
+    padding: 2px;
+    margin: 1px;
+    
+}

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListScheduleTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="ScheduleListForm">
+                <p:panel header="#{bundle.ListScheduleTitle}">
+                    <p:dataTable id="datalist" value="#{scheduleController.items}" var="item"
+                                 selectionMode="single" selection="#{scheduleController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_type}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.type}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_fromDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fromDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_fromMilage}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fromMilage}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_toMilage}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.toMilage}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_fromDepartmentOrInstitution}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fromDepartmentOrInstitution}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_toDepartmentOrInstitution}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.toDepartmentOrInstitution}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_toDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.toDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_thisDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.thisDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_event}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.event}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_appointment}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.appointment}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_createdBy}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createdBy}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_createAt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_createrComments}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createrComments}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_cancelledBy}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cancelledBy}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_cancelledAt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cancelledAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_calcellerComments}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.calcellerComments}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_dailyFrequency}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dailyFrequency}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_monthlyFrequency}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.monthlyFrequency}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_yearlyFrequency}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yearlyFrequency}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_milageFrequency}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.milageFrequency}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_category}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.category}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_forItem}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.forItem}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_forCategory}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.forCategory}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_forItemUnit}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.forItemUnit}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_doubleValue1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.doubleValue1}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_doubleValue2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.doubleValue2}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_intValue1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.intValue1}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListScheduleTitle_intValue2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.intValue2}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{scheduleController.prepareCreate}" update=":ScheduleCreateForm" oncomplete="PF('ScheduleCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ScheduleViewForm" oncomplete="PF('ScheduleViewDialog').show()" disabled="#{empty scheduleController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":ScheduleEditForm" oncomplete="PF('ScheduleEditDialog').show()" disabled="#{empty scheduleController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{scheduleController.destroy}" update=":growl,datalist" disabled="#{empty scheduleController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

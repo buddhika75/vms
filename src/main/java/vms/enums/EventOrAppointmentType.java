@@ -13,10 +13,12 @@ public enum EventOrAppointmentType {
     ItemAppointment,
     ItemEvent,
     ItemSchedule,
-    ItemUnitAppointment,
+    ItemUnitAppointmentAuto,
     ItemUnitEvent,
-    ItemUnitSchedule,
+    ItemUnitScheduleAuto,
+    ItemUnitAppointmentManual,
+    ItemUnitEventAuto,
+    ItemUnitScheduleManual,
     RunnigChartEntry,
     ;
-    
 }

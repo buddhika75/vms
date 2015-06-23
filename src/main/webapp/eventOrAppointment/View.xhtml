@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EventOrAppointmentViewDlg" widgetVar="EventOrAppointmentViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEventOrAppointmentTitle}">
+            <h:form id="EventOrAppointmentViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{eventOrAppointmentController.selected != null}">
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_id}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.id}" title="#{bundle.ViewEventOrAppointmentTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_type}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.type}" title="#{bundle.ViewEventOrAppointmentTitle_type}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_fromDate}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.fromDate}" title="#{bundle.ViewEventOrAppointmentTitle_fromDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_fromMilage}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.fromMilage}" title="#{bundle.ViewEventOrAppointmentTitle_fromMilage}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_toMilage}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.toMilage}" title="#{bundle.ViewEventOrAppointmentTitle_toMilage}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_fromDepartmentOrInstitution}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.fromDepartmentOrInstitution}" title="#{bundle.ViewEventOrAppointmentTitle_fromDepartmentOrInstitution}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_toDepartmentOrInstitution}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.toDepartmentOrInstitution}" title="#{bundle.ViewEventOrAppointmentTitle_toDepartmentOrInstitution}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_toDate}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.toDate}" title="#{bundle.ViewEventOrAppointmentTitle_toDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_thisDate}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.thisDate}" title="#{bundle.ViewEventOrAppointmentTitle_thisDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_name}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.name}" title="#{bundle.ViewEventOrAppointmentTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_description}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.description}" title="#{bundle.ViewEventOrAppointmentTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_event}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.event}" title="#{bundle.ViewEventOrAppointmentTitle_event}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_appointment}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.appointment}" title="#{bundle.ViewEventOrAppointmentTitle_appointment}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_createdBy}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.createdBy}" title="#{bundle.ViewEventOrAppointmentTitle_createdBy}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_createAt}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.createAt}" title="#{bundle.ViewEventOrAppointmentTitle_createAt}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_createrComments}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.createrComments}" title="#{bundle.ViewEventOrAppointmentTitle_createrComments}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_cancelledBy}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.cancelledBy}" title="#{bundle.ViewEventOrAppointmentTitle_cancelledBy}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_cancelledAt}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.cancelledAt}" title="#{bundle.ViewEventOrAppointmentTitle_cancelledAt}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_calcellerComments}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.calcellerComments}" title="#{bundle.ViewEventOrAppointmentTitle_calcellerComments}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_dailyFrequency}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.dailyFrequency}" title="#{bundle.ViewEventOrAppointmentTitle_dailyFrequency}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_monthlyFrequency}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.monthlyFrequency}" title="#{bundle.ViewEventOrAppointmentTitle_monthlyFrequency}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_yearlyFrequency}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.yearlyFrequency}" title="#{bundle.ViewEventOrAppointmentTitle_yearlyFrequency}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_milageFrequency}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.milageFrequency}" title="#{bundle.ViewEventOrAppointmentTitle_milageFrequency}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_category}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.category}" title="#{bundle.ViewEventOrAppointmentTitle_category}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_forItem}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.forItem}" title="#{bundle.ViewEventOrAppointmentTitle_forItem}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_forCategory}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.forCategory}" title="#{bundle.ViewEventOrAppointmentTitle_forCategory}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_forItemUnit}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.forItemUnit}" title="#{bundle.ViewEventOrAppointmentTitle_forItemUnit}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_doubleValue1}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.doubleValue1}" title="#{bundle.ViewEventOrAppointmentTitle_doubleValue1}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_doubleValue2}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.doubleValue2}" title="#{bundle.ViewEventOrAppointmentTitle_doubleValue2}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_intValue1}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.intValue1}" title="#{bundle.ViewEventOrAppointmentTitle_intValue1}"/>
+                        <h:outputText value="#{bundle.ViewEventOrAppointmentLabel_intValue2}"/>
+                        <h:outputText value="#{eventOrAppointmentController.selected.intValue2}" title="#{bundle.ViewEventOrAppointmentTitle_intValue2}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="EventOrAppointmentViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
