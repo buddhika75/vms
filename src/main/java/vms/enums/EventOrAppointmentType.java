@@ -14,7 +14,7 @@ public enum EventOrAppointmentType {
     ItemEvent,
     ItemSchedule,
     ItemUnitAppointmentAuto,
-    ItemUnitEvent,
+    ItemUnitEventManual,
     ItemUnitScheduleAuto,
     ItemUnitAppointmentManual,
     ItemUnitEventAuto,

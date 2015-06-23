@@ -64,7 +64,7 @@ public class ScheduleController implements Serializable {
 
     public Date getFromDate() {
         if (fromDate == null) {
-            fromDate=new Date();
+            fromDate = new Date();
         }
         return fromDate;
     }
@@ -74,7 +74,7 @@ public class ScheduleController implements Serializable {
     }
 
     public Date getToDate() {
-        if(toDate==null){
+        if (toDate == null) {
             Calendar c = Calendar.getInstance();
             c.add(Calendar.DATE, 14);
             toDate = c.getTime();
@@ -93,22 +93,20 @@ public class ScheduleController implements Serializable {
     public void setSchedules(List<Schedule> schedules) {
         this.schedules = schedules;
     }
-    
-    
 
     public void getSheduleList() {
         String sql;
-        Map m =new HashMap();
+        Map m = new HashMap();
         sql = "select s from Schedule s "
-//                + "where s.retired=false "
-                + " where s.thisDate between :fd and :td ";
-        
+                + "where s.retired=false "
+                + " and s.thisDate between :fd and :td ";
+
         m.put("fd", fromDate);
         m.put("td", toDate);
-        
-        schedules=ejbFacade.findBySQL(sql, m, TemporalType.TIMESTAMP);
+
+        schedules = ejbFacade.findBySQL(sql, m, TemporalType.TIMESTAMP);
         System.out.println("schedules = " + schedules);
-        
+
     }
 
     public Schedule prepareCreate() {
@@ -117,7 +115,7 @@ public class ScheduleController implements Serializable {
         return selected;
     }
 
-    public void create() {
+    public void manualCreate() {
         selected.setCreateAt(new Date());
         selected.setCreatedBy(sessionController.getLoggedUser());
         selected.setFromDate(selected.getThisDate());
@@ -125,6 +123,10 @@ public class ScheduleController implements Serializable {
         selected.setFromMilage(selected.getThisMilage());
         selected.setToMilage(selected.getThisMilage());
         selected.setType(EventOrAppointmentType.ItemUnitScheduleManual);
+        create();
+    }
+
+    public void create() {
         persist(PersistAction.CREATE, ("ScheduleCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.

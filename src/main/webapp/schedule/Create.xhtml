@@ -8,51 +8,63 @@
 
     <ui:composition>
 
-        <p:dialog id="ScheduleCreateDlg" widgetVar="ScheduleCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateScheduleTitle}">
+        <p:dialog id="ScheduleCreateDlg" widgetVar="ScheduleCreateDialog" 
+                  modal="true" resizable="false" appendTo="@(body)" header="Create Schedule">
             <h:form id="ScheduleCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{scheduleController.selected != null}">
-                         
-                        <p:outputLabel value="Milage" for="fromMilage" />
-                        <p:inputText id="fromMilage" value="#{scheduleController.selected.thisMilage}" title="#{bundle.CreateScheduleTitle_fromMilage}" />
-                       
+                        <p:outputLabel value="Vehicle" for="forItem" />
+                        <p:selectOneMenu required="true" id="forItem" value="#{scheduleController.selected.forItemUnit}" >
+                            <f:selectItem itemLabel="Please select a vehicle" ></f:selectItem>
+                            <f:selectItems value="#{vehicleController.itemsAvailableSelectOne}"
+                                           var="forItemItem"
+                                           itemValue="#{forItemItem}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="Category" for="category" />
+                        <p:selectOneMenu required="true" id="category" value="#{scheduleController.selected.category}" >
+                            <f:selectItem itemLabel="Please select a category" ></f:selectItem>
+                            <f:selectItems value="#{categoryController.schedule}"
+                                           var="categoryItem"
+                                           itemValue="#{categoryItem}"/>
+                        </p:selectOneMenu>
+                        
+                        
                         <p:outputLabel value="Place" for="fromDepartmentOrInstitution" />
                         <p:selectOneMenu id="fromDepartmentOrInstitution" value="#{scheduleController.selected.fromDepartmentOrInstitution}" >
                             <f:selectItems value="#{departmentOrInstitutionController.itemsAvailableSelectOne}"
                                            var="fromDepartmentOrInstitutionItem"
                                            itemValue="#{fromDepartmentOrInstitutionItem}"/>
                         </p:selectOneMenu>
-                        
-                        <p:outputLabel value="Date" for="thisDate" />
-                        <p:calendar id="thisDate" pattern="MM/dd/yyyy" value="#{scheduleController.selected.thisDate}" title="#{bundle.EditScheduleTitle_thisDate}"  showOn="button"/>
-                        
-                        <p:outputLabel value="Name" for="name" />
-                        <p:inputText id="name" value="#{scheduleController.selected.name}" title="#{bundle.CreateScheduleTitle_name}" />
-                        
-                        <p:outputLabel value="Description" for="description" />
-                        <p:inputTextarea rows="4" cols="30" id="description" value="#{scheduleController.selected.description}" title="#{bundle.CreateScheduleTitle_description}" />
-                        
-                        <p:outputLabel value="#{bundle.CreateScheduleLabel_category}" for="category" />
-                        <p:selectOneMenu id="category" value="#{scheduleController.selected.category}" >
-                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
-                                           var="categoryItem"
-                                           itemValue="#{categoryItem}"/>
-                        </p:selectOneMenu>
 
-                        <p:outputLabel value="Vehicle" for="forItem" />
-                        <p:selectOneMenu id="forItem" value="#{scheduleController.selected.forItemUnit}" >
-                            <f:selectItems value="#{vehicleController.itemsAvailableSelectOne}"
-                                           var="forItemItem"
-                                           itemValue="#{forItemItem}"/>
-                        </p:selectOneMenu>
-                        
+                        <p:outputLabel value="Milage" for="thisMilage" />
+                        <p:inputText id="thisMilage" value="#{scheduleController.selected.thisMilage}" title="Milage" />
+
+
+
+
+                        <p:outputLabel value="Date" for="thisDate" />
+                        <p:calendar id="thisDate" pattern="dd MMM yyyy" 
+                                    value="#{scheduleController.selected.thisDate}" 
+                                    title="Date"  />
+
+                        <p:outputLabel value="Name" for="name" />
+                        <p:inputText id="name" value="#{scheduleController.selected.name}" 
+                                     title="Name" />
+
+                        <p:outputLabel value="Description" for="description" />
+                        <p:inputTextarea rows="4" cols="30" id="description" 
+                                         value="#{scheduleController.selected.description}" 
+                                         title="Description" />
+
                         <p:outputLabel value="Estimated Cost" for="doubleValue1" />
-                        <p:inputText id="doubleValue1" value="#{scheduleController.selected.doubleValue1}" title="#{bundle.CreateScheduleTitle_doubleValue1}" />
-                        
-                        </p:panelGrid>
-                    
-                    <p:commandButton actionListener="#{scheduleController.create}" value="#{bundle.Save}" update="display,:ScheduleListForm:datalist,:growl" oncomplete="handleSubmit(args,'ScheduleCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="ScheduleCreateDialog.hide()"/>
+                        <p:inputText id="doubleValue1" value="#{scheduleController.selected.doubleValue1}"
+                                     title="Estimated Cost" />
+
+                    </p:panelGrid>
+
+                    <p:commandButton actionListener="#{scheduleController.manualCreate()}" value="Save" update="display,:ScheduleListForm:datalist,:growl" oncomplete="handleSubmit(args,'ScheduleCreateDialog');"/>
+                    <p:commandButton value="Cancel" onclick="ScheduleCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

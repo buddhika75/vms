@@ -88,6 +88,16 @@ public class RunningChartController implements Serializable {
         create();
     }
 
+    @Inject
+    SessionController sessionController;
+    
+    public void manualCreate(){
+        selected.setCreateAt(new Date());
+        selected.setCreatedBy(sessionController.getLoggedUser());
+        selected.setType(EventOrAppointmentType.ItemUnitAppointmentManual);
+        create();
+    }
+    
     public void create() {
         persist(PersistAction.CREATE, "Appointment Created");
         if (!JsfUtil.isValidationFailed()) {

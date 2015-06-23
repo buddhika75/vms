@@ -26,21 +26,12 @@
                                            var="itemUnitItem"
                                            itemValue="#{itemUnitItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditMilageLabel_staff}" for="staff" />
-                        <p:selectOneMenu id="staff" value="#{milageController.selected.staff}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{staffController.itemsAvailableSelectOne}"
-                                           var="staffItem"
-                                           itemValue="#{staffItem}"/>
-                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditMilageLabel_milageValue}" for="milageValue" />
                         <p:inputText id="milageValue" value="#{milageController.selected.milageValue}" title="#{bundle.EditMilageTitle_milageValue}" />
-                        <p:outputLabel value="#{bundle.EditMilageLabel_type}" for="type" />
-                        <p:inputText id="type" value="#{milageController.selected.type}" title="#{bundle.EditMilageTitle_type}" />
                         <p:outputLabel value="#{bundle.EditMilageLabel_milageDate}" for="milageDate" />
-                        <p:calendar id="milageDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{milageController.selected.milageDate}" title="#{bundle.EditMilageTitle_milageDate}"  showOn="button"/>
+                        <p:calendar id="milageDate" pattern="dd MMM yyyy HH:mm:ss" value="#{milageController.selected.milageDate}" title="#{bundle.EditMilageTitle_milageDate}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.EditMilageLabel_createdDate}" for="createdDate" />
-                        <p:calendar id="createdDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{milageController.selected.createdDate}" title="#{bundle.EditMilageTitle_createdDate}"  showOn="button"/>
+                        <p:calendar id="createdDate" pattern="dd MMM yyyy HH:mm:ss" value="#{milageController.selected.createdDate}" title="#{bundle.EditMilageTitle_createdDate}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.EditMilageLabel_createdBy}" for="createdBy" />
                         <p:selectOneMenu id="createdBy" value="#{milageController.selected.createdBy}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
