@@ -8,47 +8,47 @@
 
     <ui:composition>
 
-        <p:dialog id="StaffCreateDlg" widgetVar="StaffCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateStaffTitle}">
+        <p:dialog id="StaffCreateDlg" widgetVar="StaffCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Create Staff">
             <h:form id="StaffCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{staffController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateStaffLabel_registration}" for="registration" />
+                        <p:outputLabel value="Registration" for="registration" />
                         <p:inputText id="registration" value="#{staffController.selected.registration}" title="#{bundle.CreateStaffTitle_registration}" />
-                        <p:outputLabel value="#{bundle.CreateStaffLabel_qualification}" for="qualification" />
+                        <p:outputLabel value="Qualification" for="qualification" />
                         <p:inputTextarea rows="4" cols="30" id="qualification" value="#{staffController.selected.qualification}" title="#{bundle.CreateStaffTitle_qualification}" />
-                        <p:outputLabel value="#{bundle.CreateStaffLabel_code}" for="code" />
+                        <p:outputLabel value="Code" for="code" />
                         <p:inputText id="code" value="#{staffController.selected.code}" title="#{bundle.CreateStaffTitle_code}" />
-                        <p:outputLabel value="#{bundle.CreateStaffLabel_person}" for="person" />
+                        <p:outputLabel value="Person" for="person" />
                         <p:selectOneMenu id="person" value="#{staffController.selected.person}" >
                             <f:selectItems value="#{personController.itemsAvailableSelectOne}"
                                            var="personItem"
                                            itemValue="#{personItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateStaffLabel_speciality}" for="speciality" />
+                        <p:outputLabel value="Speciality" for="speciality" />
                         <p:selectOneMenu id="speciality" value="#{staffController.selected.speciality}" >
                             <f:selectItems value="#{categoryController.itemsAvailableSelectOne}"
                                            var="specialityItem"
                                            itemValue="#{specialityItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateStaffLabel_institution}" for="institution" />
+                        <p:outputLabel value="Institution" for="institution" />
                         <p:selectOneMenu id="institution" value="#{staffController.selected.institution}" >
                             <f:selectItems value="#{institutionController.itemsAvailableSelectOne}"
                                            var="institutionItem"
                                            itemValue="#{institutionItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateStaffLabel_department}" for="department" />
+                        <p:outputLabel value="Department" for="department" />
                         <p:selectOneMenu id="department" value="#{staffController.selected.department}" >
                             <f:selectItems value="#{departmentController.itemsAvailableSelectOne}"
                                            var="departmentItem"
                                            itemValue="#{departmentItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateStaffLabel_staffCode}" for="staffCode" />
+                        <p:outputLabel value="Staff Code" for="staffCode" />
                         <p:inputText id="staffCode" value="#{staffController.selected.staffCode}" title="#{bundle.CreateStaffTitle_staffCode}" />
-                        <p:outputLabel value="#{bundle.CreateStaffLabel_baImage}" for="baImage" />
+                        <p:outputLabel value="Image" for="baImage" />
                         <p:inputTextarea rows="4" cols="30" id="baImage" value="#{staffController.selected.baImage}" title="#{bundle.CreateStaffTitle_baImage}" />
-                        <p:outputLabel value="#{bundle.CreateStaffLabel_fileName}" for="fileName" />
+                        <p:outputLabel value="File Name" for="fileName" />
                         <p:inputText id="fileName" value="#{staffController.selected.fileName}" title="#{bundle.CreateStaffTitle_fileName}" />
-                        <p:outputLabel value="#{bundle.CreateStaffLabel_fileType}" for="fileType" />
+                        <p:outputLabel value="File Type" for="fileType" />
                         <p:inputText id="fileType" value="#{staffController.selected.fileType}" title="#{bundle.CreateStaffTitle_fileType}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{staffController.create}" value="#{bundle.Save}" update="display,:StaffListForm:datalist,:growl" oncomplete="handleSubmit(args,'StaffCreateDialog');"/>

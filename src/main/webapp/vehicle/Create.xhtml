@@ -13,14 +13,14 @@
             <h:form id="VehicleCreateForm" >
                 <h:panelGroup id="display" rendered="#{vehicleController.selected ne null}">
 
-                    <table border="1" style="border-collapse:collapse;">
+                    <table border="1" style="border-collapse:collapse;" class="vrf">
 
                         <tr>
                             <td colspan="18" align="center" height="30px">CERTIFICATE OF REGISTRATION OF MOTOR VEHICLE </td>
                         </tr>
                         <tr>
                             <td colspan="3" ><p:outputLabel value="1. Registration No" for="registrationNo" /></td>
-                            <td colspan="6" >
+                            <td colspan="6">
                                 <p:inputText id="registrationNo" value="#{vehicleController.selected.registrationNo}" title="#{bundle.CreateVehicleTitle_registrationNo}" />
                             </td>
                             <td colspan="3" >
