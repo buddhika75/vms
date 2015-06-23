@@ -1,9 +1,9 @@
 package vms.controllers;
 
-import vms.entity.Vehicle;
+import vms.entity.Appointment;
 import vms.controllers.util.JsfUtil;
 import vms.controllers.util.JsfUtil.PersistAction;
-import vms.faces.VehicleFacade;
+import vms.faces.AppointmentFacade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,27 +18,24 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-import javax.inject.Inject;
 
-@Named("vehicleController")
+@Named("appointmentController")
 @SessionScoped
-public class VehicleController implements Serializable {
+public class AppointmentController implements Serializable {
 
     @EJB
-    private vms.faces.VehicleFacade ejbFacade;
-    @Inject
-    SessionController sessionController;
-    private List<Vehicle> items = null;
-    private Vehicle selected;
+    private vms.faces.AppointmentFacade ejbFacade;
+    private List<Appointment> items = null;
+    private Appointment selected;
 
-    public VehicleController() {
+    public AppointmentController() {
     }
 
-    public Vehicle getSelected() {
+    public Appointment getSelected() {
         return selected;
     }
 
-    public void setSelected(Vehicle selected) {
+    public void setSelected(Appointment selected) {
         this.selected = selected;
     }
 
@@ -48,42 +45,36 @@ public class VehicleController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private VehicleFacade getFacade() {
+    private AppointmentFacade getFacade() {
         return ejbFacade;
     }
 
-    public Vehicle prepareCreate() {
-        selected = new Vehicle();
+    public Appointment prepareCreate() {
+        selected = new Appointment();
         initializeEmbeddableKey();
         return selected;
     }
 
     public void create() {
-        if(sessionController.getInstitution()==null){
-            JsfUtil.addErrorMessage("You do not belog to any institution. So you can not add vehicles.");
-            return;
-        }else{
-            selected.setOwnerDepartmentOrInstitution(sessionController.getInstitution());
-        }
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("VehicleCreated"));
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("AppointmentCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("VehicleUpdated"));
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("AppointmentUpdated"));
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("VehicleDeleted"));
+        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("AppointmentDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
-    public List<Vehicle> getItems() {
+    public List<Appointment> getItems() {
         if (items == null) {
             items = getFacade().findAll();
         }
@@ -118,29 +109,29 @@ public class VehicleController implements Serializable {
         }
     }
 
-    public Vehicle getVehicle(java.lang.Long id) {
+    public Appointment getAppointment(java.lang.Long id) {
         return getFacade().find(id);
     }
 
-    public List<Vehicle> getItemsAvailableSelectMany() {
+    public List<Appointment> getItemsAvailableSelectMany() {
         return getFacade().findAll();
     }
 
-    public List<Vehicle> getItemsAvailableSelectOne() {
+    public List<Appointment> getItemsAvailableSelectOne() {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Vehicle.class)
-    public static class VehicleControllerConverter implements Converter {
+    @FacesConverter(forClass = Appointment.class)
+    public static class AppointmentControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            VehicleController controller = (VehicleController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "vehicleController");
-            return controller.getVehicle(getKey(value));
+            AppointmentController controller = (AppointmentController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "appointmentController");
+            return controller.getAppointment(getKey(value));
         }
 
         java.lang.Long getKey(String value) {
@@ -160,11 +151,11 @@ public class VehicleController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof Vehicle) {
-                Vehicle o = (Vehicle) object;
+            if (object instanceof Appointment) {
+                Appointment o = (Appointment) object;
                 return getStringKey(o.getId());
             } else {
-                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Vehicle.class.getName()});
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Appointment.class.getName()});
                 return null;
             }
         }

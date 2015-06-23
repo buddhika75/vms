@@ -5,6 +5,7 @@
  */
 package vms.controllers;
 
+import java.io.Serializable;
 import vms.controllers.util.JsfUtil;
 import vms.entity.DepartmentOrInstitution;
 import vms.entity.WebUser;
@@ -14,7 +15,6 @@ import java.util.Map;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.inject.Inject;
 
 /**
  *
@@ -22,7 +22,7 @@ import javax.inject.Inject;
  */
 @ManagedBean
 @SessionScoped
-public class SessionController {
+public class SessionController implements Serializable{
     WebUser loggedUser;
     DepartmentOrInstitution institution;
     boolean logged;

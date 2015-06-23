@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ScheduleCreateDlg" widgetVar="ScheduleCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateScheduleTitle}">
+            <h:form id="ScheduleCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{scheduleController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{scheduleController.selected.id}" title="#{bundle.CreateScheduleTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_type}" for="type" />
+                        <p:inputText id="type" value="#{scheduleController.selected.type}" title="#{bundle.CreateScheduleTitle_type}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_fromDate}" for="fromDate" />
+                        <p:calendar id="fromDate" pattern="MM/dd/yyyy" value="#{scheduleController.selected.fromDate}" title="#{bundle.EditScheduleTitle_fromDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_fromMilage}" for="fromMilage" />
+                        <p:inputText id="fromMilage" value="#{scheduleController.selected.fromMilage}" title="#{bundle.CreateScheduleTitle_fromMilage}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_toMilage}" for="toMilage" />
+                        <p:inputText id="toMilage" value="#{scheduleController.selected.toMilage}" title="#{bundle.CreateScheduleTitle_toMilage}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_fromDepartmentOrInstitution}" for="fromDepartmentOrInstitution" />
+                        <p:selectOneMenu id="fromDepartmentOrInstitution" value="#{scheduleController.selected.fromDepartmentOrInstitution}" >
+                            <f:selectItems value="#{departmentOrInstitutionController.itemsAvailableSelectOne}"
+                                           var="fromDepartmentOrInstitutionItem"
+                                           itemValue="#{fromDepartmentOrInstitutionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_toDepartmentOrInstitution}" for="toDepartmentOrInstitution" />
+                        <p:selectOneMenu id="toDepartmentOrInstitution" value="#{scheduleController.selected.toDepartmentOrInstitution}" >
+                            <f:selectItems value="#{departmentOrInstitutionController.itemsAvailableSelectOne}"
+                                           var="toDepartmentOrInstitutionItem"
+                                           itemValue="#{toDepartmentOrInstitutionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_toDate}" for="toDate" />
+                        <p:calendar id="toDate" pattern="MM/dd/yyyy" value="#{scheduleController.selected.toDate}" title="#{bundle.EditScheduleTitle_toDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_thisDate}" for="thisDate" />
+                        <p:calendar id="thisDate" pattern="MM/dd/yyyy" value="#{scheduleController.selected.thisDate}" title="#{bundle.EditScheduleTitle_thisDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{scheduleController.selected.name}" title="#{bundle.CreateScheduleTitle_name}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_description}" for="description" />
+                        <p:inputTextarea rows="4" cols="30" id="description" value="#{scheduleController.selected.description}" title="#{bundle.CreateScheduleTitle_description}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_event}" for="event" />
+                        <p:selectOneMenu id="event" value="#{scheduleController.selected.event}" >
+                            <f:selectItems value="#{eventOrAppointmentController.itemsAvailableSelectOne}"
+                                           var="eventItem"
+                                           itemValue="#{eventItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_appointment}" for="appointment" />
+                        <p:selectOneMenu id="appointment" value="#{scheduleController.selected.appointment}" >
+                            <f:selectItems value="#{eventOrAppointmentController.itemsAvailableSelectOne}"
+                                           var="appointmentItem"
+                                           itemValue="#{appointmentItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_createdBy}" for="createdBy" />
+                        <p:selectOneMenu id="createdBy" value="#{scheduleController.selected.createdBy}" >
+                            <f:selectItems value="#{webUserController.itemsAvailableSelectOne}"
+                                           var="createdByItem"
+                                           itemValue="#{createdByItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_createAt}" for="createAt" />
+                        <p:calendar id="createAt" pattern="MM/dd/yyyy" value="#{scheduleController.selected.createAt}" title="#{bundle.EditScheduleTitle_createAt}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_createrComments}" for="createrComments" />
+                        <p:inputTextarea rows="4" cols="30" id="createrComments" value="#{scheduleController.selected.createrComments}" title="#{bundle.CreateScheduleTitle_createrComments}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_cancelledBy}" for="cancelledBy" />
+                        <p:selectOneMenu id="cancelledBy" value="#{scheduleController.selected.cancelledBy}" >
+                            <f:selectItems value="#{webUserController.itemsAvailableSelectOne}"
+                                           var="cancelledByItem"
+                                           itemValue="#{cancelledByItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_cancelledAt}" for="cancelledAt" />
+                        <p:calendar id="cancelledAt" pattern="MM/dd/yyyy" value="#{scheduleController.selected.cancelledAt}" title="#{bundle.EditScheduleTitle_cancelledAt}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_calcellerComments}" for="calcellerComments" />
+                        <p:inputTextarea rows="4" cols="30" id="calcellerComments" value="#{scheduleController.selected.calcellerComments}" title="#{bundle.CreateScheduleTitle_calcellerComments}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_dailyFrequency}" for="dailyFrequency" />
+                        <p:inputText id="dailyFrequency" value="#{scheduleController.selected.dailyFrequency}" title="#{bundle.CreateScheduleTitle_dailyFrequency}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_monthlyFrequency}" for="monthlyFrequency" />
+                        <p:inputText id="monthlyFrequency" value="#{scheduleController.selected.monthlyFrequency}" title="#{bundle.CreateScheduleTitle_monthlyFrequency}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_yearlyFrequency}" for="yearlyFrequency" />
+                        <p:inputText id="yearlyFrequency" value="#{scheduleController.selected.yearlyFrequency}" title="#{bundle.CreateScheduleTitle_yearlyFrequency}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_milageFrequency}" for="milageFrequency" />
+                        <p:inputText id="milageFrequency" value="#{scheduleController.selected.milageFrequency}" title="#{bundle.CreateScheduleTitle_milageFrequency}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_category}" for="category" />
+                        <p:selectOneMenu id="category" value="#{scheduleController.selected.category}" >
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="categoryItem"
+                                           itemValue="#{categoryItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_forItem}" for="forItem" />
+                        <p:selectOneMenu id="forItem" value="#{scheduleController.selected.forItem}" >
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="forItemItem"
+                                           itemValue="#{forItemItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_forCategory}" for="forCategory" />
+                        <p:selectOneMenu id="forCategory" value="#{scheduleController.selected.forCategory}" >
+                            <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                           var="forCategoryItem"
+                                           itemValue="#{forCategoryItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_forItemUnit}" for="forItemUnit" />
+                        <p:selectOneMenu id="forItemUnit" value="#{scheduleController.selected.forItemUnit}" >
+                            <f:selectItems value="#{itemUnitController.itemsAvailableSelectOne}"
+                                           var="forItemUnitItem"
+                                           itemValue="#{forItemUnitItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_doubleValue1}" for="doubleValue1" />
+                        <p:inputText id="doubleValue1" value="#{scheduleController.selected.doubleValue1}" title="#{bundle.CreateScheduleTitle_doubleValue1}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_doubleValue2}" for="doubleValue2" />
+                        <p:inputText id="doubleValue2" value="#{scheduleController.selected.doubleValue2}" title="#{bundle.CreateScheduleTitle_doubleValue2}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_intValue1}" for="intValue1" />
+                        <p:inputText id="intValue1" value="#{scheduleController.selected.intValue1}" title="#{bundle.CreateScheduleTitle_intValue1}" />
+                        <p:outputLabel value="#{bundle.CreateScheduleLabel_intValue2}" for="intValue2" />
+                        <p:inputText id="intValue2" value="#{scheduleController.selected.intValue2}" title="#{bundle.CreateScheduleTitle_intValue2}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{scheduleController.create}" value="#{bundle.Save}" update="display,:ScheduleListForm:datalist,:growl" oncomplete="handleSubmit(args,'ScheduleCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ScheduleCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
