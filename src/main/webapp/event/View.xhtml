@@ -8,83 +8,29 @@
 
     <ui:composition>
 
-        <p:dialog id="EventViewDlg" widgetVar="EventViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEventTitle}">
+        <p:dialog id="EventViewDlg" widgetVar="EventViewDialog" modal="true" resizable="false" appendTo="@(body)" header="View Event">
             <h:form id="EventViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{eventController.selected != null}">
-                        <h:outputText value="#{bundle.ViewEventLabel_id}"/>
-                        <h:outputText value="#{eventController.selected.id}" title="#{bundle.ViewEventTitle_id}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_type}"/>
-                        <h:outputText value="#{eventController.selected.type}" title="#{bundle.ViewEventTitle_type}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_fromDate}"/>
-                        <h:outputText value="#{eventController.selected.fromDate}" title="#{bundle.ViewEventTitle_fromDate}">
-                            <f:convertDateTime pattern="dd MMM yyyy" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewEventLabel_fromMilage}"/>
-                        <h:outputText value="#{eventController.selected.fromMilage}" title="#{bundle.ViewEventTitle_fromMilage}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_toMilage}"/>
-                        <h:outputText value="#{eventController.selected.toMilage}" title="#{bundle.ViewEventTitle_toMilage}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_fromDepartmentOrInstitution}"/>
-                        <h:outputText value="#{eventController.selected.fromDepartmentOrInstitution}" title="#{bundle.ViewEventTitle_fromDepartmentOrInstitution}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_toDepartmentOrInstitution}"/>
-                        <h:outputText value="#{eventController.selected.toDepartmentOrInstitution}" title="#{bundle.ViewEventTitle_toDepartmentOrInstitution}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_toDate}"/>
-                        <h:outputText value="#{eventController.selected.toDate}" title="#{bundle.ViewEventTitle_toDate}">
-                            <f:convertDateTime pattern="dd MMM yyyy" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewEventLabel_thisDate}"/>
+                         <h:outputText value="Vehicle"/>
+                        <h:outputText value="#{eventController.selected.forItemUnit.name}" title="#{bundle.ViewEventTitle_forItemUnit}"/>
+                         <h:outputText value="Category"/>
+                        <h:outputText value="#{eventController.selected.category.name}" title="#{bundle.ViewEventTitle_category}"/>
+                      <h:outputText value="Milage"/>
+                         <h:outputText value="#{eventController.selected.thisMilage}" title="#{bundle.ViewEventTitle_fromMilage}"/>
+                        <h:outputText value="Performed Institution"/>
+                        <h:outputText value="#{eventController.selected.fromDepartmentOrInstitution.name}" title="#{bundle.ViewEventTitle_fromDepartmentOrInstitution}"/>
+                        <h:outputText value="Date"/>
                         <h:outputText value="#{eventController.selected.thisDate}" title="#{bundle.ViewEventTitle_thisDate}">
                             <f:convertDateTime pattern="dd MMM yyyy" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewEventLabel_name}"/>
+                        <h:outputText value="Name"/>
                         <h:outputText value="#{eventController.selected.name}" title="#{bundle.ViewEventTitle_name}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_description}"/>
+                        <h:outputText value="Description"/>
                         <h:outputText value="#{eventController.selected.description}" title="#{bundle.ViewEventTitle_description}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_event}"/>
-                        <h:outputText value="#{eventController.selected.event}" title="#{bundle.ViewEventTitle_event}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_appointment}"/>
-                        <h:outputText value="#{eventController.selected.appointment}" title="#{bundle.ViewEventTitle_appointment}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_createdBy}"/>
-                        <h:outputText value="#{eventController.selected.createdBy}" title="#{bundle.ViewEventTitle_createdBy}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_createAt}"/>
-                        <h:outputText value="#{eventController.selected.createAt}" title="#{bundle.ViewEventTitle_createAt}">
-                            <f:convertDateTime pattern="dd MMM yyyy" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewEventLabel_createrComments}"/>
-                        <h:outputText value="#{eventController.selected.createrComments}" title="#{bundle.ViewEventTitle_createrComments}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_cancelledBy}"/>
-                        <h:outputText value="#{eventController.selected.cancelledBy}" title="#{bundle.ViewEventTitle_cancelledBy}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_cancelledAt}"/>
-                        <h:outputText value="#{eventController.selected.cancelledAt}" title="#{bundle.ViewEventTitle_cancelledAt}">
-                            <f:convertDateTime pattern="dd MMM yyyy" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewEventLabel_calcellerComments}"/>
-                        <h:outputText value="#{eventController.selected.calcellerComments}" title="#{bundle.ViewEventTitle_calcellerComments}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_dailyFrequency}"/>
-                        <h:outputText value="#{eventController.selected.dailyFrequency}" title="#{bundle.ViewEventTitle_dailyFrequency}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_monthlyFrequency}"/>
-                        <h:outputText value="#{eventController.selected.monthlyFrequency}" title="#{bundle.ViewEventTitle_monthlyFrequency}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_yearlyFrequency}"/>
-                        <h:outputText value="#{eventController.selected.yearlyFrequency}" title="#{bundle.ViewEventTitle_yearlyFrequency}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_milageFrequency}"/>
-                        <h:outputText value="#{eventController.selected.milageFrequency}" title="#{bundle.ViewEventTitle_milageFrequency}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_category}"/>
-                        <h:outputText value="#{eventController.selected.category}" title="#{bundle.ViewEventTitle_category}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_forItem}"/>
-                        <h:outputText value="#{eventController.selected.forItem}" title="#{bundle.ViewEventTitle_forItem}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_forCategory}"/>
-                        <h:outputText value="#{eventController.selected.forCategory}" title="#{bundle.ViewEventTitle_forCategory}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_forItemUnit}"/>
-                        <h:outputText value="#{eventController.selected.forItemUnit}" title="#{bundle.ViewEventTitle_forItemUnit}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_doubleValue1}"/>
+                         <h:outputText value="Cost"/>
                         <h:outputText value="#{eventController.selected.doubleValue1}" title="#{bundle.ViewEventTitle_doubleValue1}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_doubleValue2}"/>
-                        <h:outputText value="#{eventController.selected.doubleValue2}" title="#{bundle.ViewEventTitle_doubleValue2}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_intValue1}"/>
-                        <h:outputText value="#{eventController.selected.intValue1}" title="#{bundle.ViewEventTitle_intValue1}"/>
-                        <h:outputText value="#{bundle.ViewEventLabel_intValue2}"/>
-                        <h:outputText value="#{eventController.selected.intValue2}" title="#{bundle.ViewEventTitle_intValue2}"/>
-                    </p:panelGrid>
+                        </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="EventViewDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
