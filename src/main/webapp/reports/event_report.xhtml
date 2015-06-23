@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template.xhtml">
+
+            <ui:define name="body">
+                <h:form>
+                    <p:panelGrid columns="2" styleClass="noBorder">
+
+                        <p:outputLabel value="FromDate"/><p:calendar id="fd" value="#{scheduleController.fromDate}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </p:calendar>
+
+                        <p:outputLabel value="ToDate"/><p:calendar id="td" value="#{scheduleController.toDate}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </p:calendar>
+
+                        <p:outputLabel value="Vehicle"/>
+                        <p:selectOneMenu id="vehicle" value="#{scheduleController.vehicle}" >
+                            <f:selectItem itemLabel="Please Select Vehicle"/>
+                            <f:selectItems value="#{vehicleController.itemsAvailableSelectOne}"
+                                           var="vehicleItem"
+                                           itemValue="#{vehicleItem}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel/>
+                        <p:commandButton value="Process" action="#{scheduleController.getSheduleList}" ajax="false"></p:commandButton>
+
+                    </p:panelGrid>
+
+                    <p:panel>
+
+                        <p:dataTable value="#{scheduleController.schedules}" var="item" stickyHeader="true">
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Vehicle"/>
+                                </f:facet>
+                                <h:outputText value="#{item.forItemUnit.name}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Category"/>
+                                </f:facet>
+                                <h:outputText value="#{item.category.name}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Sheduled On"/>
+                                </f:facet>
+                                <h:outputText value="#{item.thisDate}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                </h:outputText>
+                                <h:outputText value="#{item.fromMilage}"/>
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Place"/>
+                                </f:facet>
+                                <h:outputText value="#{item.fromDepartmentOrInstitution}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Name"/>
+                                </f:facet>
+                                <h:outputText value="#{item.name}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Description"/>
+                                </f:facet>
+                                <h:outputText value="#{item.description}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Remarks"/>
+                                </f:facet>
+                                <h:outputText value="#{item.event}"/>
+                                <h:outputText value="#{item.cancelledBy}"/>
+                                <h:outputText value="#{item.calcellerComments}"/>
+                            </p:column>
+
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Cost"/>
+                                </f:facet>
+                                <h:outputText value="#{item.doubleValue1}"/>
+                            </p:column>
+
+                        </p:dataTable>
+
+                    </p:panel>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
