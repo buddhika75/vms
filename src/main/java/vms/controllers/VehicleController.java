@@ -59,6 +59,10 @@ public class VehicleController implements Serializable {
     }
 
     public void create() {
+        System.out.println("this = " + sessionController);
+        System.out.println("this = " + sessionController.getInstitution().getName());
+        System.out.println("this = " + sessionController.loggedUser.getStaff().getPerson().getName());
+        System.out.println("this = " + sessionController.loggedUser.getInstitution().getName());
         if(sessionController.getInstitution()==null){
             JsfUtil.addErrorMessage("You do not belog to any institution. So you can not add vehicles.");
             return;
