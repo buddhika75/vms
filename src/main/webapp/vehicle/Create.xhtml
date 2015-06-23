@@ -128,7 +128,7 @@
                             <td colspan="9">
                                 <p:outputLabel value="17. Country Of Import" for="countryOfImport" />
                                 <p:selectOneMenu id="countryOfImport" value="#{vehicleController.selected.countryOfImport}" >
-                                    <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                    <f:selectItems value="#{categoryController.country}"
                                                    var="countryOfImportItem"
                                                    itemValue="#{countryOfImportItem}"/>
                                 </p:selectOneMenu>
