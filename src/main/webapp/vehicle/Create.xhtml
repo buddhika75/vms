@@ -18,24 +18,25 @@
                             <td colspan="18">CERTIFICATE OF REGISTRATION OF MOTOR VEHICLE </td>
                         </tr>
                         <tr>
-                            <td colspan="9">1.
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_registrationNo}" for="registrationNo" />
+                            <td colspan="9">
+                                <p:outputLabel value="1. Registration No" for="registrationNo" />
                                 <p:inputText id="registrationNo" value="#{vehicleController.selected.registrationNo}" title="#{bundle.CreateVehicleTitle_registrationNo}" />
                             </td>
 
-                            <td colspan="9">2. Chassis No
-                                <p:inputText id="chassicNo" value="#{vehicleController.selected.chassicNo}" title="#{bundle.CreateVehicleTitle_chassicNo}" />
+                            <td colspan="9">
+                                <p:outputLabel value="2. Chassis No" for="chassicNo"/>
+                                <p:inputText id="chassicNo"  title="#{bundle.CreateVehicleTitle_chassicNo}" />
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="18">3.
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_currentOwner}" for="currentOwner" />
+                            <td colspan="18">
+                                <p:outputLabel value="3. Current Owner" for="currentOwner" />
                                 <p:inputText id="currentOwner" value="#{vehicleController.selected.currentOwner}" title="#{bundle.CreateVehicleTitle_currentOwner}" />
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="18">4. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_conditions}" for="conditions" />
+                            <td colspan="18"> 
+                                <p:outputLabel value="4. Conditions" for="conditions" />
                                 <p:inputText id="conditions" value="#{vehicleController.selected.conditions}" title="#{bundle.CreateVehicleTitle_conditions}" /> 
                             </td>
                         </tr>
@@ -43,26 +44,26 @@
                             <td colspan="18">5. Absolute Owner </td>
                         </tr>
                         <tr>
-                            <td colspan="9">6. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_engineNo}" for="engineNo" />
+                            <td colspan="9">
+                                <p:outputLabel value="6. Engine No" for="engineNo" />
                                 <p:inputText id="engineNo" value="#{vehicleController.selected.engineNo}" title="#{bundle.CreateVehicleTitle_engineNo}" />
                             </td>
-                            <td colspan="9">7. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_engineCapasity}" for="engineCapasity" />
+                            <td colspan="9">
+                                <p:outputLabel value="7. Engine Capasity" for="engineCapasity" />
                                 <p:inputText id="engineCapasity" value="#{vehicleController.selected.engineCapasity}" title="#{bundle.CreateVehicleTitle_engineCapasity}" />
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="9">8. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_vehicleClass}" for="vehicleClass" />
+                            <td colspan="9"> 
+                                <p:outputLabel value="8. Vehicle Class" for="vehicleClass" />
                                 <p:selectOneMenu id="vehicleClass" value="#{vehicleController.selected.vehicleClass}" >
                                     <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
                                                    var="vehicleClassItem"
                                                    itemValue="#{vehicleClassItem}"/>
                                 </p:selectOneMenu> </td>
-                            <td colspan="9">9. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_taxacionClass}" for="taxacionClass" />
-                                <p:selectOneMenu id="taxacionClass" value="#{vehicleController.selected.taxacionClass}" >
+                            <td colspan="9"> 
+                                <p:outputLabel value="9. Taxacion Class" for="taxacionClass" />
+                                <p:selectOneMenu id="taxacionClass" value="#{categoryController.tax}" >
                                     <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
                                                    var="taxacionClassItem"
                                                    itemValue="#{taxacionClassItem}"/>
@@ -70,12 +71,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="9">10. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_statusWhenRegistered}" for="statusWhenRegistered" />
+                            <td colspan="9">
+                                <p:outputLabel value="10. Status When Registered" for="statusWhenRegistered" />
                                 <p:inputTextarea rows="4" cols="30" id="statusWhenRegistered" value="#{vehicleController.selected.statusWhenRegistered}" title="#{bundle.CreateVehicleTitle_statusWhenRegistered}" />
                             </td>
-                            <td colspan="9">11. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_fuelType}" for="fuelType" />
+                            <td colspan="9"> 
+                                <p:outputLabel value="11. Fuel Type" for="fuelType" />
                                 <p:selectOneMenu id="fuelType" value="#{vehicleController.selected.fuelType}" >
                                     <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
                                                    var="fuelTypeItem"
@@ -84,16 +85,16 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="9">12. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_make}" for="make" />
+                            <td colspan="9">
+                                <p:outputLabel value="12. Make" for="make" />
                                 <p:selectOneMenu id="make" value="#{vehicleController.selected.make}" >
                                     <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
                                                    var="makeItem"
                                                    itemValue="#{makeItem}"/>
                                 </p:selectOneMenu>
                             </td>
-                            <td colspan="9">13. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_countryOfOrigin}" for="countryOfOrigin" />
+                            <td colspan="9"> 
+                                <p:outputLabel value="13. Country Of Origin" for="countryOfOrigin" />
                                 <p:selectOneMenu id="countryOfOrigin" value="#{vehicleController.selected.countryOfOrigin}" >
                                     <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
                                                    var="countryOfOriginItem"
@@ -102,30 +103,30 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="9">14. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_model}" for="model" />
+                            <td colspan="9">
+                                <p:outputLabel value="14. Model" for="model" />
                                 <p:selectOneMenu id="model" value="#{vehicleController.selected.model}" >
                                     <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
                                                    var="modelItem"
                                                    itemValue="#{modelItem}"/>
                                 </p:selectOneMenu>
                             </td>
-                            <td colspan="9">15. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_yearOfManufacturer}" for="yearOfManufacturer" />
+                            <td colspan="9">
+                                <p:outputLabel value="15. Year Of Manufacturer" for="yearOfManufacturer" />
                                 <p:inputText id="yearOfManufacturer" value="#{vehicleController.selected.yearOfManufacturer}" title="#{bundle.CreateVehicleTitle_yearOfManufacturer}" />
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="9">16. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_typeOfBody}" for="typeOfBody" />
+                            <td colspan="9">
+                                <p:outputLabel value="16. Type Of Body" for="typeOfBody" />
                                 <p:selectOneMenu id="typeOfBody" value="#{vehicleController.selected.typeOfBody}" >
                                     <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
                                                    var="typeOfBodyItem"
                                                    itemValue="#{typeOfBodyItem}"/>
                                 </p:selectOneMenu>
                             </td>
-                            <td colspan="9">17. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_countryOfImport}" for="countryOfImport" />
+                            <td colspan="9">
+                                <p:outputLabel value="17. Country Of Import" for="countryOfImport" />
                                 <p:selectOneMenu id="countryOfImport" value="#{vehicleController.selected.countryOfImport}" >
                                     <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
                                                    var="countryOfImportItem"
@@ -134,8 +135,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="9">18. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_colour}" for="colour" />
+                            <td colspan="9">
+                                <p:outputLabel value="18.Colour" for="colour" />
                                 <p:selectOneMenu id="colour" value="#{vehicleController.selected.colour}" >
                                     <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
                                                    var="colourItem"
@@ -143,13 +144,13 @@
                                 </p:selectOneMenu>
                             </td>     
                             <td colspan="9" rowspan="10">
-                                19. <p:outputLabel value="#{bundle.CreateVehicleLabel_previousOwners}" for="previousOwners" />
+                                19. <p:outputLabel value="19. Previous Owners" for="previousOwners" />
                                 <p:inputTextarea rows="4" cols="30" id="previousOwners" value="#{vehicleController.selected.previousOwners}" title="#{bundle.CreateVehicleTitle_previousOwners}" />
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="9">20. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_seatingCapacity}" for="seatingCapacity" />
+                            <td colspan="9">
+                                <p:outputLabel value="20. Seating Capacity" for="seatingCapacity" />
                                 <p:inputText id="seatingCapacity" value="#{vehicleController.selected.seatingCapacity}" title="#{bundle.CreateVehicleTitle_seatingCapacity}" />
                             </td>
                             
@@ -157,38 +158,38 @@
                         <tr>
                             <td colspan="3">21. Weight (kg)</td>
                             <td colspan="3">
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_weightUnloaded}" for="weightUnloaded" />
+                                <p:outputLabel value="Weight Unloaded" for="weightUnloaded" />
                                 <p:inputText id="weightUnloaded" value="#{vehicleController.selected.weightUnloaded}" title="#{bundle.CreateVehicleTitle_weightUnloaded}" />
                             </td>
                             <td colspan="3">
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_weightGross}" for="weightGross" />
+                                <p:outputLabel value="Weight Gross" for="weightGross" />
                                 <p:inputText id="weightGross" value="#{vehicleController.selected.weightGross}" title="#{bundle.CreateVehicleTitle_weightGross}" />
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3" rowspan="2">22. Tyre Size  </td>
-                            <td colspan="1"><p:outputLabel value="#{bundle.CreateVehicleLabel_tyreSizeFront}" for="tyreSizeFront" /> </td>
+                            <td colspan="1"><p:outputLabel value="Tyre Size Front" for="tyreSizeFront" /> </td>
                             <td colspan="2"><p:inputText id="tyreSizeFront" value="#{vehicleController.selected.tyreSizeFront}" title="#{bundle.CreateVehicleTitle_tyreSizeFront}" /></td>
-                            <td colspan="1"> <p:outputLabel value="#{bundle.CreateVehicleLabel_duelTyresFront}" for="duelTyresFront" /> </td>
+                            <td colspan="1"> <p:outputLabel value="Duel Tyres Front" for="duelTyresFront" /> </td>
                             <td colspan="2"><p:selectBooleanCheckbox id="duelTyresFront" value="#{vehicleController.selected.duelTyresFront}" /></td>
                             <tr>
-                                <td colspan="1"><p:outputLabel value="#{bundle.CreateVehicleLabel_tyreSizeRear}" for="tyreSizeRear" /> </td>
+                                <td colspan="1"><p:outputLabel value="Tyre Size Rear" for="tyreSizeRear" /> </td>
                                 <td colspan="2"><p:inputText id="tyreSizeRear" value="#{vehicleController.selected.tyreSizeRear}" title="#{bundle.CreateVehicleTitle_tyreSizeRear}" /></td>
-                                <td colspan="1"><p:outputLabel value="#{bundle.CreateVehicleLabel_duelTyresRear}" for="duelTyresRear" /></td>
+                                <td colspan="1"><p:outputLabel value="Duel Tyres Rear" for="duelTyresRear" /></td>
                                 <td colspan="2"><p:selectBooleanCheckbox id="duelTyresRear" value="#{vehicleController.selected.duelTyresRear}" /></td>
                             </tr>
                         </tr>
                         <tr>
-                            <td colspan="3">23. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_lengthInMeters}" for="lengthInMeters" />
+                            <td colspan="3">
+                                <p:outputLabel value="23. Length" for="lengthInMeters" />
                                 <p:inputText id="lengthInMeters" value="#{vehicleController.selected.lengthInMeters}" title="#{bundle.CreateVehicleTitle_lengthInMeters}" />
                             </td>
                             <td colspan="3">
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_widthInMeters}" for="widthInMeters" />
+                                <p:outputLabel value="Width" for="widthInMeters" />
                                 <p:inputText id="widthInMeters" value="#{vehicleController.selected.widthInMeters}" title="#{bundle.CreateVehicleTitle_widthInMeters}" />
                             </td>
                             <td colspan="3">
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_heightInCm}" for="heightInCm" />
+                                <p:outputLabel value="Height" for="heightInCm" />
                                 <p:inputText id="heightInCm" value="#{vehicleController.selected.heightInCm}" title="#{bundle.CreateVehicleTitle_heightInCm}" />
                             </td>
                         </tr> 
@@ -196,14 +197,14 @@
                             <td colspan="9">24. Provincial Council</td>
                         </tr>
                         <tr>
-                            <td colspan="9">25. 
-                            <p:outputLabel value="#{bundle.CreateVehicleLabel_dateOfFirstRegistration}" for="dateOfFirstRegistration" />
+                            <td colspan="9">
+                            <p:outputLabel value="25. Date Of First Registration}" for="dateOfFirstRegistration" />
                         <p:calendar id="dateOfFirstRegistration" pattern="MM/dd/yyyy" value="#{vehicleController.selected.dateOfFirstRegistration}" title="#{bundle.EditVehicleTitle_dateOfFirstRegistration}"  showOn="button"/>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="9">26. 
-                             <p:outputLabel value="#{bundle.CreateVehicleLabel_taxes}" for="taxes" />
+                            <td colspan="9">
+                             <p:outputLabel value="26. Taxes" for="taxes" />
                         <p:inputTextarea rows="4" cols="30" id="taxes" value="#{vehicleController.selected.taxes}" title="#{bundle.CreateVehicleTitle_taxes}" />
                             </td>
                         </tr>

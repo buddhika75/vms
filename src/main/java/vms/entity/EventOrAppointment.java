@@ -54,6 +54,8 @@ public class EventOrAppointment implements Serializable {
     Date createAt;
     @Lob
     String createrComments;
+    Boolean cancelled;
+    Boolean completed;
     @ManyToOne
     WebUser cancelledBy;
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -331,6 +333,22 @@ public class EventOrAppointment implements Serializable {
 
     public void setIntValue2(Integer intValue2) {
         this.intValue2 = intValue2;
+    }
+
+    public Boolean getCancelled() {
+        return cancelled;
+    }
+
+    public void setCancelled(Boolean cancelled) {
+        this.cancelled = cancelled;
+    }
+
+    public Boolean getCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
     }
 
     
