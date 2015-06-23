@@ -10,10 +10,7 @@
         <ui:composition template="/template.xhtml">
 
             <ui:define name="body">
-
-
-
-                <p:galleria value="#{imagesView.images}" var="image" panelWidth="1350"  panelHeight="370">
+                <p:galleria value="#{imagesView.images}" var="image" panelWidth="1000"  panelHeight="400" style="margin: auto">
                     <p:graphicImage  name="image/#{image}"  styleClass="content"  height="100%"  width="100%" />
 
                 </p:galleria>
@@ -32,7 +29,10 @@
         <h:link outcome="/eventOrAppointment/List" value="Show All EventOrAppointment Items"/>
         <br />
         <h:link outcome="/schedule/List" value="Show All Schedule Items"/>
+        <br />
+        <h:link outcome="/milage/List" value="Show All Milage Items"/>
     </body>
+
 
 
 

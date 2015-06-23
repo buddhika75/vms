@@ -8,29 +8,30 @@
 
     <ui:composition>
 
-        <p:dialog id="InstitutionViewDlg" widgetVar="InstitutionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewInstitutionTitle}">
+        <p:dialog id="InstitutionViewDlg" widgetVar="InstitutionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="View Institution Title">
             <h:form id="InstitutionViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{institutionController.selected != null}">
-                        <h:outputText value="#{bundle.ViewInstitutionLabel_departmentOrInstitutionType}"/>
-                        <h:outputText value="#{institutionController.selected.departmentOrInstitutionType}" title="#{bundle.ViewInstitutionTitle_departmentOrInstitutionType}"/>
-                        <h:outputText value="#{bundle.ViewInstitutionLabel_departmentCode}"/>
-                        <h:outputText value="#{institutionController.selected.departmentCode}" title="#{bundle.ViewInstitutionTitle_departmentCode}"/>
-                        <h:outputText value="#{bundle.ViewInstitutionLabel_name}"/>
+                        <h:outputText value="Name"/>
                         <h:outputText value="#{institutionController.selected.name}" title="#{bundle.ViewInstitutionTitle_name}"/>
-                        <h:outputText value="#{bundle.ViewInstitutionLabel_printingName}"/>
+                        <h:outputText value="Printing Name"/>
                         <h:outputText value="#{institutionController.selected.printingName}" title="#{bundle.ViewInstitutionTitle_printingName}"/>
-                        <h:outputText value="#{bundle.ViewInstitutionLabel_address}"/>
+                        
+                        <h:outputText value="Department Or Institution Type"/>
+                        <h:outputText value="#{institutionController.selected.departmentOrInstitutionType}" title="#{bundle.ViewInstitutionTitle_departmentOrInstitutionType}"/>
+                        <h:outputText value="Department Code"/>
+                        <h:outputText value="#{institutionController.selected.departmentCode}" title="#{bundle.ViewInstitutionTitle_departmentCode}"/>
+                        <h:outputText value="Address"/>
                         <h:outputText value="#{institutionController.selected.address}" title="#{bundle.ViewInstitutionTitle_address}"/>
-                        <h:outputText value="#{bundle.ViewInstitutionLabel_telephone1}"/>
+                        <h:outputText value="Telephone1"/>
                         <h:outputText value="#{institutionController.selected.telephone1}" title="#{bundle.ViewInstitutionTitle_telephone1}"/>
-                        <h:outputText value="#{bundle.ViewInstitutionLabel_telephone2}"/>
+                        <h:outputText value="Telephone2"/>
                         <h:outputText value="#{institutionController.selected.telephone2}" title="#{bundle.ViewInstitutionTitle_telephone2}"/>
-                        <h:outputText value="#{bundle.ViewInstitutionLabel_fax}"/>
+                        <h:outputText value="Fax"/>
                         <h:outputText value="#{institutionController.selected.fax}" title="#{bundle.ViewInstitutionTitle_fax}"/>
-                        <h:outputText value="#{bundle.ViewInstitutionLabel_email}"/>
+                        <h:outputText value="Email"/>
                         <h:outputText value="#{institutionController.selected.email}" title="#{bundle.ViewInstitutionTitle_email}"/>
-                        <h:outputText value="#{bundle.ViewInstitutionLabel_parent}"/>
+                        <h:outputText value="Parent"/>
                         <h:outputText value="#{institutionController.selected.parent}" title="#{bundle.ViewInstitutionTitle_parent}"/>
                         </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="InstitutionViewDialog.hide()"/>

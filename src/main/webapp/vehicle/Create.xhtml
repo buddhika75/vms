@@ -8,7 +8,7 @@
 
     <ui:composition>
 
-        <p:dialog id="VehicleCreateDlg"  widgetVar="VehicleCreateDialog" modal="true" resizable="true" appendTo="@(body)" header="#{bundle.CreateVehicleTitle}" height="600px" >
+        <p:dialog id="VehicleCreateDlg"  widgetVar="VehicleCreateDialog" modal="true" resizable="true" appendTo="@(body)" header="Create Vehicle Title" height="600px" >
             
             <h:form id="VehicleCreateForm" >
                 <h:panelGroup id="display" rendered="#{vehicleController.selected ne null}">
@@ -78,7 +78,7 @@
                             <td colspan="9"> 
                                 <p:outputLabel value="11. Fuel Type" for="fuelType" />
                                 <p:selectOneMenu id="fuelType" value="#{vehicleController.selected.fuelType}" >
-                                    <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                    <f:selectItems value="#{categoryController.fuel}"
                                                    var="fuelTypeItem"
                                                    itemValue="#{fuelTypeItem}"/>
                                 </p:selectOneMenu>
@@ -144,7 +144,7 @@
                                 </p:selectOneMenu>
                             </td>     
                             <td colspan="9" rowspan="10">
-                                19. <p:outputLabel value="19. Previous Owners" for="previousOwners" />
+                                <p:outputLabel value="19. Previous Owners" for="previousOwners" />
                                 <p:inputTextarea rows="4" cols="30" id="previousOwners" value="#{vehicleController.selected.previousOwners}" title="#{bundle.CreateVehicleTitle_previousOwners}" />
                             </td>
                         </tr>

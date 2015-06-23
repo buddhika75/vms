@@ -8,12 +8,12 @@
 
     <ui:composition>
 
-        <p:dialog id="WebUserEditDlg" widgetVar="WebUserEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditWebUserTitle}">
+        <p:dialog id="WebUserEditDlg" widgetVar="WebUserEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Edit User">
             <h:form id="WebUserEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{webUserController.selected != null}">
                         
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_staff}" for="staff" />
+                        <p:outputLabel value="Staff" for="staff" />
                         <p:selectOneMenu id="staff" value="#{webUserController.selected.staff}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{staffController.itemsAvailableSelectOne}"
@@ -21,61 +21,36 @@
                                            itemValue="#{staffItem}"/>
                         </p:selectOneMenu>
                         
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_institution}" for="institution" />
+                        <p:outputLabel value="Institution" for="institution" />
                         <p:selectOneMenu id="institution" value="#{webUserController.selected.institution}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{institutionController.itemsAvailableSelectOne}"
                                            var="institutionItem"
                                            itemValue="#{institutionItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_department}" for="department" />
+                        <p:outputLabel value="Department" for="department" />
                         <p:selectOneMenu id="department" value="#{webUserController.selected.department}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{departmentController.itemsAvailableSelectOne}"
                                            var="departmentItem"
                                            itemValue="#{departmentItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_email}" for="email" />
+                        <p:outputLabel value="Email" for="email" />
                         <p:inputText id="email" value="#{webUserController.selected.email}" title="#{bundle.EditWebUserTitle_email}" />
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_telNo}" for="telNo" />
+                        <p:outputLabel value="Tel No" for="telNo" />
                         <p:inputText id="telNo" value="#{webUserController.selected.telNo}" title="#{bundle.EditWebUserTitle_telNo}" />
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_defLocale}" for="defLocale" />
-                        <p:inputText id="defLocale" value="#{webUserController.selected.defLocale}" title="#{bundle.EditWebUserTitle_defLocale}" />
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_primeTheme}" for="primeTheme" />
-                        <p:inputText id="primeTheme" value="#{webUserController.selected.primeTheme}" title="#{bundle.EditWebUserTitle_primeTheme}" />
-                         <p:outputLabel value="#{bundle.EditWebUserLabel_description}" for="description" />
-                        <p:inputText id="description" value="#{webUserController.selected.description}" title="#{bundle.EditWebUserTitle_description}" />
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_name}" for="name" />
+                        <p:outputLabel value="UserName" for="name" />
                         <p:inputText id="name" value="#{webUserController.selected.name}" title="#{bundle.EditWebUserTitle_name}" required="true" requiredMessage="#{bundle.EditWebUserRequiredMessage_name}"/>
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_webUserPassword}" for="webUserPassword" />
+                        <p:outputLabel value="Password" for="webUserPassword" />
                         <p:inputText id="webUserPassword" value="#{webUserController.selected.webUserPassword}" title="#{bundle.EditWebUserTitle_webUserPassword}" />
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_webUserPerson}" for="webUserPerson" />
+                        <p:outputLabel value="Web User Person" for="webUserPerson" />
                         <p:selectOneMenu id="webUserPerson" value="#{webUserController.selected.webUserPerson}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{personController.itemsAvailableSelectOne}"
                                            var="webUserPersonItem"
                                            itemValue="#{webUserPersonItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_activateComments}" for="activateComments" />
-                        <p:inputText id="activateComments" value="#{webUserController.selected.activateComments}" title="#{bundle.EditWebUserTitle_activateComments}" />
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_activatedAt}" for="activatedAt" />
-                        <p:calendar id="activatedAt" pattern="MM/dd/yyyy HH:mm:ss" value="#{webUserController.selected.activatedAt}" title="#{bundle.EditWebUserTitle_activatedAt}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_activator}" for="activator" />
-                        <p:selectOneMenu id="activator" value="#{webUserController.selected.activator}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{webUserController.itemsAvailableSelectOne}"
-                                           var="activatorItem"
-                                           itemValue="#{activatorItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_role}" for="role" />
-                        <p:selectOneMenu id="role" value="#{webUserController.selected.role}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{categoryController.itemsAvailableSelectOne}"
-                                           var="roleItem"
-                                           itemValue="#{roleItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditWebUserLabel_code}" for="code" />
-                        <p:inputText id="code" value="#{webUserController.selected.code}" title="#{bundle.EditWebUserTitle_code}" />
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{webUserController.update}" value="#{bundle.Save}" update="display,:WebUserListForm:datalist,:growl" oncomplete="handleSubmit(args, 'WebUserEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="WebUserEditDialog.hide()"/>
