@@ -83,11 +83,11 @@ public class ItemController implements Serializable {
        
             
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("ItemUpdated"));
+        persist(PersistAction.UPDATE, ("ItemUpdated"));
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("ItemDeleted"));
+        persist(PersistAction.DELETE, ("ItemDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
@@ -133,11 +133,11 @@ public class ItemController implements Serializable {
                 if (msg.length() > 0) {
                     JsfUtil.addErrorMessage(msg);
                 } else {
-                    JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                    JsfUtil.addErrorMessage(ex, ("PersistenceErrorOccured"));
                 }
             } catch (Exception ex) {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
-                JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                JsfUtil.addErrorMessage(ex, ("PersistenceErrorOccured"));
             }
         }
     }

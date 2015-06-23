@@ -239,7 +239,7 @@ public class DepartmentOrInstitution implements Serializable {
 
     @Override
     public String toString() {
-        return "hotel.entity.DepartmentOrInstitution[ id=" + id + " ]";
+        return name;
     }
 
 }
