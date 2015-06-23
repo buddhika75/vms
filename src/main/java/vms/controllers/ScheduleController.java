@@ -100,8 +100,8 @@ public class ScheduleController implements Serializable {
         String sql;
         Map m =new HashMap();
         sql = "select s from Schedule s "
-                + "where s.retired=false "
-                + " and s.thisDate between :fd and :td ";
+//                + "where s.retired=false "
+                + " where s.thisDate between :fd and :td ";
         
         m.put("fd", fromDate);
         m.put("td", toDate);

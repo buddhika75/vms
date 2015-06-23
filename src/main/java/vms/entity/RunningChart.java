@@ -14,6 +14,6 @@ import javax.persistence.Inheritance;
  */
 @Entity
 @Inheritance
-public class Appointment extends EventOrAppointment{
+public class RunningChart extends EventOrAppointment{
     
 }
