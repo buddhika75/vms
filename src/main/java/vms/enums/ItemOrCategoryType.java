@@ -26,6 +26,6 @@ public enum ItemOrCategoryType {
     Country,
     Colour,
     Province, 
-    
+    Fuel,
     
 }
