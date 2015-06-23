@@ -10,7 +10,7 @@
 
         <p:dialog id="VehicleViewDlg" widgetVar="VehicleViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVehicleTitle}">
             <h:form id="VehicleViewForm">
-                <h:panelGroup id="display">
+                <h:panelGroup id="display" rendered="#{vehicleController.selected ne null}">
 
 
                     <table border="1">

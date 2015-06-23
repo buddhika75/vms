@@ -21,8 +21,8 @@
                             <td colspan="18">CERTIFICATE OF REGISTRATION OF MOTOR VEHICLE </td>
                         </tr>
                         <tr>
-                            <td colspan="9">1.
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_registrationNo}" for="registrationNo" />
+                            <td colspan="9">
+                                <p:outputLabel value="1. Registration No" for="registrationNo" />
                                 <p:inputText id="registrationNo" value="#{vehicleController.selected.registrationNo}" title="#{bundle.CreateVehicleTitle_registrationNo}" />
                             </td>
 
@@ -105,10 +105,10 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="9">14. 
-                                <p:outputLabel value="#{bundle.CreateVehicleLabel_model}" for="model" />
+                            <td colspan="9">
+                                <p:outputLabel value="14. Vehicle model" for="model" />
                                 <p:selectOneMenu id="model" value="#{vehicleController.selected.model}" >
-                                    <f:selectItems value="#{itemOrCategoryController.itemsAvailableSelectOne}"
+                                    <f:selectItems value="#{categoryController.models}"
                                                    var="modelItem"
                                                    itemValue="#{modelItem}"/>
                                 </p:selectOneMenu>
