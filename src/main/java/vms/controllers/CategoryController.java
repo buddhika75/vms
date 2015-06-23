@@ -1,12 +1,9 @@
 package vms.controllers;
 
-import vms.entity.Category;
-import vms.controllers.util.JsfUtil;
-import vms.controllers.util.JsfUtil.PersistAction;
-import vms.faces.CategoryFacade;
-
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +15,11 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import vms.controllers.util.JsfUtil;
+import vms.controllers.util.JsfUtil.PersistAction;
+import vms.entity.Category;
+import vms.enums.ItemOrCategoryType;
+import vms.faces.CategoryFacade;
 
 @ManagedBean(name = "categoryController")
 @SessionScoped
@@ -26,6 +28,9 @@ public class CategoryController implements Serializable {
     @EJB
     private vms.faces.CategoryFacade ejbFacade;
     private List<Category> items = null;
+    private List<Category> models = null;
+    private List<Category> makes = null;
+            
     private Category selected;
 
     public CategoryController() {
@@ -49,6 +54,28 @@ public class CategoryController implements Serializable {
         return ejbFacade;
     }
 
+    public List<Category> getModels() {
+        if(models == null){
+            models = getCategoryListOfType(ItemOrCategoryType.Model);
+        }
+        return models;
+    }
+
+    public void setModels(List<Category> models) {
+        this.models = models;
+    }
+
+    public List<Category> getMakes() {
+        if(makes == null){
+            makes=getCategoryListOfType(ItemOrCategoryType.Make);
+        }
+        return makes;
+    }
+
+    public void setMakes(List<Category> makes) {
+        this.makes = makes;
+    }
+
     public Category prepareCreate() {
         selected = new Category();
         initializeEmbeddableKey();
@@ -56,18 +83,30 @@ public class CategoryController implements Serializable {
     }
 
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("CategoryCreated"));
+        persist(PersistAction.CREATE, "Created");
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
+    public void createMake(){
+        selected.setType(ItemOrCategoryType.Make);
+        create();
+        makes = null;
+    }
+    
+    public void createModel(){
+        selected.setType(ItemOrCategoryType.Model);
+        create();
+        models = null;
+    }
+    
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("CategoryUpdated"));
+        persist(PersistAction.UPDATE, "Updated");
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("CategoryDeleted"));
+        persist(PersistAction.DELETE, "Deleted");
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
@@ -81,6 +120,13 @@ public class CategoryController implements Serializable {
         return items;
     }
 
+    public List<Category> getCategoryListOfType(ItemOrCategoryType type){
+        Map m = new HashMap();
+        String sql = "select c from Category c where c.type=:type order by c.name";
+        m.put("type", type);
+        return getFacade().findBySQL(sql, m);
+    }
+    
     private void persist(PersistAction persistAction, String successMessage) {
         if (selected != null) {
             setEmbeddableKeys();
