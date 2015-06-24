@@ -15,7 +15,7 @@
 
         <ui:define name="body">
             <h:form id="InstitutionListForm">
-                <p:panel header="#{bundle.ListInstitutionTitle}">
+                <p:panel header="List Institution Title">
                     <p:dataTable id="datalist" value="#{institutionController.items}" var="item"
                                  selectionMode="single" selection="#{institutionController.selected}"
                                  paginator="true"
@@ -26,68 +26,68 @@
 
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
-
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInstitutionTitle_departmentOrInstitutionType}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.departmentOrInstitutionType}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInstitutionTitle_departmentCode}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.departmentCode}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInstitutionTitle_name}"/>
+                                <h:outputText value="Name"/>
                             </f:facet>
                             <h:outputText value="#{item.name}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInstitutionTitle_printingName}"/>
+                                <h:outputText value="Printing Name"/>
                             </f:facet>
                             <h:outputText value="#{item.printingName}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInstitutionTitle_address}"/>
+                                <h:outputText value="Department Or Institution Type"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departmentOrInstitutionType}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Department Code"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departmentCode}"/>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Address"/>
                             </f:facet>
                             <h:outputText value="#{item.address}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInstitutionTitle_telephone1}"/>
+                                <h:outputText value="Telephone1"/>
                             </f:facet>
                             <h:outputText value="#{item.telephone1}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInstitutionTitle_telephone2}"/>
+                                <h:outputText value="Telephone2"/>
                             </f:facet>
                             <h:outputText value="#{item.telephone2}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInstitutionTitle_fax}"/>
+                                <h:outputText value="Tax"/>
                             </f:facet>
                             <h:outputText value="#{item.fax}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInstitutionTitle_email}"/>
+                                <h:outputText value="Email"/>
                             </f:facet>
                             <h:outputText value="#{item.email}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInstitutionTitle_parent}"/>
+                                <h:outputText value="Parent"/>
                             </f:facet>
                             <h:outputText value="#{item.parent}"/>
                         </p:column>
-                      
+
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{institutionController.prepareCreate}" update=":InstitutionCreateForm" oncomplete="PF('InstitutionCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":InstitutionViewForm" oncomplete="PF('InstitutionViewDialog').show()" disabled="#{empty institutionController.selected}"/>

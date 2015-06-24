@@ -22,7 +22,7 @@ public class Vehicle extends ItemUnit {
 
     String engineNo;
     String chassicNo;
-    int engineCapasity;
+    Integer engineCapasity;
     String registrationNo;
     @Lob
     String CurrentOwner;
@@ -71,11 +71,11 @@ public class Vehicle extends ItemUnit {
         this.chassicNo = chassicNo;
     }
 
-    public int getEngineCapasity() {
+    public Integer getEngineCapasity() {
         return engineCapasity;
     }
 
-    public void setEngineCapasity(int engineCapasity) {
+    public void setEngineCapasity(Integer engineCapasity) {
         this.engineCapasity = engineCapasity;
     }
 
