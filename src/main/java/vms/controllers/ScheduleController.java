@@ -25,6 +25,7 @@ import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 import javax.persistence.TemporalType;
 import org.eclipse.persistence.jpa.jpql.parser.DateTime;
+import vms.entity.Vehicle;
 import vms.enums.EventOrAppointmentType;
 
 @Named("scheduleController")
@@ -40,6 +41,7 @@ public class ScheduleController implements Serializable {
     SessionController sessionController;
     Date fromDate;
     Date toDate;
+    Vehicle vehicle;
 
     public ScheduleController() {
     }
@@ -61,6 +63,16 @@ public class ScheduleController implements Serializable {
     private ScheduleFacade getFacade() {
         return ejbFacade;
     }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+    
+    
 
     public Date getFromDate() {
         if (fromDate == null) {
@@ -103,6 +115,11 @@ public class ScheduleController implements Serializable {
 
         m.put("fd", fromDate);
         m.put("td", toDate);
+        
+        if(vehicle!=null){
+            sql+=" and s.forItemUnit=:veh ";
+            m.put("veh", vehicle);
+        }
 
         schedules = ejbFacade.findBySQL(sql, m, TemporalType.TIMESTAMP);
         System.out.println("schedules = " + schedules);
