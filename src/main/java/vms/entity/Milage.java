@@ -42,6 +42,71 @@ public class Milage implements Serializable {
     Date createdDate;
     @ManyToOne
     WebUser createdBy;
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public ItemUnit getItemUnit() {
+        return itemUnit;
+    }
+
+    public void setItemUnit(ItemUnit itemUnit) {
+        this.itemUnit = itemUnit;
+    }
+
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
+    }
+
+    public Integer getMilageValue() {
+        return milageValue;
+    }
+
+    public void setMilageValue(Integer milageValue) {
+        this.milageValue = milageValue;
+    }
+
+    public MilageType getType() {
+        return type;
+    }
+
+    public void setType(MilageType type) {
+        this.type = type;
+    }
+
+    public Date getMilageDate() {
+        return milageDate;
+    }
+
+    public void setMilageDate(Date milageDate) {
+        this.milageDate = milageDate;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public WebUser getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(WebUser createdBy) {
+        this.createdBy = createdBy;
+    }
+    
     
     
     
