@@ -8,14 +8,14 @@ package vms.faces;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import vms.entity.Appointment;
+import vms.entity.RunningChart;
 
 /**
  *
  * @author Buddhika
  */
 @Stateless
-public class AppointmentFacade extends AbstractFacade<Appointment> {
+public class AppointmentFacade extends AbstractFacade<RunningChart> {
     @PersistenceContext(unitName = "pu")
     private EntityManager em;
 
@@ -25,7 +25,7 @@ public class AppointmentFacade extends AbstractFacade<Appointment> {
     }
 
     public AppointmentFacade() {
-        super(Appointment.class);
+        super(RunningChart.class);
     }
     
 }
