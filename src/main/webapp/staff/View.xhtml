@@ -8,31 +8,31 @@
 
     <ui:composition>
 
-        <p:dialog id="StaffViewDlg" widgetVar="StaffViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewStaffTitle}">
+        <p:dialog id="StaffViewDlg" widgetVar="StaffViewDialog" modal="true" resizable="false" appendTo="@(body)" header="View Staff">
             <h:form id="StaffViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{staffController.selected != null}">
-                        <h:outputText value="#{bundle.ViewStaffLabel_registration}"/>
+                        <h:outputText value="Registration"/>
                         <h:outputText value="#{staffController.selected.registration}" title="#{bundle.ViewStaffTitle_registration}"/>
-                        <h:outputText value="#{bundle.ViewStaffLabel_qualification}"/>
+                        <h:outputText value="Qualification"/>
                         <h:outputText value="#{staffController.selected.qualification}" title="#{bundle.ViewStaffTitle_qualification}"/>
-                        <h:outputText value="#{bundle.ViewStaffLabel_code}"/>
+                        <h:outputText value="Code"/>
                         <h:outputText value="#{staffController.selected.code}" title="#{bundle.ViewStaffTitle_code}"/>
-                        <h:outputText value="#{bundle.ViewStaffLabel_person}"/>
+                        <h:outputText value="Person"/>
                         <h:outputText value="#{staffController.selected.person}" title="#{bundle.ViewStaffTitle_person}"/>
-                        <h:outputText value="#{bundle.ViewStaffLabel_speciality}"/>
+                        <h:outputText value="Speciality"/>
                         <h:outputText value="#{staffController.selected.speciality}" title="#{bundle.ViewStaffTitle_speciality}"/>
-                        <h:outputText value="#{bundle.ViewStaffLabel_institution}"/>
+                        <h:outputText value="Institution"/>
                         <h:outputText value="#{staffController.selected.institution}" title="#{bundle.ViewStaffTitle_institution}"/>
-                        <h:outputText value="#{bundle.ViewStaffLabel_department}"/>
+                        <h:outputText value="Department"/>
                         <h:outputText value="#{staffController.selected.department}" title="#{bundle.ViewStaffTitle_department}"/>
-                        <h:outputText value="#{bundle.ViewStaffLabel_staffCode}"/>
+                        <h:outputText value="Staff Code"/>
                         <h:outputText value="#{staffController.selected.staffCode}" title="#{bundle.ViewStaffTitle_staffCode}"/>
-                        <h:outputText value="#{bundle.ViewStaffLabel_baImage}"/>
+                        <h:outputText value="Image"/>
                         <h:outputText value="#{staffController.selected.baImage}" title="#{bundle.ViewStaffTitle_baImage}"/>
-                        <h:outputText value="#{bundle.ViewStaffLabel_fileName}"/>
+                        <h:outputText value="File Name"/>
                         <h:outputText value="#{staffController.selected.fileName}" title="#{bundle.ViewStaffTitle_fileName}"/>
-                        <h:outputText value="#{bundle.ViewStaffLabel_fileType}"/>
+                        <h:outputText value="File Type"/>
                         <h:outputText value="#{staffController.selected.fileType}" title="#{bundle.ViewStaffTitle_fileType}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="StaffViewDialog.hide()"/>
