@@ -6,7 +6,9 @@ import vms.controllers.util.JsfUtil.PersistAction;
 import vms.faces.ItemUnitFacade;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +20,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import vms.entity.Vehicle;
 
 @Named("itemUnitController")
 @SessionScoped
@@ -26,9 +29,30 @@ public class ItemUnitController implements Serializable {
     @EJB
     private vms.faces.ItemUnitFacade ejbFacade;
     private List<ItemUnit> items = null;
+    List<ItemUnit> itemsOtherThanVehicles = null;
     private ItemUnit selected;
 
     public ItemUnitController() {
+    }
+
+    public List<ItemUnit> getItemsOtherThanVehicles() {
+        if (itemsOtherThanVehicles == null) {
+            String jpql;
+            Map m = new HashMap();
+            jpql = "select i from ItemUnit i where type(i) <> :vt order by i.name";
+            m.put("vt", Vehicle.class);
+            itemsOtherThanVehicles = ejbFacade.findBySQL(jpql, m);
+        }
+        return itemsOtherThanVehicles;
+    }
+
+    public void createVehicleComponents() {
+        create();
+        itemsOtherThanVehicles = null;
+    }
+
+    public void setItemsOtherThanVehicles(List<ItemUnit> itemsOtherThanVehicles) {
+        this.itemsOtherThanVehicles = itemsOtherThanVehicles;
     }
 
     public ItemUnit getSelected() {
@@ -54,6 +78,8 @@ public class ItemUnitController implements Serializable {
         initializeEmbeddableKey();
         return selected;
     }
+    
+    
 
     public void create() {
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("ItemUnitCreated"));
