@@ -18,7 +18,7 @@
                         <h:outputText value="#{eventController.selected.type}" title="#{bundle.ViewEventTitle_type}"/>
                         <h:outputText value="#{bundle.ViewEventLabel_fromDate}"/>
                         <h:outputText value="#{eventController.selected.fromDate}" title="#{bundle.ViewEventTitle_fromDate}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="dd MMM yyyy" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewEventLabel_fromMilage}"/>
                         <h:outputText value="#{eventController.selected.fromMilage}" title="#{bundle.ViewEventTitle_fromMilage}"/>
@@ -30,11 +30,11 @@
                         <h:outputText value="#{eventController.selected.toDepartmentOrInstitution}" title="#{bundle.ViewEventTitle_toDepartmentOrInstitution}"/>
                         <h:outputText value="#{bundle.ViewEventLabel_toDate}"/>
                         <h:outputText value="#{eventController.selected.toDate}" title="#{bundle.ViewEventTitle_toDate}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="dd MMM yyyy" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewEventLabel_thisDate}"/>
                         <h:outputText value="#{eventController.selected.thisDate}" title="#{bundle.ViewEventTitle_thisDate}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="dd MMM yyyy" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewEventLabel_name}"/>
                         <h:outputText value="#{eventController.selected.name}" title="#{bundle.ViewEventTitle_name}"/>
@@ -48,7 +48,7 @@
                         <h:outputText value="#{eventController.selected.createdBy}" title="#{bundle.ViewEventTitle_createdBy}"/>
                         <h:outputText value="#{bundle.ViewEventLabel_createAt}"/>
                         <h:outputText value="#{eventController.selected.createAt}" title="#{bundle.ViewEventTitle_createAt}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="dd MMM yyyy" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewEventLabel_createrComments}"/>
                         <h:outputText value="#{eventController.selected.createrComments}" title="#{bundle.ViewEventTitle_createrComments}"/>
@@ -56,7 +56,7 @@
                         <h:outputText value="#{eventController.selected.cancelledBy}" title="#{bundle.ViewEventTitle_cancelledBy}"/>
                         <h:outputText value="#{bundle.ViewEventLabel_cancelledAt}"/>
                         <h:outputText value="#{eventController.selected.cancelledAt}" title="#{bundle.ViewEventTitle_cancelledAt}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="dd MMM yyyy" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewEventLabel_calcellerComments}"/>
                         <h:outputText value="#{eventController.selected.calcellerComments}" title="#{bundle.ViewEventTitle_calcellerComments}"/>

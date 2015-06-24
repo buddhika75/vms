@@ -10,12 +10,12 @@
 
 
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListScheduleTitle}"></h:outputText>
+            <h:outputText value="List Schedule Title"></h:outputText>
         </ui:define>
 
         <ui:define name="body">
             <h:form id="ScheduleListForm">
-                <p:panel header="#{bundle.ListScheduleTitle}">
+                <p:panel header="Schedules">
                     <p:dataTable id="datalist" value="#{scheduleController.items}" var="item"
                                  selectionMode="single" selection="#{scheduleController.selected}"
                                  paginator="true"
@@ -30,20 +30,20 @@
                             <f:facet name="header">
                                 <h:outputText value="Vehicle"/>
                             </f:facet>
-                            <h:outputText value="#{item.forItemUnit}"/>
+                            <h:outputText value="#{item.forItemUnit.name}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="Category"/>
                             </f:facet>
-                            <h:outputText value="#{item.category}"/>
+                            <h:outputText value="#{item.category.name}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="Sheduled On"/>
                             </f:facet>
                             <h:outputText value="#{item.thisDate}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                                <f:convertDateTime pattern="dd MMM yyyy" />
                             </h:outputText>
                             <h:outputText value="#{item.fromMilage}"/>
                         </p:column>
@@ -52,19 +52,31 @@
                             <f:facet name="header">
                                 <h:outputText value="Place"/>
                             </f:facet>
-                            <h:outputText value="#{item.fromDepartmentOrInstitution}"/>
+                            <h:outputText value="#{item.fromDepartmentOrInstitution.name}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListScheduleTitle_name}"/>
+                                <h:outputText value="Name"/>
                             </f:facet>
                             <h:outputText value="#{item.name}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListScheduleTitle_description}"/>
+                                <h:outputText value="Description"/>
                             </f:facet>
                             <h:outputText value="#{item.description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Milage"/>
+                            </f:facet>
+                            <h:outputText value="#{item.thisMilage}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Cost"/>
+                            </f:facet>
+                            <h:outputText value="#{item.doubleValue1}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -74,15 +86,6 @@
                             <h:outputText value="#{item.cancelledBy}"/>
                             <h:outputText value="#{item.calcellerComments}"/>
                         </p:column>
-
-
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="Cost"/>
-                            </f:facet>
-                            <h:outputText value="#{item.doubleValue1}"/>
-                        </p:column>
-
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{scheduleController.prepareCreate}" update=":ScheduleCreateForm" oncomplete="PF('ScheduleCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ScheduleViewForm" oncomplete="PF('ScheduleViewDialog').show()" disabled="#{empty scheduleController.selected}"/>

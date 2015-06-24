@@ -18,7 +18,7 @@
                         <h:outputText value="#{scheduleController.selected.type}" title="#{bundle.ViewScheduleTitle_type}"/>
                         <h:outputText value="#{bundle.ViewScheduleLabel_fromDate}"/>
                         <h:outputText value="#{scheduleController.selected.fromDate}" title="#{bundle.ViewScheduleTitle_fromDate}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="dd MMM yyyy" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewScheduleLabel_fromMilage}"/>
                         <h:outputText value="#{scheduleController.selected.fromMilage}" title="#{bundle.ViewScheduleTitle_fromMilage}"/>
@@ -30,11 +30,11 @@
                         <h:outputText value="#{scheduleController.selected.toDepartmentOrInstitution}" title="#{bundle.ViewScheduleTitle_toDepartmentOrInstitution}"/>
                         <h:outputText value="#{bundle.ViewScheduleLabel_toDate}"/>
                         <h:outputText value="#{scheduleController.selected.toDate}" title="#{bundle.ViewScheduleTitle_toDate}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="dd MMM yyyy" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewScheduleLabel_thisDate}"/>
                         <h:outputText value="#{scheduleController.selected.thisDate}" title="#{bundle.ViewScheduleTitle_thisDate}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="dd MMM yyyy" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewScheduleLabel_name}"/>
                         <h:outputText value="#{scheduleController.selected.name}" title="#{bundle.ViewScheduleTitle_name}"/>
@@ -48,7 +48,7 @@
                         <h:outputText value="#{scheduleController.selected.createdBy}" title="#{bundle.ViewScheduleTitle_createdBy}"/>
                         <h:outputText value="#{bundle.ViewScheduleLabel_createAt}"/>
                         <h:outputText value="#{scheduleController.selected.createAt}" title="#{bundle.ViewScheduleTitle_createAt}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="dd MMM yyyy" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewScheduleLabel_createrComments}"/>
                         <h:outputText value="#{scheduleController.selected.createrComments}" title="#{bundle.ViewScheduleTitle_createrComments}"/>
@@ -56,7 +56,7 @@
                         <h:outputText value="#{scheduleController.selected.cancelledBy}" title="#{bundle.ViewScheduleTitle_cancelledBy}"/>
                         <h:outputText value="#{bundle.ViewScheduleLabel_cancelledAt}"/>
                         <h:outputText value="#{scheduleController.selected.cancelledAt}" title="#{bundle.ViewScheduleTitle_cancelledAt}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="dd MMM yyyy" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewScheduleLabel_calcellerComments}"/>
                         <h:outputText value="#{scheduleController.selected.calcellerComments}" title="#{bundle.ViewScheduleTitle_calcellerComments}"/>
