@@ -29,94 +29,93 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_id}"/>
+                                <h:outputText value="ID"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
                         </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_type}"/>
+                                <h:outputText value="Vehicle"/>
                             </f:facet>
-                            <h:outputText value="#{item.type}"/>
+                            <h:outputText value="#{item.vehicle.name}"/>
                         </p:column>
+
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_fromDate}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fromDate}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_fromMilage}"/>
+                                <h:outputText value="From Milage"/>
                             </f:facet>
                             <h:outputText value="#{item.fromMilage}"/>
                         </p:column>
+
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_toMilage}"/>
+                                <h:outputText value="To Milage"/>
                             </f:facet>
                             <h:outputText value="#{item.toMilage}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_fromDepartmentOrInstitution}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fromDepartmentOrInstitution}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_toDepartmentOrInstitution}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.toDepartmentOrInstitution}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_toDate}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.toDate}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>
                         
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_createdBy}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.createdBy}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_createAt}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.createAt}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>
-                        
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_cancelledBy}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.cancelledBy}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_cancelledAt}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.cancelledAt}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>
-                        
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAppointmentTitle_doubleValue1}"/>
+                                <h:outputText value="Traveled Milage"/>
                             </f:facet>
                             <h:outputText value="#{item.doubleValue1}"/>
                         </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Beginning"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fromDepartmentOrInstitution.name}"/>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Destination"/>
+                            </f:facet>
+                            <h:outputText value="#{item.toDepartmentOrInstitution.name}"/>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="From Date"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fromDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy hh mm ss a" />
+                            </h:outputText>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="To Date"/>
+                            </f:facet>
+                            <h:outputText value="#{item.toDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy hh mm ss a" />
+                            </h:outputText>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Purpose of Trip"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stringValue1}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Places Visited"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stringValue2}">
+                            </h:outputText>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Via"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stringValue3}"/>
+                        </p:column>
                         
+
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{appointmentController.prepareCreate}" update=":AppointmentCreateForm" oncomplete="PF('AppointmentCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":AppointmentViewForm" oncomplete="PF('AppointmentViewDialog').show()" disabled="#{empty appointmentController.selected}"/>

@@ -11,15 +11,15 @@
         <p:dialog id="CategoryEditDlg" widgetVar="CategoryEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Edit Vehicle Component">
             <h:form id="CategoryEditForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{categoryController.selected != null}">
+                    <p:panelGrid columns="2" rendered="#{itemController.selected != null}">
                         <p:outputLabel value="Name" for="name" />
-                        <p:inputText id="name" value="#{categoryController.selected.name}" title="#{bundle.EditCategoryTitle_name}" />
+                        <p:inputText id="name" value="#{itemController.selected.name}" title="#{bundle.EditCategoryTitle_name}" />
                         
                         <p:outputLabel value="Description" for="description" />
-                        <p:inputText id="description" value="#{categoryController.selected.description}" title="#{bundle.EditCategoryTitle_description}" />
+                        <p:inputText id="description" value="#{itemController.selected.description}" title="#{bundle.EditCategoryTitle_description}" />
                         
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{categoryController.update}" value="Update " update="display,:CategoryListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CategoryEditDialog');"/>
+                    <p:commandButton actionListener="#{itemController.update}" value="Update " update="display,:CategoryListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CategoryEditDialog');"/>
                     <p:commandButton value="Cancel" onclick="CategoryEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
